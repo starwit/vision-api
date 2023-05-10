@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11videosource.proto\"D\n\nVideoFrame\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\r\n\x05shape\x18\x02 \x03(\r\x12\r\n\x05\x66rame\x18\x03 \x01(\x0c\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11videosource.proto\x12\tvisionapi\"D\n\nVideoFrame\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\r\n\x05shape\x18\x02 \x03(\r\x12\r\n\x05\x66rame\x18\x03 \x01(\x0c\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,6 +21,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'videosource_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _globals['_VIDEOFRAME']._serialized_start=21
-  _globals['_VIDEOFRAME']._serialized_end=89
+  _globals['_VIDEOFRAME']._serialized_start=32
+  _globals['_VIDEOFRAME']._serialized_end=100
 # @@protoc_insertion_point(module_scope)

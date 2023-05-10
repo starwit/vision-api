@@ -3,4 +3,4 @@
 all: python
 
 python:
-	protoc -I=proto --python_out=python/visionapi/visionapi proto/*.proto
+	protoc -I=proto --python_out=python/visionapi/visionapi --pyi_out=python/visionapi/visionapi proto/*.proto
