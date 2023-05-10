@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message VideoFrame {
+  uint64 timestamp_utc_ms = 1;
+  repeated uint32 shape = 2;
+  bytes frame = 3;
+}
