@@ -3,7 +3,7 @@
 all: clean python
 
 clean:
-	rm -f python/visionapi/proto/*pb2.py*
+	rm -f python/visionapi/visionapi/proto/*pb2.py*
 
 python:
-	protoc -I=. --python_out=python/visionapi/ --pyi_out=python/visionapi/ proto/*.proto
+	protoc -I=. --python_out=python/visionapi/visionapi --pyi_out=python/visionapi/visionapi proto/*.proto
