@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package visionapi;
 
-import "proto/videosource.proto";
+import "visionapi/videosource.proto";
 
 message DetectionOutput {
   VideoFrame frame = 1;

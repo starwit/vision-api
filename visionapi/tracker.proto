@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package visionapi;
 
-import "proto/detector.proto";
-import "proto/videosource.proto";
+import "visionapi/detector.proto";
+import "visionapi/videosource.proto";
 
 message TrackingOutput {
   VideoFrame frame = 1;

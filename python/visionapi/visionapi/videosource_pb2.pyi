@@ -6,11 +6,13 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Op
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VideoFrame(_message.Message):
-    __slots__ = ["timestamp_utc_ms", "shape", "frame"]
+    __slots__ = ["source_id", "timestamp_utc_ms", "shape", "frame_data"]
+    SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     SHAPE_FIELD_NUMBER: _ClassVar[int]
-    FRAME_FIELD_NUMBER: _ClassVar[int]
+    FRAME_DATA_FIELD_NUMBER: _ClassVar[int]
+    source_id: bytes
     timestamp_utc_ms: int
     shape: _containers.RepeatedScalarFieldContainer[int]
-    frame: bytes
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Iterable[int]] = ..., frame: _Optional[bytes] = ...) -> None: ...
+    frame_data: bytes
+    def __init__(self, source_id: _Optional[bytes] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Iterable[int]] = ..., frame_data: _Optional[bytes] = ...) -> None: ...
