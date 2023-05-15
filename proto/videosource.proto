@@ -3,7 +3,8 @@ syntax = "proto3";
 package visionapi;
 
 message VideoFrame {
-  uint64 timestamp_utc_ms = 1;
-  repeated uint32 shape = 2;
-  bytes frame = 3;
+  bytes source_id = 1;
+  uint64 timestamp_utc_ms = 2;
+  repeated uint32 shape = 3;
+  bytes frame_data = 4;
 }

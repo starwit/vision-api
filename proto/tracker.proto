@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package visionapi;
+
+import "proto/detector.proto";
+import "proto/videosource.proto";
+
+message TrackingOutput {
+  VideoFrame frame = 1;
+  repeated TrackedDetection tracked_detections = 2;
+}
+
+message TrackedDetection {
+  Detection detection = 1;
+  bytes object_id = 2;
+}
