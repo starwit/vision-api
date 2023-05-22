@@ -1,8 +1,8 @@
 use std::{path::PathBuf, env, process::Command};
 
 fn main() {
-    let proto_output = PathBuf::from(env::var("OUT_DIR").unwrap()).join("visionapi");
-    let proto_target = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap()).join("src");
+    let proto_output = PathBuf::from(env::var("OUT_DIR").unwrap()).join("src");
+    let proto_target = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
 
     // Use this in build.rs
     protobuf_codegen::Codegen::new()
@@ -17,7 +17,7 @@ fn main() {
         .input("../../visionapi/detector.proto")
         .input("../../visionapi/tracker.proto")
         // Specify output directory relative to Cargo output directory.
-        .cargo_out_dir("visionapi")
+        .cargo_out_dir("src")
         .run_from_script();
 
     Command::new("cp")
