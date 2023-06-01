@@ -15,7 +15,7 @@ from visionapi import detector_pb2 as visionapi_dot_detector__pb2
 from visionapi import videosource_pb2 as visionapi_dot_videosource__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17visionapi/tracker.proto\x12\tvisionapi\x1a\x18visionapi/detector.proto\x1a\x1bvisionapi/videosource.proto\"o\n\x0eTrackingOutput\x12$\n\x05\x66rame\x18\x01 \x01(\x0b\x32\x15.visionapi.VideoFrame\x12\x37\n\x12tracked_detections\x18\x02 \x03(\x0b\x32\x1b.visionapi.TrackedDetection\"N\n\x10TrackedDetection\x12\'\n\tdetection\x18\x01 \x01(\x0b\x32\x14.visionapi.Detection\x12\x11\n\tobject_id\x18\x02 \x01(\x0c\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17visionapi/tracker.proto\x12\tvisionapi\x1a\x18visionapi/detector.proto\x1a\x1bvisionapi/videosource.proto\"o\n\x0eTrackingOutput\x12$\n\x05\x66rame\x18\x01 \x01(\x0b\x32\x15.visionapi.VideoFrame\x12\x37\n\x12tracked_detections\x18\x02 \x03(\x0b\x32\x1b.visionapi.TrackedDetection\"N\n\x10TrackedDetection\x12\'\n\tdetection\x18\x01 \x01(\x0b\x32\x14.visionapi.Detection\x12\x11\n\tobject_id\x18\x02 \x01(\x0c\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,6 +23,7 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'visionapi.tracker_pb2', _gl
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\n\024de.starwit.visionapi'
   _globals['_TRACKINGOUTPUT']._serialized_start=93
   _globals['_TRACKINGOUTPUT']._serialized_end=204
   _globals['_TRACKEDDETECTION']._serialized_start=206
