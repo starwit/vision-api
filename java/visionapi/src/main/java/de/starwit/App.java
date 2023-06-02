@@ -8,9 +8,14 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import de.starwit.visionapi.Detector.BoundingBox;
 import de.starwit.visionapi.Detector.Detection;
 import de.starwit.visionapi.Detector.DetectionOutput;
+import de.starwit.visionapi.Tracker.TrackedDetection;
+import de.starwit.visionapi.Tracker.TrackingOutput;
 import de.starwit.visionapi.Videosource.Shape;
 import de.starwit.visionapi.Videosource.VideoFrame;
 
+/**
+ * Sample code, that shall demonstrate, how to use generated Protobuf classes.
+ */
 public class App {
     public static void main(String[] args) {
         System.out.println("Testing generated classes");
@@ -69,6 +74,25 @@ public class App {
 
 
         // Tracker
+        //
+        byte[] sampleTrackingID = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
+        TrackedDetection td = TrackedDetection.newBuilder()
+            .setDetection(d)
+            .setObjectId(ByteString.copyFrom(sampleTrackingID))
+            .build();
+
+        TrackingOutput to = TrackingOutput.newBuilder()
+            .addTrackedDetections(td)
+            .build();
+
+        serializedObjects = to.toByteArray();
+
+        try {
+            TrackingOutput parsedDeOut = TrackingOutput.parseFrom(serializedObjects);
+            System.out.println(parsedDeOut.getTrackedDetections(0).getDetection().getClassId());
+        } catch (InvalidProtocolBufferException e) {
+            System.out.println("can't parse protobuf from bytes");
+        }        
 
     }
 }
