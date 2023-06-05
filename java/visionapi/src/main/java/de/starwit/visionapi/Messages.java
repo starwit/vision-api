@@ -1431,6 +1431,21 @@ public final class Messages {
      */
     de.starwit.visionapi.Messages.DetectionOrBuilder getDetectionsOrBuilder(
         int index);
+
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return Whether the metrics field is set.
+     */
+    boolean hasMetrics();
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return The metrics.
+     */
+    de.starwit.visionapi.Messages.Metrics getMetrics();
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     */
+    de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder();
   }
   /**
    * Protobuf type {@code visionapi.DetectionOutput}
@@ -1535,6 +1550,32 @@ public final class Messages {
       return detections_.get(index);
     }
 
+    public static final int METRICS_FIELD_NUMBER = 99;
+    private de.starwit.visionapi.Messages.Metrics metrics_;
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return Whether the metrics field is set.
+     */
+    @java.lang.Override
+    public boolean hasMetrics() {
+      return metrics_ != null;
+    }
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return The metrics.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Messages.Metrics getMetrics() {
+      return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+    }
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder() {
+      return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1555,6 +1596,9 @@ public final class Messages {
       for (int i = 0; i < detections_.size(); i++) {
         output.writeMessage(2, detections_.get(i));
       }
+      if (metrics_ != null) {
+        output.writeMessage(99, getMetrics());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1571,6 +1615,10 @@ public final class Messages {
       for (int i = 0; i < detections_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, detections_.get(i));
+      }
+      if (metrics_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(99, getMetrics());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1594,6 +1642,11 @@ public final class Messages {
       }
       if (!getDetectionsList()
           .equals(other.getDetectionsList())) return false;
+      if (hasMetrics() != other.hasMetrics()) return false;
+      if (hasMetrics()) {
+        if (!getMetrics()
+            .equals(other.getMetrics())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1612,6 +1665,10 @@ public final class Messages {
       if (getDetectionsCount() > 0) {
         hash = (37 * hash) + DETECTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getDetectionsList().hashCode();
+      }
+      if (hasMetrics()) {
+        hash = (37 * hash) + METRICS_FIELD_NUMBER;
+        hash = (53 * hash) + getMetrics().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -1756,6 +1813,11 @@ public final class Messages {
           detectionsBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        metrics_ = null;
+        if (metricsBuilder_ != null) {
+          metricsBuilder_.dispose();
+          metricsBuilder_ = null;
+        }
         return this;
       }
 
@@ -1807,6 +1869,11 @@ public final class Messages {
               ? frame_
               : frameBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.metrics_ = metricsBuilder_ == null
+              ? metrics_
+              : metricsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1849,6 +1916,9 @@ public final class Messages {
               detectionsBuilder_.addAllMessages(other.detections_);
             }
           }
+        }
+        if (other.hasMetrics()) {
+          mergeMetrics(other.getMetrics());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1896,6 +1966,13 @@ public final class Messages {
                 }
                 break;
               } // case 18
+              case 794: {
+                input.readMessage(
+                    getMetricsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 794
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -2271,6 +2348,125 @@ public final class Messages {
         }
         return detectionsBuilder_;
       }
+
+      private de.starwit.visionapi.Messages.Metrics metrics_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder> metricsBuilder_;
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       * @return Whether the metrics field is set.
+       */
+      public boolean hasMetrics() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       * @return The metrics.
+       */
+      public de.starwit.visionapi.Messages.Metrics getMetrics() {
+        if (metricsBuilder_ == null) {
+          return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+        } else {
+          return metricsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder setMetrics(de.starwit.visionapi.Messages.Metrics value) {
+        if (metricsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metrics_ = value;
+        } else {
+          metricsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder setMetrics(
+          de.starwit.visionapi.Messages.Metrics.Builder builderForValue) {
+        if (metricsBuilder_ == null) {
+          metrics_ = builderForValue.build();
+        } else {
+          metricsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder mergeMetrics(de.starwit.visionapi.Messages.Metrics value) {
+        if (metricsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            metrics_ != null &&
+            metrics_ != de.starwit.visionapi.Messages.Metrics.getDefaultInstance()) {
+            getMetricsBuilder().mergeFrom(value);
+          } else {
+            metrics_ = value;
+          }
+        } else {
+          metricsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder clearMetrics() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        metrics_ = null;
+        if (metricsBuilder_ != null) {
+          metricsBuilder_.dispose();
+          metricsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public de.starwit.visionapi.Messages.Metrics.Builder getMetricsBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getMetricsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder() {
+        if (metricsBuilder_ != null) {
+          return metricsBuilder_.getMessageOrBuilder();
+        } else {
+          return metrics_ == null ?
+              de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+        }
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder> 
+          getMetricsFieldBuilder() {
+        if (metricsBuilder_ == null) {
+          metricsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder>(
+                  getMetrics(),
+                  getParentForChildren(),
+                  isClean());
+          metrics_ = null;
+        }
+        return metricsBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2365,12 +2561,6 @@ public final class Messages {
      * @return The classId.
      */
     int getClassId();
-
-    /**
-     * <code>uint32 inference_time_ms = 99;</code>
-     * @return The inferenceTimeMs.
-     */
-    int getInferenceTimeMs();
   }
   /**
    * Protobuf type {@code visionapi.Detection}
@@ -2455,17 +2645,6 @@ public final class Messages {
       return classId_;
     }
 
-    public static final int INFERENCE_TIME_MS_FIELD_NUMBER = 99;
-    private int inferenceTimeMs_ = 0;
-    /**
-     * <code>uint32 inference_time_ms = 99;</code>
-     * @return The inferenceTimeMs.
-     */
-    @java.lang.Override
-    public int getInferenceTimeMs() {
-      return inferenceTimeMs_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2489,9 +2668,6 @@ public final class Messages {
       if (classId_ != 0) {
         output.writeUInt32(3, classId_);
       }
-      if (inferenceTimeMs_ != 0) {
-        output.writeUInt32(99, inferenceTimeMs_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2512,10 +2688,6 @@ public final class Messages {
       if (classId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, classId_);
-      }
-      if (inferenceTimeMs_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(99, inferenceTimeMs_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -2542,8 +2714,6 @@ public final class Messages {
               other.getConfidence())) return false;
       if (getClassId()
           != other.getClassId()) return false;
-      if (getInferenceTimeMs()
-          != other.getInferenceTimeMs()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2564,8 +2734,6 @@ public final class Messages {
           getConfidence());
       hash = (37 * hash) + CLASS_ID_FIELD_NUMBER;
       hash = (53 * hash) + getClassId();
-      hash = (37 * hash) + INFERENCE_TIME_MS_FIELD_NUMBER;
-      hash = (53 * hash) + getInferenceTimeMs();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2704,7 +2872,6 @@ public final class Messages {
         }
         confidence_ = 0F;
         classId_ = 0;
-        inferenceTimeMs_ = 0;
         return this;
       }
 
@@ -2749,9 +2916,6 @@ public final class Messages {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.classId_ = classId_;
         }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.inferenceTimeMs_ = inferenceTimeMs_;
-        }
       }
 
       @java.lang.Override
@@ -2774,9 +2938,6 @@ public final class Messages {
         }
         if (other.getClassId() != 0) {
           setClassId(other.getClassId());
-        }
-        if (other.getInferenceTimeMs() != 0) {
-          setInferenceTimeMs(other.getInferenceTimeMs());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -2821,11 +2982,6 @@ public final class Messages {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
-              case 792: {
-                inferenceTimeMs_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 792
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3022,38 +3178,6 @@ public final class Messages {
       public Builder clearClassId() {
         bitField0_ = (bitField0_ & ~0x00000004);
         classId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int inferenceTimeMs_ ;
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @return The inferenceTimeMs.
-       */
-      @java.lang.Override
-      public int getInferenceTimeMs() {
-        return inferenceTimeMs_;
-      }
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @param value The inferenceTimeMs to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInferenceTimeMs(int value) {
-
-        inferenceTimeMs_ = value;
-        bitField0_ |= 0x00000008;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearInferenceTimeMs() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        inferenceTimeMs_ = 0;
         onChanged();
         return this;
       }
@@ -3823,6 +3947,21 @@ public final class Messages {
      */
     de.starwit.visionapi.Messages.TrackedDetectionOrBuilder getTrackedDetectionsOrBuilder(
         int index);
+
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return Whether the metrics field is set.
+     */
+    boolean hasMetrics();
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return The metrics.
+     */
+    de.starwit.visionapi.Messages.Metrics getMetrics();
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     */
+    de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder();
   }
   /**
    * Protobuf type {@code visionapi.TrackingOutput}
@@ -3927,6 +4066,32 @@ public final class Messages {
       return trackedDetections_.get(index);
     }
 
+    public static final int METRICS_FIELD_NUMBER = 99;
+    private de.starwit.visionapi.Messages.Metrics metrics_;
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return Whether the metrics field is set.
+     */
+    @java.lang.Override
+    public boolean hasMetrics() {
+      return metrics_ != null;
+    }
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     * @return The metrics.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Messages.Metrics getMetrics() {
+      return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+    }
+    /**
+     * <code>.visionapi.Metrics metrics = 99;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder() {
+      return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3947,6 +4112,9 @@ public final class Messages {
       for (int i = 0; i < trackedDetections_.size(); i++) {
         output.writeMessage(2, trackedDetections_.get(i));
       }
+      if (metrics_ != null) {
+        output.writeMessage(99, getMetrics());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3963,6 +4131,10 @@ public final class Messages {
       for (int i = 0; i < trackedDetections_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, trackedDetections_.get(i));
+      }
+      if (metrics_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(99, getMetrics());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -3986,6 +4158,11 @@ public final class Messages {
       }
       if (!getTrackedDetectionsList()
           .equals(other.getTrackedDetectionsList())) return false;
+      if (hasMetrics() != other.hasMetrics()) return false;
+      if (hasMetrics()) {
+        if (!getMetrics()
+            .equals(other.getMetrics())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4004,6 +4181,10 @@ public final class Messages {
       if (getTrackedDetectionsCount() > 0) {
         hash = (37 * hash) + TRACKED_DETECTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getTrackedDetectionsList().hashCode();
+      }
+      if (hasMetrics()) {
+        hash = (37 * hash) + METRICS_FIELD_NUMBER;
+        hash = (53 * hash) + getMetrics().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -4148,6 +4329,11 @@ public final class Messages {
           trackedDetectionsBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        metrics_ = null;
+        if (metricsBuilder_ != null) {
+          metricsBuilder_.dispose();
+          metricsBuilder_ = null;
+        }
         return this;
       }
 
@@ -4199,6 +4385,11 @@ public final class Messages {
               ? frame_
               : frameBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.metrics_ = metricsBuilder_ == null
+              ? metrics_
+              : metricsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4241,6 +4432,9 @@ public final class Messages {
               trackedDetectionsBuilder_.addAllMessages(other.trackedDetections_);
             }
           }
+        }
+        if (other.hasMetrics()) {
+          mergeMetrics(other.getMetrics());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -4288,6 +4482,13 @@ public final class Messages {
                 }
                 break;
               } // case 18
+              case 794: {
+                input.readMessage(
+                    getMetricsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 794
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4663,6 +4864,125 @@ public final class Messages {
         }
         return trackedDetectionsBuilder_;
       }
+
+      private de.starwit.visionapi.Messages.Metrics metrics_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder> metricsBuilder_;
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       * @return Whether the metrics field is set.
+       */
+      public boolean hasMetrics() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       * @return The metrics.
+       */
+      public de.starwit.visionapi.Messages.Metrics getMetrics() {
+        if (metricsBuilder_ == null) {
+          return metrics_ == null ? de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+        } else {
+          return metricsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder setMetrics(de.starwit.visionapi.Messages.Metrics value) {
+        if (metricsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metrics_ = value;
+        } else {
+          metricsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder setMetrics(
+          de.starwit.visionapi.Messages.Metrics.Builder builderForValue) {
+        if (metricsBuilder_ == null) {
+          metrics_ = builderForValue.build();
+        } else {
+          metricsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder mergeMetrics(de.starwit.visionapi.Messages.Metrics value) {
+        if (metricsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            metrics_ != null &&
+            metrics_ != de.starwit.visionapi.Messages.Metrics.getDefaultInstance()) {
+            getMetricsBuilder().mergeFrom(value);
+          } else {
+            metrics_ = value;
+          }
+        } else {
+          metricsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public Builder clearMetrics() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        metrics_ = null;
+        if (metricsBuilder_ != null) {
+          metricsBuilder_.dispose();
+          metricsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public de.starwit.visionapi.Messages.Metrics.Builder getMetricsBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getMetricsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      public de.starwit.visionapi.Messages.MetricsOrBuilder getMetricsOrBuilder() {
+        if (metricsBuilder_ != null) {
+          return metricsBuilder_.getMessageOrBuilder();
+        } else {
+          return metrics_ == null ?
+              de.starwit.visionapi.Messages.Metrics.getDefaultInstance() : metrics_;
+        }
+      }
+      /**
+       * <code>.visionapi.Metrics metrics = 99;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder> 
+          getMetricsFieldBuilder() {
+        if (metricsBuilder_ == null) {
+          metricsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              de.starwit.visionapi.Messages.Metrics, de.starwit.visionapi.Messages.Metrics.Builder, de.starwit.visionapi.Messages.MetricsOrBuilder>(
+                  getMetrics(),
+                  getParentForChildren(),
+                  isClean());
+          metrics_ = null;
+        }
+        return metricsBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4751,12 +5071,6 @@ public final class Messages {
      * @return The objectId.
      */
     com.google.protobuf.ByteString getObjectId();
-
-    /**
-     * <code>uint32 inference_time_ms = 99;</code>
-     * @return The inferenceTimeMs.
-     */
-    int getInferenceTimeMs();
   }
   /**
    * Protobuf type {@code visionapi.TrackedDetection}
@@ -4831,17 +5145,6 @@ public final class Messages {
       return objectId_;
     }
 
-    public static final int INFERENCE_TIME_MS_FIELD_NUMBER = 99;
-    private int inferenceTimeMs_ = 0;
-    /**
-     * <code>uint32 inference_time_ms = 99;</code>
-     * @return The inferenceTimeMs.
-     */
-    @java.lang.Override
-    public int getInferenceTimeMs() {
-      return inferenceTimeMs_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4862,9 +5165,6 @@ public final class Messages {
       if (!objectId_.isEmpty()) {
         output.writeBytes(2, objectId_);
       }
-      if (inferenceTimeMs_ != 0) {
-        output.writeUInt32(99, inferenceTimeMs_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4881,10 +5181,6 @@ public final class Messages {
       if (!objectId_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, objectId_);
-      }
-      if (inferenceTimeMs_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(99, inferenceTimeMs_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4908,8 +5204,6 @@ public final class Messages {
       }
       if (!getObjectId()
           .equals(other.getObjectId())) return false;
-      if (getInferenceTimeMs()
-          != other.getInferenceTimeMs()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4927,8 +5221,6 @@ public final class Messages {
       }
       hash = (37 * hash) + OBJECT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getObjectId().hashCode();
-      hash = (37 * hash) + INFERENCE_TIME_MS_FIELD_NUMBER;
-      hash = (53 * hash) + getInferenceTimeMs();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5066,7 +5358,6 @@ public final class Messages {
           detectionBuilder_ = null;
         }
         objectId_ = com.google.protobuf.ByteString.EMPTY;
-        inferenceTimeMs_ = 0;
         return this;
       }
 
@@ -5108,9 +5399,6 @@ public final class Messages {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.objectId_ = objectId_;
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.inferenceTimeMs_ = inferenceTimeMs_;
-        }
       }
 
       @java.lang.Override
@@ -5130,9 +5418,6 @@ public final class Messages {
         }
         if (other.getObjectId() != com.google.protobuf.ByteString.EMPTY) {
           setObjectId(other.getObjectId());
-        }
-        if (other.getInferenceTimeMs() != 0) {
-          setInferenceTimeMs(other.getInferenceTimeMs());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -5172,11 +5457,6 @@ public final class Messages {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 792: {
-                inferenceTimeMs_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 792
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5344,38 +5624,6 @@ public final class Messages {
         onChanged();
         return this;
       }
-
-      private int inferenceTimeMs_ ;
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @return The inferenceTimeMs.
-       */
-      @java.lang.Override
-      public int getInferenceTimeMs() {
-        return inferenceTimeMs_;
-      }
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @param value The inferenceTimeMs to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInferenceTimeMs(int value) {
-
-        inferenceTimeMs_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 inference_time_ms = 99;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearInferenceTimeMs() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        inferenceTimeMs_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5440,6 +5688,522 @@ public final class Messages {
 
   }
 
+  public interface MetricsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.Metrics)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 detection_inference_time_us = 1;</code>
+     * @return The detectionInferenceTimeUs.
+     */
+    int getDetectionInferenceTimeUs();
+
+    /**
+     * <code>uint32 tracking_inference_time_us = 2;</code>
+     * @return The trackingInferenceTimeUs.
+     */
+    int getTrackingInferenceTimeUs();
+  }
+  /**
+   * Protobuf type {@code visionapi.Metrics}
+   */
+  public static final class Metrics extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:visionapi.Metrics)
+      MetricsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Metrics.newBuilder() to construct.
+    private Metrics(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Metrics() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Metrics();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Messages.internal_static_visionapi_Metrics_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Messages.internal_static_visionapi_Metrics_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Messages.Metrics.class, de.starwit.visionapi.Messages.Metrics.Builder.class);
+    }
+
+    public static final int DETECTION_INFERENCE_TIME_US_FIELD_NUMBER = 1;
+    private int detectionInferenceTimeUs_ = 0;
+    /**
+     * <code>uint32 detection_inference_time_us = 1;</code>
+     * @return The detectionInferenceTimeUs.
+     */
+    @java.lang.Override
+    public int getDetectionInferenceTimeUs() {
+      return detectionInferenceTimeUs_;
+    }
+
+    public static final int TRACKING_INFERENCE_TIME_US_FIELD_NUMBER = 2;
+    private int trackingInferenceTimeUs_ = 0;
+    /**
+     * <code>uint32 tracking_inference_time_us = 2;</code>
+     * @return The trackingInferenceTimeUs.
+     */
+    @java.lang.Override
+    public int getTrackingInferenceTimeUs() {
+      return trackingInferenceTimeUs_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (detectionInferenceTimeUs_ != 0) {
+        output.writeUInt32(1, detectionInferenceTimeUs_);
+      }
+      if (trackingInferenceTimeUs_ != 0) {
+        output.writeUInt32(2, trackingInferenceTimeUs_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (detectionInferenceTimeUs_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, detectionInferenceTimeUs_);
+      }
+      if (trackingInferenceTimeUs_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, trackingInferenceTimeUs_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Messages.Metrics)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Messages.Metrics other = (de.starwit.visionapi.Messages.Metrics) obj;
+
+      if (getDetectionInferenceTimeUs()
+          != other.getDetectionInferenceTimeUs()) return false;
+      if (getTrackingInferenceTimeUs()
+          != other.getTrackingInferenceTimeUs()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DETECTION_INFERENCE_TIME_US_FIELD_NUMBER;
+      hash = (53 * hash) + getDetectionInferenceTimeUs();
+      hash = (37 * hash) + TRACKING_INFERENCE_TIME_US_FIELD_NUMBER;
+      hash = (53 * hash) + getTrackingInferenceTimeUs();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Messages.Metrics parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Messages.Metrics parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Messages.Metrics parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Messages.Metrics prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.Metrics}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.Metrics)
+        de.starwit.visionapi.Messages.MetricsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Messages.internal_static_visionapi_Metrics_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Messages.internal_static_visionapi_Metrics_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Messages.Metrics.class, de.starwit.visionapi.Messages.Metrics.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Messages.Metrics.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        detectionInferenceTimeUs_ = 0;
+        trackingInferenceTimeUs_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Messages.internal_static_visionapi_Metrics_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Messages.Metrics getDefaultInstanceForType() {
+        return de.starwit.visionapi.Messages.Metrics.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Messages.Metrics build() {
+        de.starwit.visionapi.Messages.Metrics result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Messages.Metrics buildPartial() {
+        de.starwit.visionapi.Messages.Metrics result = new de.starwit.visionapi.Messages.Metrics(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Messages.Metrics result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.detectionInferenceTimeUs_ = detectionInferenceTimeUs_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.trackingInferenceTimeUs_ = trackingInferenceTimeUs_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Messages.Metrics) {
+          return mergeFrom((de.starwit.visionapi.Messages.Metrics)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Messages.Metrics other) {
+        if (other == de.starwit.visionapi.Messages.Metrics.getDefaultInstance()) return this;
+        if (other.getDetectionInferenceTimeUs() != 0) {
+          setDetectionInferenceTimeUs(other.getDetectionInferenceTimeUs());
+        }
+        if (other.getTrackingInferenceTimeUs() != 0) {
+          setTrackingInferenceTimeUs(other.getTrackingInferenceTimeUs());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                detectionInferenceTimeUs_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                trackingInferenceTimeUs_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int detectionInferenceTimeUs_ ;
+      /**
+       * <code>uint32 detection_inference_time_us = 1;</code>
+       * @return The detectionInferenceTimeUs.
+       */
+      @java.lang.Override
+      public int getDetectionInferenceTimeUs() {
+        return detectionInferenceTimeUs_;
+      }
+      /**
+       * <code>uint32 detection_inference_time_us = 1;</code>
+       * @param value The detectionInferenceTimeUs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDetectionInferenceTimeUs(int value) {
+
+        detectionInferenceTimeUs_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 detection_inference_time_us = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDetectionInferenceTimeUs() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        detectionInferenceTimeUs_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int trackingInferenceTimeUs_ ;
+      /**
+       * <code>uint32 tracking_inference_time_us = 2;</code>
+       * @return The trackingInferenceTimeUs.
+       */
+      @java.lang.Override
+      public int getTrackingInferenceTimeUs() {
+        return trackingInferenceTimeUs_;
+      }
+      /**
+       * <code>uint32 tracking_inference_time_us = 2;</code>
+       * @param value The trackingInferenceTimeUs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTrackingInferenceTimeUs(int value) {
+
+        trackingInferenceTimeUs_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 tracking_inference_time_us = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTrackingInferenceTimeUs() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        trackingInferenceTimeUs_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:visionapi.Metrics)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.Metrics)
+    private static final de.starwit.visionapi.Messages.Metrics DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Messages.Metrics();
+    }
+
+    public static de.starwit.visionapi.Messages.Metrics getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Metrics>
+        PARSER = new com.google.protobuf.AbstractParser<Metrics>() {
+      @java.lang.Override
+      public Metrics parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Metrics> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Metrics> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Messages.Metrics getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_VideoFrame_descriptor;
   private static final 
@@ -5475,6 +6239,11 @@ public final class Messages {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_visionapi_TrackedDetection_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_Metrics_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_visionapi_Metrics_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5489,20 +6258,23 @@ public final class Messages {
       "amp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.vision" +
       "api.Shape\022\022\n\nframe_data\030\004 \001(\014\"8\n\005Shape\022\016" +
       "\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channel" +
-      "s\030\003 \001(\r\"a\n\017DetectionOutput\022$\n\005frame\030\001 \001(" +
-      "\0132\025.visionapi.VideoFrame\022(\n\ndetections\030\002" +
-      " \003(\0132\024.visionapi.Detection\"z\n\tDetection\022" +
-      ",\n\014bounding_box\030\001 \001(\0132\026.visionapi.Boundi" +
-      "ngBox\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010class_id\030\003 " +
-      "\001(\r\022\031\n\021inference_time_ms\030c \001(\r\"I\n\013Boundi" +
-      "ngBox\022\r\n\005min_x\030\001 \001(\r\022\r\n\005min_y\030\002 \001(\r\022\r\n\005m" +
-      "ax_x\030\003 \001(\r\022\r\n\005max_y\030\004 \001(\r\"o\n\016TrackingOut" +
-      "put\022$\n\005frame\030\001 \001(\0132\025.visionapi.VideoFram" +
-      "e\0227\n\022tracked_detections\030\002 \003(\0132\033.visionap" +
-      "i.TrackedDetection\"i\n\020TrackedDetection\022\'" +
-      "\n\tdetection\030\001 \001(\0132\024.visionapi.Detection\022" +
-      "\021\n\tobject_id\030\002 \001(\014\022\031\n\021inference_time_ms\030" +
-      "c \001(\rB\026\n\024de.starwit.visionapib\006proto3"
+      "s\030\003 \001(\r\"\206\001\n\017DetectionOutput\022$\n\005frame\030\001 \001" +
+      "(\0132\025.visionapi.VideoFrame\022(\n\ndetections\030" +
+      "\002 \003(\0132\024.visionapi.Detection\022#\n\007metrics\030c" +
+      " \001(\0132\022.visionapi.Metrics\"_\n\tDetection\022,\n" +
+      "\014bounding_box\030\001 \001(\0132\026.visionapi.Bounding" +
+      "Box\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010class_id\030\003 \001(" +
+      "\r\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\r\022\r\n\005min_y" +
+      "\030\002 \001(\r\022\r\n\005max_x\030\003 \001(\r\022\r\n\005max_y\030\004 \001(\r\"\224\001\n" +
+      "\016TrackingOutput\022$\n\005frame\030\001 \001(\0132\025.visiona" +
+      "pi.VideoFrame\0227\n\022tracked_detections\030\002 \003(" +
+      "\0132\033.visionapi.TrackedDetection\022#\n\007metric" +
+      "s\030c \001(\0132\022.visionapi.Metrics\"N\n\020TrackedDe" +
+      "tection\022\'\n\tdetection\030\001 \001(\0132\024.visionapi.D" +
+      "etection\022\021\n\tobject_id\030\002 \001(\014\"R\n\007Metrics\022#" +
+      "\n\033detection_inference_time_us\030\001 \001(\r\022\"\n\032t" +
+      "racking_inference_time_us\030\002 \001(\rB\026\n\024de.st" +
+      "arwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5525,13 +6297,13 @@ public final class Messages {
     internal_static_visionapi_DetectionOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_visionapi_DetectionOutput_descriptor,
-        new java.lang.String[] { "Frame", "Detections", });
+        new java.lang.String[] { "Frame", "Detections", "Metrics", });
     internal_static_visionapi_Detection_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_visionapi_Detection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_visionapi_Detection_descriptor,
-        new java.lang.String[] { "BoundingBox", "Confidence", "ClassId", "InferenceTimeMs", });
+        new java.lang.String[] { "BoundingBox", "Confidence", "ClassId", });
     internal_static_visionapi_BoundingBox_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_visionapi_BoundingBox_fieldAccessorTable = new
@@ -5543,13 +6315,19 @@ public final class Messages {
     internal_static_visionapi_TrackingOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_visionapi_TrackingOutput_descriptor,
-        new java.lang.String[] { "Frame", "TrackedDetections", });
+        new java.lang.String[] { "Frame", "TrackedDetections", "Metrics", });
     internal_static_visionapi_TrackedDetection_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_visionapi_TrackedDetection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_visionapi_TrackedDetection_descriptor,
-        new java.lang.String[] { "Detection", "ObjectId", "InferenceTimeMs", });
+        new java.lang.String[] { "Detection", "ObjectId", });
+    internal_static_visionapi_Metrics_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_visionapi_Metrics_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_visionapi_Metrics_descriptor,
+        new java.lang.String[] { "DetectionInferenceTimeUs", "TrackingInferenceTimeUs", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

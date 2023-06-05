@@ -368,6 +368,8 @@ pub struct DetectionOutput {
     pub frame: ::protobuf::MessageField<VideoFrame>,
     // @@protoc_insertion_point(field:visionapi.DetectionOutput.detections)
     pub detections: ::std::vec::Vec<Detection>,
+    // @@protoc_insertion_point(field:visionapi.DetectionOutput.metrics)
+    pub metrics: ::protobuf::MessageField<Metrics>,
     // special fields
     // @@protoc_insertion_point(special_field:visionapi.DetectionOutput.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -385,7 +387,7 @@ impl DetectionOutput {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(2);
+        let mut fields = ::std::vec::Vec::with_capacity(3);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, VideoFrame>(
             "frame",
@@ -396,6 +398,11 @@ impl DetectionOutput {
             "detections",
             |m: &DetectionOutput| { &m.detections },
             |m: &mut DetectionOutput| { &mut m.detections },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Metrics>(
+            "metrics",
+            |m: &DetectionOutput| { &m.metrics },
+            |m: &mut DetectionOutput| { &mut m.metrics },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<DetectionOutput>(
             "DetectionOutput",
@@ -421,6 +428,9 @@ impl ::protobuf::Message for DetectionOutput {
                 18 => {
                     self.detections.push(is.read_message()?);
                 },
+                794 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.metrics)?;
+                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -441,6 +451,10 @@ impl ::protobuf::Message for DetectionOutput {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         };
+        if let Some(v) = self.metrics.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -453,6 +467,9 @@ impl ::protobuf::Message for DetectionOutput {
         for v in &self.detections {
             ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
         };
+        if let Some(v) = self.metrics.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(99, v, os)?;
+        }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
     }
@@ -472,6 +489,7 @@ impl ::protobuf::Message for DetectionOutput {
     fn clear(&mut self) {
         self.frame.clear();
         self.detections.clear();
+        self.metrics.clear();
         self.special_fields.clear();
     }
 
@@ -479,6 +497,7 @@ impl ::protobuf::Message for DetectionOutput {
         static instance: DetectionOutput = DetectionOutput {
             frame: ::protobuf::MessageField::none(),
             detections: ::std::vec::Vec::new(),
+            metrics: ::protobuf::MessageField::none(),
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -512,8 +531,6 @@ pub struct Detection {
     pub confidence: f32,
     // @@protoc_insertion_point(field:visionapi.Detection.class_id)
     pub class_id: u32,
-    // @@protoc_insertion_point(field:visionapi.Detection.inference_time_ms)
-    pub inference_time_ms: u32,
     // special fields
     // @@protoc_insertion_point(special_field:visionapi.Detection.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -531,7 +548,7 @@ impl Detection {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(4);
+        let mut fields = ::std::vec::Vec::with_capacity(3);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, BoundingBox>(
             "bounding_box",
@@ -547,11 +564,6 @@ impl Detection {
             "class_id",
             |m: &Detection| { &m.class_id },
             |m: &mut Detection| { &mut m.class_id },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "inference_time_ms",
-            |m: &Detection| { &m.inference_time_ms },
-            |m: &mut Detection| { &mut m.inference_time_ms },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Detection>(
             "Detection",
@@ -580,9 +592,6 @@ impl ::protobuf::Message for Detection {
                 24 => {
                     self.class_id = is.read_uint32()?;
                 },
-                792 => {
-                    self.inference_time_ms = is.read_uint32()?;
-                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -605,9 +614,6 @@ impl ::protobuf::Message for Detection {
         if self.class_id != 0 {
             my_size += ::protobuf::rt::uint32_size(3, self.class_id);
         }
-        if self.inference_time_ms != 0 {
-            my_size += ::protobuf::rt::uint32_size(99, self.inference_time_ms);
-        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -622,9 +628,6 @@ impl ::protobuf::Message for Detection {
         }
         if self.class_id != 0 {
             os.write_uint32(3, self.class_id)?;
-        }
-        if self.inference_time_ms != 0 {
-            os.write_uint32(99, self.inference_time_ms)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -646,7 +649,6 @@ impl ::protobuf::Message for Detection {
         self.bounding_box.clear();
         self.confidence = 0.;
         self.class_id = 0;
-        self.inference_time_ms = 0;
         self.special_fields.clear();
     }
 
@@ -655,7 +657,6 @@ impl ::protobuf::Message for Detection {
             bounding_box: ::protobuf::MessageField::none(),
             confidence: 0.,
             class_id: 0,
-            inference_time_ms: 0,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -863,6 +864,8 @@ pub struct TrackingOutput {
     pub frame: ::protobuf::MessageField<VideoFrame>,
     // @@protoc_insertion_point(field:visionapi.TrackingOutput.tracked_detections)
     pub tracked_detections: ::std::vec::Vec<TrackedDetection>,
+    // @@protoc_insertion_point(field:visionapi.TrackingOutput.metrics)
+    pub metrics: ::protobuf::MessageField<Metrics>,
     // special fields
     // @@protoc_insertion_point(special_field:visionapi.TrackingOutput.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -880,7 +883,7 @@ impl TrackingOutput {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(2);
+        let mut fields = ::std::vec::Vec::with_capacity(3);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, VideoFrame>(
             "frame",
@@ -891,6 +894,11 @@ impl TrackingOutput {
             "tracked_detections",
             |m: &TrackingOutput| { &m.tracked_detections },
             |m: &mut TrackingOutput| { &mut m.tracked_detections },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Metrics>(
+            "metrics",
+            |m: &TrackingOutput| { &m.metrics },
+            |m: &mut TrackingOutput| { &mut m.metrics },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<TrackingOutput>(
             "TrackingOutput",
@@ -916,6 +924,9 @@ impl ::protobuf::Message for TrackingOutput {
                 18 => {
                     self.tracked_detections.push(is.read_message()?);
                 },
+                794 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.metrics)?;
+                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -936,6 +947,10 @@ impl ::protobuf::Message for TrackingOutput {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         };
+        if let Some(v) = self.metrics.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -948,6 +963,9 @@ impl ::protobuf::Message for TrackingOutput {
         for v in &self.tracked_detections {
             ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
         };
+        if let Some(v) = self.metrics.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(99, v, os)?;
+        }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
     }
@@ -967,6 +985,7 @@ impl ::protobuf::Message for TrackingOutput {
     fn clear(&mut self) {
         self.frame.clear();
         self.tracked_detections.clear();
+        self.metrics.clear();
         self.special_fields.clear();
     }
 
@@ -974,6 +993,7 @@ impl ::protobuf::Message for TrackingOutput {
         static instance: TrackingOutput = TrackingOutput {
             frame: ::protobuf::MessageField::none(),
             tracked_detections: ::std::vec::Vec::new(),
+            metrics: ::protobuf::MessageField::none(),
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -1005,8 +1025,6 @@ pub struct TrackedDetection {
     pub detection: ::protobuf::MessageField<Detection>,
     // @@protoc_insertion_point(field:visionapi.TrackedDetection.object_id)
     pub object_id: ::std::vec::Vec<u8>,
-    // @@protoc_insertion_point(field:visionapi.TrackedDetection.inference_time_ms)
-    pub inference_time_ms: u32,
     // special fields
     // @@protoc_insertion_point(special_field:visionapi.TrackedDetection.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -1024,7 +1042,7 @@ impl TrackedDetection {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(3);
+        let mut fields = ::std::vec::Vec::with_capacity(2);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Detection>(
             "detection",
@@ -1035,11 +1053,6 @@ impl TrackedDetection {
             "object_id",
             |m: &TrackedDetection| { &m.object_id },
             |m: &mut TrackedDetection| { &mut m.object_id },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "inference_time_ms",
-            |m: &TrackedDetection| { &m.inference_time_ms },
-            |m: &mut TrackedDetection| { &mut m.inference_time_ms },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<TrackedDetection>(
             "TrackedDetection",
@@ -1065,9 +1078,6 @@ impl ::protobuf::Message for TrackedDetection {
                 18 => {
                     self.object_id = is.read_bytes()?;
                 },
-                792 => {
-                    self.inference_time_ms = is.read_uint32()?;
-                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -1087,9 +1097,6 @@ impl ::protobuf::Message for TrackedDetection {
         if !self.object_id.is_empty() {
             my_size += ::protobuf::rt::bytes_size(2, &self.object_id);
         }
-        if self.inference_time_ms != 0 {
-            my_size += ::protobuf::rt::uint32_size(99, self.inference_time_ms);
-        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -1101,9 +1108,6 @@ impl ::protobuf::Message for TrackedDetection {
         }
         if !self.object_id.is_empty() {
             os.write_bytes(2, &self.object_id)?;
-        }
-        if self.inference_time_ms != 0 {
-            os.write_uint32(99, self.inference_time_ms)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -1124,7 +1128,6 @@ impl ::protobuf::Message for TrackedDetection {
     fn clear(&mut self) {
         self.detection.clear();
         self.object_id.clear();
-        self.inference_time_ms = 0;
         self.special_fields.clear();
     }
 
@@ -1132,7 +1135,6 @@ impl ::protobuf::Message for TrackedDetection {
         static instance: TrackedDetection = TrackedDetection {
             detection: ::protobuf::MessageField::none(),
             object_id: ::std::vec::Vec::new(),
-            inference_time_ms: 0,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -1156,6 +1158,146 @@ impl ::protobuf::reflect::ProtobufValue for TrackedDetection {
     type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
+#[derive(PartialEq,Clone,Default,Debug)]
+// @@protoc_insertion_point(message:visionapi.Metrics)
+pub struct Metrics {
+    // message fields
+    // @@protoc_insertion_point(field:visionapi.Metrics.detection_inference_time_us)
+    pub detection_inference_time_us: u32,
+    // @@protoc_insertion_point(field:visionapi.Metrics.tracking_inference_time_us)
+    pub tracking_inference_time_us: u32,
+    // special fields
+    // @@protoc_insertion_point(special_field:visionapi.Metrics.special_fields)
+    pub special_fields: ::protobuf::SpecialFields,
+}
+
+impl<'a> ::std::default::Default for &'a Metrics {
+    fn default() -> &'a Metrics {
+        <Metrics as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl Metrics {
+    pub fn new() -> Metrics {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::with_capacity(2);
+        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "detection_inference_time_us",
+            |m: &Metrics| { &m.detection_inference_time_us },
+            |m: &mut Metrics| { &mut m.detection_inference_time_us },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "tracking_inference_time_us",
+            |m: &Metrics| { &m.tracking_inference_time_us },
+            |m: &mut Metrics| { &mut m.tracking_inference_time_us },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Metrics>(
+            "Metrics",
+            fields,
+            oneofs,
+        )
+    }
+}
+
+impl ::protobuf::Message for Metrics {
+    const NAME: &'static str = "Metrics";
+
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+        while let Some(tag) = is.read_raw_tag_or_eof()? {
+            match tag {
+                8 => {
+                    self.detection_inference_time_us = is.read_uint32()?;
+                },
+                16 => {
+                    self.tracking_inference_time_us = is.read_uint32()?;
+                },
+                tag => {
+                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u64 {
+        let mut my_size = 0;
+        if self.detection_inference_time_us != 0 {
+            my_size += ::protobuf::rt::uint32_size(1, self.detection_inference_time_us);
+        }
+        if self.tracking_inference_time_us != 0 {
+            my_size += ::protobuf::rt::uint32_size(2, self.tracking_inference_time_us);
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+        self.special_fields.cached_size().set(my_size as u32);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+        if self.detection_inference_time_us != 0 {
+            os.write_uint32(1, self.detection_inference_time_us)?;
+        }
+        if self.tracking_inference_time_us != 0 {
+            os.write_uint32(2, self.tracking_inference_time_us)?;
+        }
+        os.write_unknown_fields(self.special_fields.unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn special_fields(&self) -> &::protobuf::SpecialFields {
+        &self.special_fields
+    }
+
+    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+        &mut self.special_fields
+    }
+
+    fn new() -> Metrics {
+        Metrics::new()
+    }
+
+    fn clear(&mut self) {
+        self.detection_inference_time_us = 0;
+        self.tracking_inference_time_us = 0;
+        self.special_fields.clear();
+    }
+
+    fn default_instance() -> &'static Metrics {
+        static instance: Metrics = Metrics {
+            detection_inference_time_us: 0,
+            tracking_inference_time_us: 0,
+            special_fields: ::protobuf::SpecialFields::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::MessageFull for Metrics {
+    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+        descriptor.get(|| file_descriptor().message_by_package_relative_name("Metrics").unwrap()).clone()
+    }
+}
+
+impl ::std::fmt::Display for Metrics {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for Metrics {
+    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\x18visionapi/messages.proto\x12\tvisionapi\"\x9a\x01\n\nVideoFrame\
     \x12\x1b\n\tsource_id\x18\x01\x20\x01(\x0cR\x08sourceId\x12(\n\x10timest\
@@ -1163,23 +1305,26 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x03\x20\x01(\x0b2\x10.visionapi.ShapeR\x05shape\x12\x1d\n\nframe_data\
     \x18\x04\x20\x01(\x0cR\tframeData\"Q\n\x05Shape\x12\x16\n\x06height\x18\
     \x01\x20\x01(\rR\x06height\x12\x14\n\x05width\x18\x02\x20\x01(\rR\x05wid\
-    th\x12\x1a\n\x08channels\x18\x03\x20\x01(\rR\x08channels\"t\n\x0fDetecti\
-    onOutput\x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.VideoFrameR\
-    \x05frame\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.Detecti\
-    onR\ndetections\"\xad\x01\n\tDetection\x129\n\x0cbounding_box\x18\x01\
-    \x20\x01(\x0b2\x16.visionapi.BoundingBoxR\x0bboundingBox\x12\x1e\n\nconf\
-    idence\x18\x02\x20\x01(\x02R\nconfidence\x12\x19\n\x08class_id\x18\x03\
-    \x20\x01(\rR\x07classId\x12*\n\x11inference_time_ms\x18c\x20\x01(\rR\x0f\
-    inferenceTimeMs\"a\n\x0bBoundingBox\x12\x13\n\x05min_x\x18\x01\x20\x01(\
-    \rR\x04minX\x12\x13\n\x05min_y\x18\x02\x20\x01(\rR\x04minY\x12\x13\n\x05\
-    max_x\x18\x03\x20\x01(\rR\x04maxX\x12\x13\n\x05max_y\x18\x04\x20\x01(\rR\
-    \x04maxY\"\x89\x01\n\x0eTrackingOutput\x12+\n\x05frame\x18\x01\x20\x01(\
-    \x0b2\x15.visionapi.VideoFrameR\x05frame\x12J\n\x12tracked_detections\
-    \x18\x02\x20\x03(\x0b2\x1b.visionapi.TrackedDetectionR\x11trackedDetecti\
-    ons\"\x8f\x01\n\x10TrackedDetection\x122\n\tdetection\x18\x01\x20\x01(\
-    \x0b2\x14.visionapi.DetectionR\tdetection\x12\x1b\n\tobject_id\x18\x02\
-    \x20\x01(\x0cR\x08objectId\x12*\n\x11inference_time_ms\x18c\x20\x01(\rR\
-    \x0finferenceTimeMsB\x16\n\x14de.starwit.visionapib\x06proto3\
+    th\x12\x1a\n\x08channels\x18\x03\x20\x01(\rR\x08channels\"\xa2\x01\n\x0f\
+    DetectionOutput\x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.Vide\
+    oFrameR\x05frame\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.\
+    DetectionR\ndetections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionap\
+    i.MetricsR\x07metrics\"\x81\x01\n\tDetection\x129\n\x0cbounding_box\x18\
+    \x01\x20\x01(\x0b2\x16.visionapi.BoundingBoxR\x0bboundingBox\x12\x1e\n\n\
+    confidence\x18\x02\x20\x01(\x02R\nconfidence\x12\x19\n\x08class_id\x18\
+    \x03\x20\x01(\rR\x07classId\"a\n\x0bBoundingBox\x12\x13\n\x05min_x\x18\
+    \x01\x20\x01(\rR\x04minX\x12\x13\n\x05min_y\x18\x02\x20\x01(\rR\x04minY\
+    \x12\x13\n\x05max_x\x18\x03\x20\x01(\rR\x04maxX\x12\x13\n\x05max_y\x18\
+    \x04\x20\x01(\rR\x04maxY\"\xb7\x01\n\x0eTrackingOutput\x12+\n\x05frame\
+    \x18\x01\x20\x01(\x0b2\x15.visionapi.VideoFrameR\x05frame\x12J\n\x12trac\
+    ked_detections\x18\x02\x20\x03(\x0b2\x1b.visionapi.TrackedDetectionR\x11\
+    trackedDetections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionapi.Met\
+    ricsR\x07metrics\"c\n\x10TrackedDetection\x122\n\tdetection\x18\x01\x20\
+    \x01(\x0b2\x14.visionapi.DetectionR\tdetection\x12\x1b\n\tobject_id\x18\
+    \x02\x20\x01(\x0cR\x08objectId\"\x85\x01\n\x07Metrics\x12=\n\x1bdetectio\
+    n_inference_time_us\x18\x01\x20\x01(\rR\x18detectionInferenceTimeUs\x12;\
+    \n\x1atracking_inference_time_us\x18\x02\x20\x01(\rR\x17trackingInferenc\
+    eTimeUsB\x16\n\x14de.starwit.visionapib\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -1197,7 +1342,7 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
             let mut deps = ::std::vec::Vec::with_capacity(0);
-            let mut messages = ::std::vec::Vec::with_capacity(7);
+            let mut messages = ::std::vec::Vec::with_capacity(8);
             messages.push(VideoFrame::generated_message_descriptor_data());
             messages.push(Shape::generated_message_descriptor_data());
             messages.push(DetectionOutput::generated_message_descriptor_data());
@@ -1205,6 +1350,7 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
             messages.push(BoundingBox::generated_message_descriptor_data());
             messages.push(TrackingOutput::generated_message_descriptor_data());
             messages.push(TrackedDetection::generated_message_descriptor_data());
+            messages.push(Metrics::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);
             ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
                 file_descriptor_proto(),

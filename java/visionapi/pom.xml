@@ -6,7 +6,7 @@
   <artifactId>vision-api</artifactId>
 
   <packaging>jar</packaging>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <name>visionapi</name>
   <url>https://github.com/starwit/vision-api</url>
 

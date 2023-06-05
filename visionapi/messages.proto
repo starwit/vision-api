@@ -20,13 +20,13 @@ message Shape {
 message DetectionOutput {
   VideoFrame frame = 1;
   repeated Detection detections = 2;
+  Metrics metrics = 99;
 }
 
 message Detection {
   BoundingBox bounding_box = 1;
   float confidence = 2;
   uint32 class_id = 3;
-  uint32 inference_time_us = 99;
 }
 
 message BoundingBox {
@@ -39,10 +39,15 @@ message BoundingBox {
 message TrackingOutput {
   VideoFrame frame = 1;
   repeated TrackedDetection tracked_detections = 2;
+  Metrics metrics = 99;
 }
 
 message TrackedDetection {
   Detection detection = 1;
   bytes object_id = 2;
-  uint32 inference_time_us = 99;
+}
+
+message Metrics {
+  uint32 detection_inference_time_us = 1;
+  uint32 tracking_inference_time_us = 2;
 }
