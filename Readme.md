@@ -6,10 +6,17 @@
 3. Run `make`
 4. Make sure that there are no old leftover files in the generated projects
 5. Increment the package versions of all files
-  a. `./rust/Cargo.toml`
-  b. `./python/pyproject.toml`
-  c. `./java/pom.xml`
+    * `./rust/Cargo.toml`
+    * `./python/pyproject.toml`
+    * `./java/pom.xml`
 6. Commit, tag with version and push
+    ```
+    git commit
+    git tag <version_tag>
+    git push
+    git push <version_tag>
+    ```
+
 
 
 ## Tools & Setup
