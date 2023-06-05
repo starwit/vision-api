@@ -13,9 +13,7 @@ fn main() {
         // All inputs and imports from the inputs must reside in `includes` directories.
         .includes(&["../.."])
         // Inputs must reside in some of include paths.
-        .input("../../visionapi/videosource.proto")
-        .input("../../visionapi/detector.proto")
-        .input("../../visionapi/tracker.proto")
+        .input("../../visionapi/messages.proto")
         // Specify output directory relative to Cargo output directory.
         .cargo_out_dir("src")
         .run_from_script();

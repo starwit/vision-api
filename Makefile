@@ -1,12 +1,10 @@
 .PHONY: all python rust java
 
-all: python rust java
+all: clean python rust java
 
 clean:
 	rm -f python/visionapi/visionapi/*pb2.py*
-	rm -f rust/visionapi/src/detector.rs
-	rm -f rust/visionapi/src/tracker.rs
-	rm -f rust/visionapi/src/videosource.rs
+	rm -f rust/visionapi/src/messages.rs
 	rm -f java/visionapi/src/main/java/de/starwit/visionapi/*.java
 
 python:

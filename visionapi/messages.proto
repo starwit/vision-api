@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package visionapi;
+
+option java_package = "de.starwit.visionapi";
+
+message VideoFrame {
+  bytes source_id = 1;
+  uint64 timestamp_utc_ms = 2;
+  Shape shape = 3;
+  bytes frame_data = 4;
+}
+
+message Shape {
+  uint32 height = 1;
+  uint32 width = 2;
+  uint32 channels = 3;
+}
+
+message DetectionOutput {
+  VideoFrame frame = 1;
+  repeated Detection detections = 2;
+}
+
+message Detection {
+  BoundingBox bounding_box = 1;
+  float confidence = 2;
+  uint32 class_id = 3;
+  uint32 inference_time_ms = 99;
+}
+
+message BoundingBox {
+  uint32 min_x = 1;
+  uint32 min_y = 2;
+  uint32 max_x = 3;
+  uint32 max_y = 4;
+}
+
+message TrackingOutput {
+  VideoFrame frame = 1;
+  repeated TrackedDetection tracked_detections = 2;
+}
+
+message TrackedDetection {
+  Detection detection = 1;
+  bytes object_id = 2;
+  uint32 inference_time_ms = 99;
+}
