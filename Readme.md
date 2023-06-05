@@ -11,7 +11,7 @@
     * `./java/pom.xml`
 6. Commit, tag with version and push
     ```
-    git commit
+    // Commit stuff, like git add, git commit and such
     git tag <version_tag>
     git push
     git push <version_tag>
