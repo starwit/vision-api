@@ -26,7 +26,7 @@ message Detection {
   BoundingBox bounding_box = 1;
   float confidence = 2;
   uint32 class_id = 3;
-  uint32 inference_time_ms = 99;
+  uint32 inference_time_us = 99;
 }
 
 message BoundingBox {
@@ -44,5 +44,5 @@ message TrackingOutput {
 message TrackedDetection {
   Detection detection = 1;
   bytes object_id = 2;
-  uint32 inference_time_ms = 99;
+  uint32 inference_time_us = 99;
 }
