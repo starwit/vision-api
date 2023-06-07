@@ -5,7 +5,7 @@ package visionapi;
 option java_package = "de.starwit.visionapi";
 
 message VideoFrame {
-  bytes source_id = 1;
+  string source_id = 1;
   uint64 timestamp_utc_ms = 2;
   Shape shape = 3;
   bytes frame_data = 4;

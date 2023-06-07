@@ -30,7 +30,7 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_2_0;
 pub struct VideoFrame {
     // message fields
     // @@protoc_insertion_point(field:visionapi.VideoFrame.source_id)
-    pub source_id: ::std::vec::Vec<u8>,
+    pub source_id: ::std::string::String,
     // @@protoc_insertion_point(field:visionapi.VideoFrame.timestamp_utc_ms)
     pub timestamp_utc_ms: u64,
     // @@protoc_insertion_point(field:visionapi.VideoFrame.shape)
@@ -95,7 +95,7 @@ impl ::protobuf::Message for VideoFrame {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
                 10 => {
-                    self.source_id = is.read_bytes()?;
+                    self.source_id = is.read_string()?;
                 },
                 16 => {
                     self.timestamp_utc_ms = is.read_uint64()?;
@@ -119,7 +119,7 @@ impl ::protobuf::Message for VideoFrame {
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
         if !self.source_id.is_empty() {
-            my_size += ::protobuf::rt::bytes_size(1, &self.source_id);
+            my_size += ::protobuf::rt::string_size(1, &self.source_id);
         }
         if self.timestamp_utc_ms != 0 {
             my_size += ::protobuf::rt::uint64_size(2, self.timestamp_utc_ms);
@@ -138,7 +138,7 @@ impl ::protobuf::Message for VideoFrame {
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
         if !self.source_id.is_empty() {
-            os.write_bytes(1, &self.source_id)?;
+            os.write_string(1, &self.source_id)?;
         }
         if self.timestamp_utc_ms != 0 {
             os.write_uint64(2, self.timestamp_utc_ms)?;
@@ -175,7 +175,7 @@ impl ::protobuf::Message for VideoFrame {
 
     fn default_instance() -> &'static VideoFrame {
         static instance: VideoFrame = VideoFrame {
-            source_id: ::std::vec::Vec::new(),
+            source_id: ::std::string::String::new(),
             timestamp_utc_ms: 0,
             shape: ::protobuf::MessageField::none(),
             frame_data: ::std::vec::Vec::new(),
@@ -1300,16 +1300,16 @@ impl ::protobuf::reflect::ProtobufValue for Metrics {
 
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\x18visionapi/messages.proto\x12\tvisionapi\"\x9a\x01\n\nVideoFrame\
-    \x12\x1b\n\tsource_id\x18\x01\x20\x01(\x0cR\x08sourceId\x12(\n\x10timest\
-    amp_utc_ms\x18\x02\x20\x01(\x04R\x0etimestampUtcMs\x12&\n\x05shape\x18\
-    \x03\x20\x01(\x0b2\x10.visionapi.ShapeR\x05shape\x12\x1d\n\nframe_data\
-    \x18\x04\x20\x01(\x0cR\tframeData\"Q\n\x05Shape\x12\x16\n\x06height\x18\
-    \x01\x20\x01(\rR\x06height\x12\x14\n\x05width\x18\x02\x20\x01(\rR\x05wid\
-    th\x12\x1a\n\x08channels\x18\x03\x20\x01(\rR\x08channels\"\xa2\x01\n\x0f\
-    DetectionOutput\x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.Vide\
-    oFrameR\x05frame\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.\
-    DetectionR\ndetections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionap\
-    i.MetricsR\x07metrics\"\x81\x01\n\tDetection\x129\n\x0cbounding_box\x18\
+    \x12\x1b\n\tsource_id\x18\x01\x20\x01(\tR\x08sourceId\x12(\n\x10timestam\
+    p_utc_ms\x18\x02\x20\x01(\x04R\x0etimestampUtcMs\x12&\n\x05shape\x18\x03\
+    \x20\x01(\x0b2\x10.visionapi.ShapeR\x05shape\x12\x1d\n\nframe_data\x18\
+    \x04\x20\x01(\x0cR\tframeData\"Q\n\x05Shape\x12\x16\n\x06height\x18\x01\
+    \x20\x01(\rR\x06height\x12\x14\n\x05width\x18\x02\x20\x01(\rR\x05width\
+    \x12\x1a\n\x08channels\x18\x03\x20\x01(\rR\x08channels\"\xa2\x01\n\x0fDe\
+    tectionOutput\x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.VideoF\
+    rameR\x05frame\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.De\
+    tectionR\ndetections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionapi.\
+    MetricsR\x07metrics\"\x81\x01\n\tDetection\x129\n\x0cbounding_box\x18\
     \x01\x20\x01(\x0b2\x16.visionapi.BoundingBoxR\x0bboundingBox\x12\x1e\n\n\
     confidence\x18\x02\x20\x01(\x02R\nconfidence\x12\x19\n\x08class_id\x18\
     \x03\x20\x01(\rR\x07classId\"a\n\x0bBoundingBox\x12\x13\n\x05min_x\x18\

@@ -19,10 +19,16 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes source_id = 1;</code>
+     * <code>string source_id = 1;</code>
      * @return The sourceId.
      */
-    com.google.protobuf.ByteString getSourceId();
+    java.lang.String getSourceId();
+    /**
+     * <code>string source_id = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
+        getSourceIdBytes();
 
     /**
      * <code>uint64 timestamp_utc_ms = 2;</code>
@@ -64,7 +70,7 @@ public final class Messages {
       super(builder);
     }
     private VideoFrame() {
-      sourceId_ = com.google.protobuf.ByteString.EMPTY;
+      sourceId_ = "";
       frameData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -89,14 +95,42 @@ public final class Messages {
     }
 
     public static final int SOURCE_ID_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString sourceId_ = com.google.protobuf.ByteString.EMPTY;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceId_ = "";
     /**
-     * <code>bytes source_id = 1;</code>
+     * <code>string source_id = 1;</code>
      * @return The sourceId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getSourceId() {
-      return sourceId_;
+    public java.lang.String getSourceId() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sourceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string source_id = 1;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int TIMESTAMP_UTC_MS_FIELD_NUMBER = 2;
@@ -161,8 +195,8 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!sourceId_.isEmpty()) {
-        output.writeBytes(1, sourceId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sourceId_);
       }
       if (timestampUtcMs_ != 0L) {
         output.writeUInt64(2, timestampUtcMs_);
@@ -182,9 +216,8 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      if (!sourceId_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, sourceId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sourceId_);
       }
       if (timestampUtcMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -377,7 +410,7 @@ public final class Messages {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        sourceId_ = com.google.protobuf.ByteString.EMPTY;
+        sourceId_ = "";
         timestampUtcMs_ = 0L;
         shape_ = null;
         if (shapeBuilder_ != null) {
@@ -446,8 +479,10 @@ public final class Messages {
 
       public Builder mergeFrom(de.starwit.visionapi.Messages.VideoFrame other) {
         if (other == de.starwit.visionapi.Messages.VideoFrame.getDefaultInstance()) return this;
-        if (other.getSourceId() != com.google.protobuf.ByteString.EMPTY) {
-          setSourceId(other.getSourceId());
+        if (!other.getSourceId().isEmpty()) {
+          sourceId_ = other.sourceId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
         }
         if (other.getTimestampUtcMs() != 0L) {
           setTimestampUtcMs(other.getTimestampUtcMs());
@@ -485,7 +520,7 @@ public final class Messages {
                 done = true;
                 break;
               case 10: {
-                sourceId_ = input.readBytes();
+                sourceId_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
@@ -523,21 +558,47 @@ public final class Messages {
       }
       private int bitField0_;
 
-      private com.google.protobuf.ByteString sourceId_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object sourceId_ = "";
       /**
-       * <code>bytes source_id = 1;</code>
+       * <code>string source_id = 1;</code>
        * @return The sourceId.
        */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getSourceId() {
-        return sourceId_;
+      public java.lang.String getSourceId() {
+        java.lang.Object ref = sourceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sourceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes source_id = 1;</code>
+       * <code>string source_id = 1;</code>
+       * @return The bytes for sourceId.
+       */
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        java.lang.Object ref = sourceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sourceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string source_id = 1;</code>
        * @param value The sourceId to set.
        * @return This builder for chaining.
        */
-      public Builder setSourceId(com.google.protobuf.ByteString value) {
+      public Builder setSourceId(
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         sourceId_ = value;
         bitField0_ |= 0x00000001;
@@ -545,12 +606,26 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>bytes source_id = 1;</code>
+       * <code>string source_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSourceId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         sourceId_ = getDefaultInstance().getSourceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string source_id = 1;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        sourceId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6254,7 +6329,7 @@ public final class Messages {
   static {
     java.lang.String[] descriptorData = {
       "\n\030visionapi/messages.proto\022\tvisionapi\"n\n" +
-      "\nVideoFrame\022\021\n\tsource_id\030\001 \001(\014\022\030\n\020timest" +
+      "\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020timest" +
       "amp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.vision" +
       "api.Shape\022\022\n\nframe_data\030\004 \001(\014\"8\n\005Shape\022\016" +
       "\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channel" +

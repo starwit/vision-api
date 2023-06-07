@@ -11,11 +11,11 @@ class VideoFrame(_message.Message):
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     SHAPE_FIELD_NUMBER: _ClassVar[int]
     FRAME_DATA_FIELD_NUMBER: _ClassVar[int]
-    source_id: bytes
+    source_id: str
     timestamp_utc_ms: int
     shape: Shape
     frame_data: bytes
-    def __init__(self, source_id: _Optional[bytes] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ...) -> None: ...
+    def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ...) -> None: ...
 
 class Shape(_message.Message):
     __slots__ = ["height", "width", "channels"]
