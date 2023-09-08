@@ -5,13 +5,13 @@ import java.util.HexFormat;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 
-import de.starwit.visionapi.Detector.BoundingBox;
-import de.starwit.visionapi.Detector.Detection;
-import de.starwit.visionapi.Detector.DetectionOutput;
-import de.starwit.visionapi.Tracker.TrackedDetection;
-import de.starwit.visionapi.Tracker.TrackingOutput;
-import de.starwit.visionapi.Videosource.Shape;
-import de.starwit.visionapi.Videosource.VideoFrame;
+import de.starwit.visionapi.Messages.BoundingBox;
+import de.starwit.visionapi.Messages.Detection;
+import de.starwit.visionapi.Messages.DetectionOutput;
+import de.starwit.visionapi.Messages.TrackedDetection;
+import de.starwit.visionapi.Messages.TrackingOutput;
+import de.starwit.visionapi.Messages.Shape;
+import de.starwit.visionapi.Messages.VideoFrame;
 
 /**
  * Sample code, that shall demonstrate, how to use generated Protobuf classes.
