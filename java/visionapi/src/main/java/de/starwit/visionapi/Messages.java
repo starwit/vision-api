@@ -56,6 +56,12 @@ public final class Messages {
      * @return The frameData.
      */
     com.google.protobuf.ByteString getFrameData();
+
+    /**
+     * <code>bytes frame_data_jpeg = 5;</code>
+     * @return The frameDataJpeg.
+     */
+    com.google.protobuf.ByteString getFrameDataJpeg();
   }
   /**
    * Protobuf type {@code visionapi.VideoFrame}
@@ -72,6 +78,7 @@ public final class Messages {
     private VideoFrame() {
       sourceId_ = "";
       frameData_ = com.google.protobuf.ByteString.EMPTY;
+      frameDataJpeg_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -94,6 +101,7 @@ public final class Messages {
               de.starwit.visionapi.Messages.VideoFrame.class, de.starwit.visionapi.Messages.VideoFrame.Builder.class);
     }
 
+    private int bitField0_;
     public static final int SOURCE_ID_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
     private volatile java.lang.Object sourceId_ = "";
@@ -152,7 +160,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasShape() {
-      return shape_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.visionapi.Shape shape = 3;</code>
@@ -181,6 +189,17 @@ public final class Messages {
       return frameData_;
     }
 
+    public static final int FRAME_DATA_JPEG_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString frameDataJpeg_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes frame_data_jpeg = 5;</code>
+     * @return The frameDataJpeg.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getFrameDataJpeg() {
+      return frameDataJpeg_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -201,11 +220,14 @@ public final class Messages {
       if (timestampUtcMs_ != 0L) {
         output.writeUInt64(2, timestampUtcMs_);
       }
-      if (shape_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(3, getShape());
       }
       if (!frameData_.isEmpty()) {
         output.writeBytes(4, frameData_);
+      }
+      if (!frameDataJpeg_.isEmpty()) {
+        output.writeBytes(5, frameDataJpeg_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -223,13 +245,17 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, timestampUtcMs_);
       }
-      if (shape_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getShape());
       }
       if (!frameData_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, frameData_);
+      }
+      if (!frameDataJpeg_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, frameDataJpeg_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -257,6 +283,8 @@ public final class Messages {
       }
       if (!getFrameData()
           .equals(other.getFrameData())) return false;
+      if (!getFrameDataJpeg()
+          .equals(other.getFrameDataJpeg())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -279,6 +307,8 @@ public final class Messages {
       }
       hash = (37 * hash) + FRAME_DATA_FIELD_NUMBER;
       hash = (53 * hash) + getFrameData().hashCode();
+      hash = (37 * hash) + FRAME_DATA_JPEG_FIELD_NUMBER;
+      hash = (53 * hash) + getFrameDataJpeg().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -398,13 +428,19 @@ public final class Messages {
 
       // Construct using de.starwit.visionapi.Messages.VideoFrame.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getShapeFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -418,6 +454,7 @@ public final class Messages {
           shapeBuilder_ = null;
         }
         frameData_ = com.google.protobuf.ByteString.EMPTY;
+        frameDataJpeg_ = com.google.protobuf.ByteString.EMPTY;
         return this;
       }
 
@@ -457,16 +494,54 @@ public final class Messages {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.timestampUtcMs_ = timestampUtcMs_;
         }
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.shape_ = shapeBuilder_ == null
               ? shape_
               : shapeBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.frameData_ = frameData_;
         }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.frameDataJpeg_ = frameDataJpeg_;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.VideoFrame) {
@@ -492,6 +567,9 @@ public final class Messages {
         }
         if (other.getFrameData() != com.google.protobuf.ByteString.EMPTY) {
           setFrameData(other.getFrameData());
+        }
+        if (other.getFrameDataJpeg() != com.google.protobuf.ByteString.EMPTY) {
+          setFrameDataJpeg(other.getFrameDataJpeg());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -541,6 +619,11 @@ public final class Messages {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 42: {
+                frameDataJpeg_ = input.readBytes();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -728,8 +811,10 @@ public final class Messages {
         } else {
           shapeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+        if (shape_ != null) {
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -809,6 +894,38 @@ public final class Messages {
       public Builder clearFrameData() {
         bitField0_ = (bitField0_ & ~0x00000008);
         frameData_ = getDefaultInstance().getFrameData();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString frameDataJpeg_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes frame_data_jpeg = 5;</code>
+       * @return The frameDataJpeg.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getFrameDataJpeg() {
+        return frameDataJpeg_;
+      }
+      /**
+       * <code>bytes frame_data_jpeg = 5;</code>
+       * @param value The frameDataJpeg to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrameDataJpeg(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        frameDataJpeg_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes frame_data_jpeg = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrameDataJpeg() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        frameDataJpeg_ = getDefaultInstance().getFrameDataJpeg();
         onChanged();
         return this;
       }
@@ -1227,6 +1344,38 @@ public final class Messages {
       }
 
       @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.Shape) {
           return mergeFrom((de.starwit.visionapi.Messages.Shape)other);
@@ -1558,6 +1707,7 @@ public final class Messages {
               de.starwit.visionapi.Messages.DetectionOutput.class, de.starwit.visionapi.Messages.DetectionOutput.Builder.class);
     }
 
+    private int bitField0_;
     public static final int FRAME_FIELD_NUMBER = 1;
     private de.starwit.visionapi.Messages.VideoFrame frame_;
     /**
@@ -1566,7 +1716,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasFrame() {
-      return frame_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.visionapi.VideoFrame frame = 1;</code>
@@ -1633,7 +1783,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasMetrics() {
-      return metrics_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.visionapi.Metrics metrics = 99;</code>
@@ -1665,13 +1815,13 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (frame_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getFrame());
       }
       for (int i = 0; i < detections_.size(); i++) {
         output.writeMessage(2, detections_.get(i));
       }
-      if (metrics_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(99, getMetrics());
       }
       getUnknownFields().writeTo(output);
@@ -1683,7 +1833,7 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      if (frame_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getFrame());
       }
@@ -1691,7 +1841,7 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, detections_.get(i));
       }
-      if (metrics_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(99, getMetrics());
       }
@@ -1864,13 +2014,21 @@ public final class Messages {
 
       // Construct using de.starwit.visionapi.Messages.DetectionOutput.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFrameFieldBuilder();
+          getDetectionsFieldBuilder();
+          getMetricsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -1939,18 +2097,54 @@ public final class Messages {
 
       private void buildPartial0(de.starwit.visionapi.Messages.DetectionOutput result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.frame_ = frameBuilder_ == null
               ? frame_
               : frameBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.metrics_ = metricsBuilder_ == null
               ? metrics_
               : metricsBuilder_.build();
+          to_bitField0_ |= 0x00000002;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.DetectionOutput) {
@@ -2131,8 +2325,10 @@ public final class Messages {
         } else {
           frameBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+        if (frame_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -2490,8 +2686,10 @@ public final class Messages {
         } else {
           metricsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+        if (metrics_ != null) {
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -2672,6 +2870,7 @@ public final class Messages {
               de.starwit.visionapi.Messages.Detection.class, de.starwit.visionapi.Messages.Detection.Builder.class);
     }
 
+    private int bitField0_;
     public static final int BOUNDING_BOX_FIELD_NUMBER = 1;
     private de.starwit.visionapi.Messages.BoundingBox boundingBox_;
     /**
@@ -2680,7 +2879,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasBoundingBox() {
-      return boundingBox_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.visionapi.BoundingBox bounding_box = 1;</code>
@@ -2734,7 +2933,7 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (boundingBox_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getBoundingBox());
       }
       if (java.lang.Float.floatToRawIntBits(confidence_) != 0) {
@@ -2752,7 +2951,7 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      if (boundingBox_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getBoundingBox());
       }
@@ -2928,13 +3127,19 @@ public final class Messages {
 
       // Construct using de.starwit.visionapi.Messages.Detection.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBoundingBoxFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -2980,10 +3185,12 @@ public final class Messages {
 
       private void buildPartial0(de.starwit.visionapi.Messages.Detection result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boundingBox_ = boundingBoxBuilder_ == null
               ? boundingBox_
               : boundingBoxBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.confidence_ = confidence_;
@@ -2991,8 +3198,41 @@ public final class Messages {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.classId_ = classId_;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.Detection) {
@@ -3140,8 +3380,10 @@ public final class Messages {
         } else {
           boundingBoxBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+        if (boundingBox_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -3703,6 +3945,38 @@ public final class Messages {
       }
 
       @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.BoundingBox) {
           return mergeFrom((de.starwit.visionapi.Messages.BoundingBox)other);
@@ -4074,6 +4348,7 @@ public final class Messages {
               de.starwit.visionapi.Messages.TrackingOutput.class, de.starwit.visionapi.Messages.TrackingOutput.Builder.class);
     }
 
+    private int bitField0_;
     public static final int FRAME_FIELD_NUMBER = 1;
     private de.starwit.visionapi.Messages.VideoFrame frame_;
     /**
@@ -4082,7 +4357,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasFrame() {
-      return frame_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.visionapi.VideoFrame frame = 1;</code>
@@ -4149,7 +4424,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasMetrics() {
-      return metrics_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.visionapi.Metrics metrics = 99;</code>
@@ -4181,13 +4456,13 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (frame_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getFrame());
       }
       for (int i = 0; i < trackedDetections_.size(); i++) {
         output.writeMessage(2, trackedDetections_.get(i));
       }
-      if (metrics_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(99, getMetrics());
       }
       getUnknownFields().writeTo(output);
@@ -4199,7 +4474,7 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      if (frame_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getFrame());
       }
@@ -4207,7 +4482,7 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, trackedDetections_.get(i));
       }
-      if (metrics_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(99, getMetrics());
       }
@@ -4380,13 +4655,21 @@ public final class Messages {
 
       // Construct using de.starwit.visionapi.Messages.TrackingOutput.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFrameFieldBuilder();
+          getTrackedDetectionsFieldBuilder();
+          getMetricsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -4455,18 +4738,54 @@ public final class Messages {
 
       private void buildPartial0(de.starwit.visionapi.Messages.TrackingOutput result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.frame_ = frameBuilder_ == null
               ? frame_
               : frameBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.metrics_ = metricsBuilder_ == null
               ? metrics_
               : metricsBuilder_.build();
+          to_bitField0_ |= 0x00000002;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.TrackingOutput) {
@@ -4647,8 +4966,10 @@ public final class Messages {
         } else {
           frameBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+        if (frame_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -5006,8 +5327,10 @@ public final class Messages {
         } else {
           metricsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+        if (metrics_ != null) {
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -5183,6 +5506,7 @@ public final class Messages {
               de.starwit.visionapi.Messages.TrackedDetection.class, de.starwit.visionapi.Messages.TrackedDetection.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DETECTION_FIELD_NUMBER = 1;
     private de.starwit.visionapi.Messages.Detection detection_;
     /**
@@ -5191,7 +5515,7 @@ public final class Messages {
      */
     @java.lang.Override
     public boolean hasDetection() {
-      return detection_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.visionapi.Detection detection = 1;</code>
@@ -5234,7 +5558,7 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (detection_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getDetection());
       }
       if (!objectId_.isEmpty()) {
@@ -5249,7 +5573,7 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      if (detection_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getDetection());
       }
@@ -5415,13 +5739,19 @@ public final class Messages {
 
       // Construct using de.starwit.visionapi.Messages.TrackedDetection.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDetectionFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -5466,16 +5796,51 @@ public final class Messages {
 
       private void buildPartial0(de.starwit.visionapi.Messages.TrackedDetection result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.detection_ = detectionBuilder_ == null
               ? detection_
               : detectionBuilder_.build();
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.objectId_ = objectId_;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.TrackedDetection) {
@@ -5615,8 +5980,10 @@ public final class Messages {
         } else {
           detectionBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+        if (detection_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         return this;
       }
       /**
@@ -6082,6 +6449,38 @@ public final class Messages {
       }
 
       @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof de.starwit.visionapi.Messages.Metrics) {
           return mergeFrom((de.starwit.visionapi.Messages.Metrics)other);
@@ -6328,28 +6727,29 @@ public final class Messages {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030visionapi/messages.proto\022\tvisionapi\"n\n" +
-      "\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020timest" +
-      "amp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.vision" +
-      "api.Shape\022\022\n\nframe_data\030\004 \001(\014\"8\n\005Shape\022\016" +
-      "\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channel" +
-      "s\030\003 \001(\r\"\206\001\n\017DetectionOutput\022$\n\005frame\030\001 \001" +
-      "(\0132\025.visionapi.VideoFrame\022(\n\ndetections\030" +
-      "\002 \003(\0132\024.visionapi.Detection\022#\n\007metrics\030c" +
-      " \001(\0132\022.visionapi.Metrics\"_\n\tDetection\022,\n" +
-      "\014bounding_box\030\001 \001(\0132\026.visionapi.Bounding" +
-      "Box\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010class_id\030\003 \001(" +
-      "\r\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\r\022\r\n\005min_y" +
-      "\030\002 \001(\r\022\r\n\005max_x\030\003 \001(\r\022\r\n\005max_y\030\004 \001(\r\"\224\001\n" +
-      "\016TrackingOutput\022$\n\005frame\030\001 \001(\0132\025.visiona" +
-      "pi.VideoFrame\0227\n\022tracked_detections\030\002 \003(" +
-      "\0132\033.visionapi.TrackedDetection\022#\n\007metric" +
-      "s\030c \001(\0132\022.visionapi.Metrics\"N\n\020TrackedDe" +
-      "tection\022\'\n\tdetection\030\001 \001(\0132\024.visionapi.D" +
-      "etection\022\021\n\tobject_id\030\002 \001(\014\"R\n\007Metrics\022#" +
-      "\n\033detection_inference_time_us\030\001 \001(\r\022\"\n\032t" +
-      "racking_inference_time_us\030\002 \001(\rB\026\n\024de.st" +
-      "arwit.visionapib\006proto3"
+      "\n\030visionapi/messages.proto\022\tvisionapi\"\207\001" +
+      "\n\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020times" +
+      "tamp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visio" +
+      "napi.Shape\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_" +
+      "data_jpeg\030\005 \001(\014\"8\n\005Shape\022\016\n\006height\030\001 \001(\r" +
+      "\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"\206\001\n\017De" +
+      "tectionOutput\022$\n\005frame\030\001 \001(\0132\025.visionapi" +
+      ".VideoFrame\022(\n\ndetections\030\002 \003(\0132\024.vision" +
+      "api.Detection\022#\n\007metrics\030c \001(\0132\022.visiona" +
+      "pi.Metrics\"_\n\tDetection\022,\n\014bounding_box\030" +
+      "\001 \001(\0132\026.visionapi.BoundingBox\022\022\n\nconfide" +
+      "nce\030\002 \001(\002\022\020\n\010class_id\030\003 \001(\r\"I\n\013BoundingB" +
+      "ox\022\r\n\005min_x\030\001 \001(\r\022\r\n\005min_y\030\002 \001(\r\022\r\n\005max_" +
+      "x\030\003 \001(\r\022\r\n\005max_y\030\004 \001(\r\"\224\001\n\016TrackingOutpu" +
+      "t\022$\n\005frame\030\001 \001(\0132\025.visionapi.VideoFrame\022" +
+      "7\n\022tracked_detections\030\002 \003(\0132\033.visionapi." +
+      "TrackedDetection\022#\n\007metrics\030c \001(\0132\022.visi" +
+      "onapi.Metrics\"N\n\020TrackedDetection\022\'\n\tdet" +
+      "ection\030\001 \001(\0132\024.visionapi.Detection\022\021\n\tob" +
+      "ject_id\030\002 \001(\014\"R\n\007Metrics\022#\n\033detection_in" +
+      "ference_time_us\030\001 \001(\r\022\"\n\032tracking_infere" +
+      "nce_time_us\030\002 \001(\rB\026\n\024de.starwit.visionap" +
+      "ib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6360,7 +6760,7 @@ public final class Messages {
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_visionapi_VideoFrame_descriptor,
-        new java.lang.String[] { "SourceId", "TimestampUtcMs", "Shape", "FrameData", });
+        new java.lang.String[] { "SourceId", "TimestampUtcMs", "Shape", "FrameData", "FrameDataJpeg", });
     internal_static_visionapi_Shape_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_Shape_fieldAccessorTable = new

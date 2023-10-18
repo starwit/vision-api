@@ -9,6 +9,7 @@ message VideoFrame {
   uint64 timestamp_utc_ms = 2;
   Shape shape = 3;
   bytes frame_data = 4;
+  bytes frame_data_jpeg = 5;
 }
 
 message Shape {
