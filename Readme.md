@@ -1,5 +1,56 @@
 # Vision API repository
 
+## How-To Use
+### Java / Maven
+- Add maven repository to your `~/.m2/settings.xml` (adapt example / your config as necessary):
+    ```xml
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                        http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+        <id>github</id>
+        <repositories>
+            <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            </repository>
+            <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/starwit/vision-api</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            </repository>
+        </repositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>github</id>
+            <username>YOUR_GITHUB_USER</username>
+            <password>GITHUB_TOKEN_WITH_PACKAGE_READ_PERMISSIONS</password>
+        </server>
+    </servers>
+    </settings>
+
+    ```
+- Add dependency to your project:
+    ```xml
+    <dependency>
+      <groupId>de.starwit</groupId>
+      <artifactId>vision-api</artifactId>
+      <version>0.4.0</version>
+    </dependency>
+    ```
+
 ## How-To Update
 1. Make desired changes in `./visionapi`
 2. If you have added or deleted `*.proto` files in step 1, adapt the Rust related files accordingly (in the Makefile and build.rs)
@@ -16,8 +67,6 @@
     git push
     git push <version_tag>
     ```
-
-
 
 ## Tools & Setup
 ProtoBuf compiler can be downloaded here:
