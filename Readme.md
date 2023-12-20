@@ -1,5 +1,7 @@
 # Vision API repository
 
+This repo conains the main data model for the Starwit Awareness Engine (SAE). See umbrella repo here: https://github.com/starwit/vision-pipeline-k8s
+
 ## How-To Use
 ### Java / Maven
 - Add maven repository to your `~/.m2/settings.xml` (adapt example / your config as necessary):
