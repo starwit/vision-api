@@ -31,10 +31,10 @@ message Detection {
 }
 
 message BoundingBox {
-  uint32 min_x = 1;
-  uint32 min_y = 2;
-  uint32 max_x = 3;
-  uint32 max_y = 4;
+  float min_x = 1;
+  float min_y = 2;
+  float max_x = 3;
+  float max_y = 4;
 }
 
 message TrackingOutput {

@@ -55,11 +55,11 @@ class BoundingBox(_message.Message):
     MIN_Y_FIELD_NUMBER: _ClassVar[int]
     MAX_X_FIELD_NUMBER: _ClassVar[int]
     MAX_Y_FIELD_NUMBER: _ClassVar[int]
-    min_x: int
-    min_y: int
-    max_x: int
-    max_y: int
-    def __init__(self, min_x: _Optional[int] = ..., min_y: _Optional[int] = ..., max_x: _Optional[int] = ..., max_y: _Optional[int] = ...) -> None: ...
+    min_x: float
+    min_y: float
+    max_x: float
+    max_y: float
+    def __init__(self, min_x: _Optional[float] = ..., min_y: _Optional[float] = ..., max_x: _Optional[float] = ..., max_y: _Optional[float] = ...) -> None: ...
 
 class TrackingOutput(_message.Message):
     __slots__ = ["frame", "tracked_detections", "metrics"]
