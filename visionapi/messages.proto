@@ -4,6 +4,12 @@ package visionapi;
 
 option java_package = "de.starwit.visionapi";
 
+message SaeMessage {
+  VideoFrame frame = 1;
+  repeated Detection detections = 2;
+  Metrics metrics = 99;
+}
+
 message VideoFrame {
   string source_id = 1;
   uint64 timestamp_utc_ms = 2;
@@ -18,17 +24,12 @@ message Shape {
   uint32 channels = 3;
 }
 
-message DetectionOutput {
-  VideoFrame frame = 1;
-  repeated Detection detections = 2;
-  Metrics metrics = 99;
-}
-
 message Detection {
   BoundingBox bounding_box = 1;
   float confidence = 2;
   uint32 class_id = 3;
-  GeoCoordinate geo_coordinate = 4;
+  bytes object_id = 4;
+  GeoCoordinate geo_coordinate = 5;
 }
 
 message BoundingBox {
@@ -41,17 +42,6 @@ message BoundingBox {
 message GeoCoordinate {
   double latitude = 1;
   double longitude = 2;
-}
-
-message TrackingOutput {
-  VideoFrame frame = 1;
-  repeated TrackedDetection tracked_detections = 2;
-  Metrics metrics = 99;
-}
-
-message TrackedDetection {
-  Detection detection = 1;
-  bytes object_id = 2;
 }
 
 message Metrics {

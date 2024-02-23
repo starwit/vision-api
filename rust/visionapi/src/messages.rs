@@ -26,6 +26,167 @@
 const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_2_0;
 
 #[derive(PartialEq,Clone,Default,Debug)]
+// @@protoc_insertion_point(message:visionapi.SaeMessage)
+pub struct SaeMessage {
+    // message fields
+    // @@protoc_insertion_point(field:visionapi.SaeMessage.frame)
+    pub frame: ::protobuf::MessageField<VideoFrame>,
+    // @@protoc_insertion_point(field:visionapi.SaeMessage.detections)
+    pub detections: ::std::vec::Vec<Detection>,
+    // @@protoc_insertion_point(field:visionapi.SaeMessage.metrics)
+    pub metrics: ::protobuf::MessageField<Metrics>,
+    // special fields
+    // @@protoc_insertion_point(special_field:visionapi.SaeMessage.special_fields)
+    pub special_fields: ::protobuf::SpecialFields,
+}
+
+impl<'a> ::std::default::Default for &'a SaeMessage {
+    fn default() -> &'a SaeMessage {
+        <SaeMessage as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl SaeMessage {
+    pub fn new() -> SaeMessage {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::with_capacity(3);
+        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, VideoFrame>(
+            "frame",
+            |m: &SaeMessage| { &m.frame },
+            |m: &mut SaeMessage| { &mut m.frame },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "detections",
+            |m: &SaeMessage| { &m.detections },
+            |m: &mut SaeMessage| { &mut m.detections },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Metrics>(
+            "metrics",
+            |m: &SaeMessage| { &m.metrics },
+            |m: &mut SaeMessage| { &mut m.metrics },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<SaeMessage>(
+            "SaeMessage",
+            fields,
+            oneofs,
+        )
+    }
+}
+
+impl ::protobuf::Message for SaeMessage {
+    const NAME: &'static str = "SaeMessage";
+
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+        while let Some(tag) = is.read_raw_tag_or_eof()? {
+            match tag {
+                10 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.frame)?;
+                },
+                18 => {
+                    self.detections.push(is.read_message()?);
+                },
+                794 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.metrics)?;
+                },
+                tag => {
+                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u64 {
+        let mut my_size = 0;
+        if let Some(v) = self.frame.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        for value in &self.detections {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if let Some(v) = self.metrics.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+        self.special_fields.cached_size().set(my_size as u32);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+        if let Some(v) = self.frame.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
+        }
+        for v in &self.detections {
+            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
+        };
+        if let Some(v) = self.metrics.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(99, v, os)?;
+        }
+        os.write_unknown_fields(self.special_fields.unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn special_fields(&self) -> &::protobuf::SpecialFields {
+        &self.special_fields
+    }
+
+    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+        &mut self.special_fields
+    }
+
+    fn new() -> SaeMessage {
+        SaeMessage::new()
+    }
+
+    fn clear(&mut self) {
+        self.frame.clear();
+        self.detections.clear();
+        self.metrics.clear();
+        self.special_fields.clear();
+    }
+
+    fn default_instance() -> &'static SaeMessage {
+        static instance: SaeMessage = SaeMessage {
+            frame: ::protobuf::MessageField::none(),
+            detections: ::std::vec::Vec::new(),
+            metrics: ::protobuf::MessageField::none(),
+            special_fields: ::protobuf::SpecialFields::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::MessageFull for SaeMessage {
+    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+        descriptor.get(|| file_descriptor().message_by_package_relative_name("SaeMessage").unwrap()).clone()
+    }
+}
+
+impl ::std::fmt::Display for SaeMessage {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for SaeMessage {
+    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
+}
+
+#[derive(PartialEq,Clone,Default,Debug)]
 // @@protoc_insertion_point(message:visionapi.VideoFrame)
 pub struct VideoFrame {
     // message fields
@@ -379,167 +540,6 @@ impl ::protobuf::reflect::ProtobufValue for Shape {
 }
 
 #[derive(PartialEq,Clone,Default,Debug)]
-// @@protoc_insertion_point(message:visionapi.DetectionOutput)
-pub struct DetectionOutput {
-    // message fields
-    // @@protoc_insertion_point(field:visionapi.DetectionOutput.frame)
-    pub frame: ::protobuf::MessageField<VideoFrame>,
-    // @@protoc_insertion_point(field:visionapi.DetectionOutput.detections)
-    pub detections: ::std::vec::Vec<Detection>,
-    // @@protoc_insertion_point(field:visionapi.DetectionOutput.metrics)
-    pub metrics: ::protobuf::MessageField<Metrics>,
-    // special fields
-    // @@protoc_insertion_point(special_field:visionapi.DetectionOutput.special_fields)
-    pub special_fields: ::protobuf::SpecialFields,
-}
-
-impl<'a> ::std::default::Default for &'a DetectionOutput {
-    fn default() -> &'a DetectionOutput {
-        <DetectionOutput as ::protobuf::Message>::default_instance()
-    }
-}
-
-impl DetectionOutput {
-    pub fn new() -> DetectionOutput {
-        ::std::default::Default::default()
-    }
-
-    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(3);
-        let mut oneofs = ::std::vec::Vec::with_capacity(0);
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, VideoFrame>(
-            "frame",
-            |m: &DetectionOutput| { &m.frame },
-            |m: &mut DetectionOutput| { &mut m.frame },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
-            "detections",
-            |m: &DetectionOutput| { &m.detections },
-            |m: &mut DetectionOutput| { &mut m.detections },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Metrics>(
-            "metrics",
-            |m: &DetectionOutput| { &m.metrics },
-            |m: &mut DetectionOutput| { &mut m.metrics },
-        ));
-        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<DetectionOutput>(
-            "DetectionOutput",
-            fields,
-            oneofs,
-        )
-    }
-}
-
-impl ::protobuf::Message for DetectionOutput {
-    const NAME: &'static str = "DetectionOutput";
-
-    fn is_initialized(&self) -> bool {
-        true
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
-        while let Some(tag) = is.read_raw_tag_or_eof()? {
-            match tag {
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.frame)?;
-                },
-                18 => {
-                    self.detections.push(is.read_message()?);
-                },
-                794 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.metrics)?;
-                },
-                tag => {
-                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
-    // Compute sizes of nested messages
-    #[allow(unused_variables)]
-    fn compute_size(&self) -> u64 {
-        let mut my_size = 0;
-        if let Some(v) = self.frame.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        for value in &self.detections {
-            let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        };
-        if let Some(v) = self.metrics.as_ref() {
-            let len = v.compute_size();
-            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
-        self.special_fields.cached_size().set(my_size as u32);
-        my_size
-    }
-
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if let Some(v) = self.frame.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
-        }
-        for v in &self.detections {
-            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
-        };
-        if let Some(v) = self.metrics.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(99, v, os)?;
-        }
-        os.write_unknown_fields(self.special_fields.unknown_fields())?;
-        ::std::result::Result::Ok(())
-    }
-
-    fn special_fields(&self) -> &::protobuf::SpecialFields {
-        &self.special_fields
-    }
-
-    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
-        &mut self.special_fields
-    }
-
-    fn new() -> DetectionOutput {
-        DetectionOutput::new()
-    }
-
-    fn clear(&mut self) {
-        self.frame.clear();
-        self.detections.clear();
-        self.metrics.clear();
-        self.special_fields.clear();
-    }
-
-    fn default_instance() -> &'static DetectionOutput {
-        static instance: DetectionOutput = DetectionOutput {
-            frame: ::protobuf::MessageField::none(),
-            detections: ::std::vec::Vec::new(),
-            metrics: ::protobuf::MessageField::none(),
-            special_fields: ::protobuf::SpecialFields::new(),
-        };
-        &instance
-    }
-}
-
-impl ::protobuf::MessageFull for DetectionOutput {
-    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
-        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
-        descriptor.get(|| file_descriptor().message_by_package_relative_name("DetectionOutput").unwrap()).clone()
-    }
-}
-
-impl ::std::fmt::Display for DetectionOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for DetectionOutput {
-    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
 // @@protoc_insertion_point(message:visionapi.Detection)
 pub struct Detection {
     // message fields
@@ -549,6 +549,8 @@ pub struct Detection {
     pub confidence: f32,
     // @@protoc_insertion_point(field:visionapi.Detection.class_id)
     pub class_id: u32,
+    // @@protoc_insertion_point(field:visionapi.Detection.object_id)
+    pub object_id: ::std::vec::Vec<u8>,
     // @@protoc_insertion_point(field:visionapi.Detection.geo_coordinate)
     pub geo_coordinate: ::protobuf::MessageField<GeoCoordinate>,
     // special fields
@@ -568,7 +570,7 @@ impl Detection {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(4);
+        let mut fields = ::std::vec::Vec::with_capacity(5);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, BoundingBox>(
             "bounding_box",
@@ -584,6 +586,11 @@ impl Detection {
             "class_id",
             |m: &Detection| { &m.class_id },
             |m: &mut Detection| { &mut m.class_id },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "object_id",
+            |m: &Detection| { &m.object_id },
+            |m: &mut Detection| { &mut m.object_id },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, GeoCoordinate>(
             "geo_coordinate",
@@ -618,6 +625,9 @@ impl ::protobuf::Message for Detection {
                     self.class_id = is.read_uint32()?;
                 },
                 34 => {
+                    self.object_id = is.read_bytes()?;
+                },
+                42 => {
                     ::protobuf::rt::read_singular_message_into_field(is, &mut self.geo_coordinate)?;
                 },
                 tag => {
@@ -642,6 +652,9 @@ impl ::protobuf::Message for Detection {
         if self.class_id != 0 {
             my_size += ::protobuf::rt::uint32_size(3, self.class_id);
         }
+        if !self.object_id.is_empty() {
+            my_size += ::protobuf::rt::bytes_size(4, &self.object_id);
+        }
         if let Some(v) = self.geo_coordinate.as_ref() {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
@@ -661,8 +674,11 @@ impl ::protobuf::Message for Detection {
         if self.class_id != 0 {
             os.write_uint32(3, self.class_id)?;
         }
+        if !self.object_id.is_empty() {
+            os.write_bytes(4, &self.object_id)?;
+        }
         if let Some(v) = self.geo_coordinate.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
+            ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -684,6 +700,7 @@ impl ::protobuf::Message for Detection {
         self.bounding_box.clear();
         self.confidence = 0.;
         self.class_id = 0;
+        self.object_id.clear();
         self.geo_coordinate.clear();
         self.special_fields.clear();
     }
@@ -693,6 +710,7 @@ impl ::protobuf::Message for Detection {
             bounding_box: ::protobuf::MessageField::none(),
             confidence: 0.,
             class_id: 0,
+            object_id: ::std::vec::Vec::new(),
             geo_coordinate: ::protobuf::MessageField::none(),
             special_fields: ::protobuf::SpecialFields::new(),
         };
@@ -1034,308 +1052,6 @@ impl ::protobuf::reflect::ProtobufValue for GeoCoordinate {
 }
 
 #[derive(PartialEq,Clone,Default,Debug)]
-// @@protoc_insertion_point(message:visionapi.TrackingOutput)
-pub struct TrackingOutput {
-    // message fields
-    // @@protoc_insertion_point(field:visionapi.TrackingOutput.frame)
-    pub frame: ::protobuf::MessageField<VideoFrame>,
-    // @@protoc_insertion_point(field:visionapi.TrackingOutput.tracked_detections)
-    pub tracked_detections: ::std::vec::Vec<TrackedDetection>,
-    // @@protoc_insertion_point(field:visionapi.TrackingOutput.metrics)
-    pub metrics: ::protobuf::MessageField<Metrics>,
-    // special fields
-    // @@protoc_insertion_point(special_field:visionapi.TrackingOutput.special_fields)
-    pub special_fields: ::protobuf::SpecialFields,
-}
-
-impl<'a> ::std::default::Default for &'a TrackingOutput {
-    fn default() -> &'a TrackingOutput {
-        <TrackingOutput as ::protobuf::Message>::default_instance()
-    }
-}
-
-impl TrackingOutput {
-    pub fn new() -> TrackingOutput {
-        ::std::default::Default::default()
-    }
-
-    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(3);
-        let mut oneofs = ::std::vec::Vec::with_capacity(0);
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, VideoFrame>(
-            "frame",
-            |m: &TrackingOutput| { &m.frame },
-            |m: &mut TrackingOutput| { &mut m.frame },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
-            "tracked_detections",
-            |m: &TrackingOutput| { &m.tracked_detections },
-            |m: &mut TrackingOutput| { &mut m.tracked_detections },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Metrics>(
-            "metrics",
-            |m: &TrackingOutput| { &m.metrics },
-            |m: &mut TrackingOutput| { &mut m.metrics },
-        ));
-        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<TrackingOutput>(
-            "TrackingOutput",
-            fields,
-            oneofs,
-        )
-    }
-}
-
-impl ::protobuf::Message for TrackingOutput {
-    const NAME: &'static str = "TrackingOutput";
-
-    fn is_initialized(&self) -> bool {
-        true
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
-        while let Some(tag) = is.read_raw_tag_or_eof()? {
-            match tag {
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.frame)?;
-                },
-                18 => {
-                    self.tracked_detections.push(is.read_message()?);
-                },
-                794 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.metrics)?;
-                },
-                tag => {
-                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
-    // Compute sizes of nested messages
-    #[allow(unused_variables)]
-    fn compute_size(&self) -> u64 {
-        let mut my_size = 0;
-        if let Some(v) = self.frame.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        for value in &self.tracked_detections {
-            let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        };
-        if let Some(v) = self.metrics.as_ref() {
-            let len = v.compute_size();
-            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
-        self.special_fields.cached_size().set(my_size as u32);
-        my_size
-    }
-
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if let Some(v) = self.frame.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
-        }
-        for v in &self.tracked_detections {
-            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
-        };
-        if let Some(v) = self.metrics.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(99, v, os)?;
-        }
-        os.write_unknown_fields(self.special_fields.unknown_fields())?;
-        ::std::result::Result::Ok(())
-    }
-
-    fn special_fields(&self) -> &::protobuf::SpecialFields {
-        &self.special_fields
-    }
-
-    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
-        &mut self.special_fields
-    }
-
-    fn new() -> TrackingOutput {
-        TrackingOutput::new()
-    }
-
-    fn clear(&mut self) {
-        self.frame.clear();
-        self.tracked_detections.clear();
-        self.metrics.clear();
-        self.special_fields.clear();
-    }
-
-    fn default_instance() -> &'static TrackingOutput {
-        static instance: TrackingOutput = TrackingOutput {
-            frame: ::protobuf::MessageField::none(),
-            tracked_detections: ::std::vec::Vec::new(),
-            metrics: ::protobuf::MessageField::none(),
-            special_fields: ::protobuf::SpecialFields::new(),
-        };
-        &instance
-    }
-}
-
-impl ::protobuf::MessageFull for TrackingOutput {
-    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
-        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
-        descriptor.get(|| file_descriptor().message_by_package_relative_name("TrackingOutput").unwrap()).clone()
-    }
-}
-
-impl ::std::fmt::Display for TrackingOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for TrackingOutput {
-    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
-// @@protoc_insertion_point(message:visionapi.TrackedDetection)
-pub struct TrackedDetection {
-    // message fields
-    // @@protoc_insertion_point(field:visionapi.TrackedDetection.detection)
-    pub detection: ::protobuf::MessageField<Detection>,
-    // @@protoc_insertion_point(field:visionapi.TrackedDetection.object_id)
-    pub object_id: ::std::vec::Vec<u8>,
-    // special fields
-    // @@protoc_insertion_point(special_field:visionapi.TrackedDetection.special_fields)
-    pub special_fields: ::protobuf::SpecialFields,
-}
-
-impl<'a> ::std::default::Default for &'a TrackedDetection {
-    fn default() -> &'a TrackedDetection {
-        <TrackedDetection as ::protobuf::Message>::default_instance()
-    }
-}
-
-impl TrackedDetection {
-    pub fn new() -> TrackedDetection {
-        ::std::default::Default::default()
-    }
-
-    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(2);
-        let mut oneofs = ::std::vec::Vec::with_capacity(0);
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, Detection>(
-            "detection",
-            |m: &TrackedDetection| { &m.detection },
-            |m: &mut TrackedDetection| { &mut m.detection },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "object_id",
-            |m: &TrackedDetection| { &m.object_id },
-            |m: &mut TrackedDetection| { &mut m.object_id },
-        ));
-        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<TrackedDetection>(
-            "TrackedDetection",
-            fields,
-            oneofs,
-        )
-    }
-}
-
-impl ::protobuf::Message for TrackedDetection {
-    const NAME: &'static str = "TrackedDetection";
-
-    fn is_initialized(&self) -> bool {
-        true
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
-        while let Some(tag) = is.read_raw_tag_or_eof()? {
-            match tag {
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.detection)?;
-                },
-                18 => {
-                    self.object_id = is.read_bytes()?;
-                },
-                tag => {
-                    ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
-    // Compute sizes of nested messages
-    #[allow(unused_variables)]
-    fn compute_size(&self) -> u64 {
-        let mut my_size = 0;
-        if let Some(v) = self.detection.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if !self.object_id.is_empty() {
-            my_size += ::protobuf::rt::bytes_size(2, &self.object_id);
-        }
-        my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
-        self.special_fields.cached_size().set(my_size as u32);
-        my_size
-    }
-
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if let Some(v) = self.detection.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
-        }
-        if !self.object_id.is_empty() {
-            os.write_bytes(2, &self.object_id)?;
-        }
-        os.write_unknown_fields(self.special_fields.unknown_fields())?;
-        ::std::result::Result::Ok(())
-    }
-
-    fn special_fields(&self) -> &::protobuf::SpecialFields {
-        &self.special_fields
-    }
-
-    fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
-        &mut self.special_fields
-    }
-
-    fn new() -> TrackedDetection {
-        TrackedDetection::new()
-    }
-
-    fn clear(&mut self) {
-        self.detection.clear();
-        self.object_id.clear();
-        self.special_fields.clear();
-    }
-
-    fn default_instance() -> &'static TrackedDetection {
-        static instance: TrackedDetection = TrackedDetection {
-            detection: ::protobuf::MessageField::none(),
-            object_id: ::std::vec::Vec::new(),
-            special_fields: ::protobuf::SpecialFields::new(),
-        };
-        &instance
-    }
-}
-
-impl ::protobuf::MessageFull for TrackedDetection {
-    fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
-        static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
-        descriptor.get(|| file_descriptor().message_by_package_relative_name("TrackedDetection").unwrap()).clone()
-    }
-}
-
-impl ::std::fmt::Display for TrackedDetection {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for TrackedDetection {
-    type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
 // @@protoc_insertion_point(message:visionapi.Metrics)
 pub struct Metrics {
     // message fields
@@ -1476,36 +1192,31 @@ impl ::protobuf::reflect::ProtobufValue for Metrics {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x18visionapi/messages.proto\x12\tvisionapi\"\xc2\x01\n\nVideoFrame\
-    \x12\x1b\n\tsource_id\x18\x01\x20\x01(\tR\x08sourceId\x12(\n\x10timestam\
-    p_utc_ms\x18\x02\x20\x01(\x04R\x0etimestampUtcMs\x12&\n\x05shape\x18\x03\
-    \x20\x01(\x0b2\x10.visionapi.ShapeR\x05shape\x12\x1d\n\nframe_data\x18\
-    \x04\x20\x01(\x0cR\tframeData\x12&\n\x0fframe_data_jpeg\x18\x05\x20\x01(\
-    \x0cR\rframeDataJpeg\"Q\n\x05Shape\x12\x16\n\x06height\x18\x01\x20\x01(\
-    \rR\x06height\x12\x14\n\x05width\x18\x02\x20\x01(\rR\x05width\x12\x1a\n\
-    \x08channels\x18\x03\x20\x01(\rR\x08channels\"\xa2\x01\n\x0fDetectionOut\
-    put\x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.VideoFrameR\x05f\
-    rame\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.DetectionR\n\
-    detections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionapi.MetricsR\
-    \x07metrics\"\xc2\x01\n\tDetection\x129\n\x0cbounding_box\x18\x01\x20\
-    \x01(\x0b2\x16.visionapi.BoundingBoxR\x0bboundingBox\x12\x1e\n\nconfiden\
-    ce\x18\x02\x20\x01(\x02R\nconfidence\x12\x19\n\x08class_id\x18\x03\x20\
-    \x01(\rR\x07classId\x12?\n\x0egeo_coordinate\x18\x04\x20\x01(\x0b2\x18.v\
-    isionapi.GeoCoordinateR\rgeoCoordinate\"a\n\x0bBoundingBox\x12\x13\n\x05\
-    min_x\x18\x01\x20\x01(\x02R\x04minX\x12\x13\n\x05min_y\x18\x02\x20\x01(\
-    \x02R\x04minY\x12\x13\n\x05max_x\x18\x03\x20\x01(\x02R\x04maxX\x12\x13\n\
-    \x05max_y\x18\x04\x20\x01(\x02R\x04maxY\"I\n\rGeoCoordinate\x12\x1a\n\
-    \x08latitude\x18\x01\x20\x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\
-    \x02\x20\x01(\x01R\tlongitude\"\xb7\x01\n\x0eTrackingOutput\x12+\n\x05fr\
-    ame\x18\x01\x20\x01(\x0b2\x15.visionapi.VideoFrameR\x05frame\x12J\n\x12t\
-    racked_detections\x18\x02\x20\x03(\x0b2\x1b.visionapi.TrackedDetectionR\
-    \x11trackedDetections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionapi\
-    .MetricsR\x07metrics\"c\n\x10TrackedDetection\x122\n\tdetection\x18\x01\
-    \x20\x01(\x0b2\x14.visionapi.DetectionR\tdetection\x12\x1b\n\tobject_id\
-    \x18\x02\x20\x01(\x0cR\x08objectId\"\x85\x01\n\x07Metrics\x12=\n\x1bdete\
-    ction_inference_time_us\x18\x01\x20\x01(\rR\x18detectionInferenceTimeUs\
-    \x12;\n\x1atracking_inference_time_us\x18\x02\x20\x01(\rR\x17trackingInf\
-    erenceTimeUsB\x16\n\x14de.starwit.visionapib\x06proto3\
+    \n\x18visionapi/messages.proto\x12\tvisionapi\"\x9d\x01\n\nSaeMessage\
+    \x12+\n\x05frame\x18\x01\x20\x01(\x0b2\x15.visionapi.VideoFrameR\x05fram\
+    e\x124\n\ndetections\x18\x02\x20\x03(\x0b2\x14.visionapi.DetectionR\ndet\
+    ections\x12,\n\x07metrics\x18c\x20\x01(\x0b2\x12.visionapi.MetricsR\x07m\
+    etrics\"\xc2\x01\n\nVideoFrame\x12\x1b\n\tsource_id\x18\x01\x20\x01(\tR\
+    \x08sourceId\x12(\n\x10timestamp_utc_ms\x18\x02\x20\x01(\x04R\x0etimesta\
+    mpUtcMs\x12&\n\x05shape\x18\x03\x20\x01(\x0b2\x10.visionapi.ShapeR\x05sh\
+    ape\x12\x1d\n\nframe_data\x18\x04\x20\x01(\x0cR\tframeData\x12&\n\x0ffra\
+    me_data_jpeg\x18\x05\x20\x01(\x0cR\rframeDataJpeg\"Q\n\x05Shape\x12\x16\
+    \n\x06height\x18\x01\x20\x01(\rR\x06height\x12\x14\n\x05width\x18\x02\
+    \x20\x01(\rR\x05width\x12\x1a\n\x08channels\x18\x03\x20\x01(\rR\x08chann\
+    els\"\xdf\x01\n\tDetection\x129\n\x0cbounding_box\x18\x01\x20\x01(\x0b2\
+    \x16.visionapi.BoundingBoxR\x0bboundingBox\x12\x1e\n\nconfidence\x18\x02\
+    \x20\x01(\x02R\nconfidence\x12\x19\n\x08class_id\x18\x03\x20\x01(\rR\x07\
+    classId\x12\x1b\n\tobject_id\x18\x04\x20\x01(\x0cR\x08objectId\x12?\n\
+    \x0egeo_coordinate\x18\x05\x20\x01(\x0b2\x18.visionapi.GeoCoordinateR\rg\
+    eoCoordinate\"a\n\x0bBoundingBox\x12\x13\n\x05min_x\x18\x01\x20\x01(\x02\
+    R\x04minX\x12\x13\n\x05min_y\x18\x02\x20\x01(\x02R\x04minY\x12\x13\n\x05\
+    max_x\x18\x03\x20\x01(\x02R\x04maxX\x12\x13\n\x05max_y\x18\x04\x20\x01(\
+    \x02R\x04maxY\"I\n\rGeoCoordinate\x12\x1a\n\x08latitude\x18\x01\x20\x01(\
+    \x01R\x08latitude\x12\x1c\n\tlongitude\x18\x02\x20\x01(\x01R\tlongitude\
+    \"\x85\x01\n\x07Metrics\x12=\n\x1bdetection_inference_time_us\x18\x01\
+    \x20\x01(\rR\x18detectionInferenceTimeUs\x12;\n\x1atracking_inference_ti\
+    me_us\x18\x02\x20\x01(\rR\x17trackingInferenceTimeUsB\x16\n\x14de.starwi\
+    t.visionapib\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -1523,15 +1234,13 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
             let mut deps = ::std::vec::Vec::with_capacity(0);
-            let mut messages = ::std::vec::Vec::with_capacity(9);
+            let mut messages = ::std::vec::Vec::with_capacity(7);
+            messages.push(SaeMessage::generated_message_descriptor_data());
             messages.push(VideoFrame::generated_message_descriptor_data());
             messages.push(Shape::generated_message_descriptor_data());
-            messages.push(DetectionOutput::generated_message_descriptor_data());
             messages.push(Detection::generated_message_descriptor_data());
             messages.push(BoundingBox::generated_message_descriptor_data());
             messages.push(GeoCoordinate::generated_message_descriptor_data());
-            messages.push(TrackingOutput::generated_message_descriptor_data());
-            messages.push(TrackedDetection::generated_message_descriptor_data());
             messages.push(Metrics::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);
             ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
