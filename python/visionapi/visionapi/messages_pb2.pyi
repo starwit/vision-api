@@ -40,14 +40,16 @@ class DetectionOutput(_message.Message):
     def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ...) -> None: ...
 
 class Detection(_message.Message):
-    __slots__ = ["bounding_box", "confidence", "class_id"]
+    __slots__ = ["bounding_box", "confidence", "class_id", "geo_coordinate"]
     BOUNDING_BOX_FIELD_NUMBER: _ClassVar[int]
     CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
     CLASS_ID_FIELD_NUMBER: _ClassVar[int]
+    GEO_COORDINATE_FIELD_NUMBER: _ClassVar[int]
     bounding_box: BoundingBox
     confidence: float
     class_id: int
-    def __init__(self, bounding_box: _Optional[_Union[BoundingBox, _Mapping]] = ..., confidence: _Optional[float] = ..., class_id: _Optional[int] = ...) -> None: ...
+    geo_coordinate: GeoCoordinate
+    def __init__(self, bounding_box: _Optional[_Union[BoundingBox, _Mapping]] = ..., confidence: _Optional[float] = ..., class_id: _Optional[int] = ..., geo_coordinate: _Optional[_Union[GeoCoordinate, _Mapping]] = ...) -> None: ...
 
 class BoundingBox(_message.Message):
     __slots__ = ["min_x", "min_y", "max_x", "max_y"]
@@ -60,6 +62,14 @@ class BoundingBox(_message.Message):
     max_x: float
     max_y: float
     def __init__(self, min_x: _Optional[float] = ..., min_y: _Optional[float] = ..., max_x: _Optional[float] = ..., max_y: _Optional[float] = ...) -> None: ...
+
+class GeoCoordinate(_message.Message):
+    __slots__ = ["latitude", "longitude"]
+    LATITUDE_FIELD_NUMBER: _ClassVar[int]
+    LONGITUDE_FIELD_NUMBER: _ClassVar[int]
+    latitude: float
+    longitude: float
+    def __init__(self, latitude: _Optional[float] = ..., longitude: _Optional[float] = ...) -> None: ...
 
 class TrackingOutput(_message.Message):
     __slots__ = ["frame", "tracked_detections", "metrics"]

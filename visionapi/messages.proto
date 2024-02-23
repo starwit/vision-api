@@ -28,6 +28,7 @@ message Detection {
   BoundingBox bounding_box = 1;
   float confidence = 2;
   uint32 class_id = 3;
+  GeoCoordinate geo_coordinate = 4;
 }
 
 message BoundingBox {
@@ -35,6 +36,11 @@ message BoundingBox {
   float min_y = 2;
   float max_x = 3;
   float max_y = 4;
+}
+
+message GeoCoordinate {
+  double latitude = 1;
+  double longitude = 2;
 }
 
 message TrackingOutput {
