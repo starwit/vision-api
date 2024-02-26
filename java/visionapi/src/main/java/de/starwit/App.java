@@ -7,9 +7,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 
 import de.starwit.visionapi.Messages.BoundingBox;
 import de.starwit.visionapi.Messages.Detection;
-import de.starwit.visionapi.Messages.DetectionOutput;
-import de.starwit.visionapi.Messages.TrackedDetection;
-import de.starwit.visionapi.Messages.TrackingOutput;
+import de.starwit.visionapi.Messages.SaeMessage;
 import de.starwit.visionapi.Messages.Shape;
 import de.starwit.visionapi.Messages.VideoFrame;
 
@@ -59,15 +57,15 @@ public class App {
             .setClassId(0)
             .build();
 
-        DetectionOutput deOut = DetectionOutput.newBuilder()
+        SaeMessage detMessage = SaeMessage.newBuilder()
             .addDetections(d)
             .build();
 
-        serializedObjects = deOut.toByteArray();
+        serializedObjects = detMessage.toByteArray();
         
         try {
-            DetectionOutput parsedDeOut = DetectionOutput.parseFrom(serializedObjects);
-            System.out.println(parsedDeOut.getDetections(0).getConfidence());
+            SaeMessage parsedDetMsg = SaeMessage.parseFrom(serializedObjects);
+            System.out.println(parsedDetMsg.getDetections(0).getConfidence());
         } catch (InvalidProtocolBufferException e) {
             System.out.println("can't parse protobuf from bytes");
         }
@@ -76,20 +74,22 @@ public class App {
         // Tracker
         //
         byte[] sampleTrackingID = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
-        TrackedDetection td = TrackedDetection.newBuilder()
-            .setDetection(d)
+        Detection det = Detection.newBuilder()
+            .setBoundingBox(bb)
+            .setConfidence((float)0.5)
+            .setClassId(0)
             .setObjectId(ByteString.copyFrom(sampleTrackingID))
             .build();
 
-        TrackingOutput to = TrackingOutput.newBuilder()
-            .addTrackedDetections(td)
+        SaeMessage trackMessage = SaeMessage.newBuilder()
+            .addDetections(det)
             .build();
 
-        serializedObjects = to.toByteArray();
+        serializedObjects = trackMessage.toByteArray();
 
         try {
-            TrackingOutput parsedDeOut = TrackingOutput.parseFrom(serializedObjects);
-            System.out.println(parsedDeOut.getTrackedDetections(0).getDetection().getClassId());
+            SaeMessage trackMsgOut = SaeMessage.parseFrom(serializedObjects);
+            System.out.println(trackMsgOut.getDetections(0).getClassId());
         } catch (InvalidProtocolBufferException e) {
             System.out.println("can't parse protobuf from bytes");
         }        
