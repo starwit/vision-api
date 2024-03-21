@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SaeMessage(_message.Message):
-    __slots__ = ["frame", "detections", "metrics"]
+    __slots__ = ("frame", "detections", "metrics")
     FRAME_FIELD_NUMBER: _ClassVar[int]
     DETECTIONS_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
@@ -16,7 +16,7 @@ class SaeMessage(_message.Message):
     def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
-    __slots__ = ["source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg"]
+    __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg")
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     SHAPE_FIELD_NUMBER: _ClassVar[int]
@@ -30,7 +30,7 @@ class VideoFrame(_message.Message):
     def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ..., frame_data_jpeg: _Optional[bytes] = ...) -> None: ...
 
 class Shape(_message.Message):
-    __slots__ = ["height", "width", "channels"]
+    __slots__ = ("height", "width", "channels")
     HEIGHT_FIELD_NUMBER: _ClassVar[int]
     WIDTH_FIELD_NUMBER: _ClassVar[int]
     CHANNELS_FIELD_NUMBER: _ClassVar[int]
@@ -40,7 +40,7 @@ class Shape(_message.Message):
     def __init__(self, height: _Optional[int] = ..., width: _Optional[int] = ..., channels: _Optional[int] = ...) -> None: ...
 
 class Detection(_message.Message):
-    __slots__ = ["bounding_box", "confidence", "class_id", "object_id", "geo_coordinate"]
+    __slots__ = ("bounding_box", "confidence", "class_id", "object_id", "geo_coordinate")
     BOUNDING_BOX_FIELD_NUMBER: _ClassVar[int]
     CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
     CLASS_ID_FIELD_NUMBER: _ClassVar[int]
@@ -54,7 +54,7 @@ class Detection(_message.Message):
     def __init__(self, bounding_box: _Optional[_Union[BoundingBox, _Mapping]] = ..., confidence: _Optional[float] = ..., class_id: _Optional[int] = ..., object_id: _Optional[bytes] = ..., geo_coordinate: _Optional[_Union[GeoCoordinate, _Mapping]] = ...) -> None: ...
 
 class BoundingBox(_message.Message):
-    __slots__ = ["min_x", "min_y", "max_x", "max_y"]
+    __slots__ = ("min_x", "min_y", "max_x", "max_y")
     MIN_X_FIELD_NUMBER: _ClassVar[int]
     MIN_Y_FIELD_NUMBER: _ClassVar[int]
     MAX_X_FIELD_NUMBER: _ClassVar[int]
@@ -66,7 +66,7 @@ class BoundingBox(_message.Message):
     def __init__(self, min_x: _Optional[float] = ..., min_y: _Optional[float] = ..., max_x: _Optional[float] = ..., max_y: _Optional[float] = ...) -> None: ...
 
 class GeoCoordinate(_message.Message):
-    __slots__ = ["latitude", "longitude"]
+    __slots__ = ("latitude", "longitude")
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     LONGITUDE_FIELD_NUMBER: _ClassVar[int]
     latitude: float
@@ -74,7 +74,7 @@ class GeoCoordinate(_message.Message):
     def __init__(self, latitude: _Optional[float] = ..., longitude: _Optional[float] = ...) -> None: ...
 
 class Metrics(_message.Message):
-    __slots__ = ["detection_inference_time_us", "tracking_inference_time_us"]
+    __slots__ = ("detection_inference_time_us", "tracking_inference_time_us")
     DETECTION_INFERENCE_TIME_US_FIELD_NUMBER: _ClassVar[int]
     TRACKING_INFERENCE_TIME_US_FIELD_NUMBER: _ClassVar[int]
     detection_inference_time_us: int
