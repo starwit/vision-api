@@ -1,6 +1,6 @@
 # Vision API repository
 
-This repo conains the main data model for the Starwit Awareness Engine (SAE). See umbrella repo here: https://github.com/starwit/vision-pipeline-k8s
+This repo contains the main data model for the Starwit Awareness Engine (SAE). See umbrella repo here: https://github.com/starwit/starwit-awareness-engine
 
 ## How-To Use
 ### Java / Maven
@@ -49,7 +49,7 @@ This repo conains the main data model for the Starwit Awareness Engine (SAE). Se
     <dependency>
       <groupId>de.starwit</groupId>
       <artifactId>vision-api</artifactId>
-      <version>1.0.0</version>
+      <version>2.0.1</version>
     </dependency>
     ```
 
