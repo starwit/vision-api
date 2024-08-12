@@ -30,6 +30,7 @@ message Detection {
   uint32 class_id = 3;
   bytes object_id = 4;
   GeoCoordinate geo_coordinate = 5;
+  Point detection_center = 6; 
 }
 
 message BoundingBox {
@@ -42,6 +43,36 @@ message BoundingBox {
 message GeoCoordinate {
   double latitude = 1;
   double longitude = 2;
+}
+
+message Point {
+  float x = 1;
+  float y = 2;
+}
+
+//how to realize different approaches?
+message AnomalyMessage {
+  repeated AnomalyFrame anomalyframes = 1;
+  //wollen wir das nochmal speichern?
+  uint64 timestamp_utc_ms = 2;
+  ModelInfo model_info = 3;
+  //in and out message?
+  string video_url = 4;
+}
+
+//trajectory angle
+//scaling factor?
+//name???
+//eine Anomalie, mehrere Objekte?
+message AnomalyFrame {
+  uint64 timestamp_utc_ms = 1;
+  bytes frame_data_jpeg = 2;
+  repeated Detection detections = 3;
+}
+
+message ModelInfo {
+  string name = 1;
+  string version = 2;
 }
 
 message Metrics {
