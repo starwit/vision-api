@@ -30,7 +30,6 @@ message Detection {
   uint32 class_id = 3;
   bytes object_id = 4;
   GeoCoordinate geo_coordinate = 5;
-  Point detection_center = 6; 
 }
 
 message BoundingBox {
