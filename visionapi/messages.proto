@@ -50,24 +50,34 @@ message Point {
   float y = 2;
 }
 
-//how to realize different approaches?
-message AnomalyMessage {
-  repeated AnomalyFrame anomalyframes = 1;
-  //wollen wir das nochmal speichern?
-  uint64 timestamp_utc_ms = 2;
+message AiCockpitMessage {
+  uint64 timestamp_utc_ms = 1;
+  string media_url = 2;
   ModelInfo model_info = 3;
-  //in and out message?
-  string video_url = 4;
 }
 
-//trajectory angle
-//scaling factor?
-//name???
-//eine Anomalie, mehrere Objekte?
-message AnomalyFrame {
+message AnomalyMessage {
+  repeated JpegFrame jpeg_frames = 1;
+  repeated Trajectory trajectories = 2;
+  ModelInfo model_info = 3;
+}
+
+message JpegFrame {
   uint64 timestamp_utc_ms = 1;
   bytes frame_data_jpeg = 2;
-  repeated Detection detections = 3;
+}
+
+message Trajectory {
+  repeated TrajectoryPoint trajectory_points = 1;
+  uint32 class_id = 2;
+  bytes object_id = 3;
+}
+
+message TrajectoryPoint {
+  uint64 timestamp_utc_ms = 1;
+  GeoCoordinate geo_coordinate = 2;
+  Point detection_center = 3;
+  bool anomaly_trigger = 4;
 }
 
 message ModelInfo {
