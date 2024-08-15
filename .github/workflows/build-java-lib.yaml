@@ -18,6 +18,6 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         working-directory: java/visionapi
-        run: mvn --batch-mode deploy
+        run: echo $GITHUB_TOKEN; mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
