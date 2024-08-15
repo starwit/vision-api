@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class AiCockpitMessage(_message.Message):
+class IncidentMessage(_message.Message):
     __slots__ = ("timestamp_utc_ms", "media_url", "model_info")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     MEDIA_URL_FIELD_NUMBER: _ClassVar[int]

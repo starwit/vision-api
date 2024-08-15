@@ -6,7 +6,7 @@ option java_package = "de.starwit.visionapi";
 
 import "visionapi/common.proto";
 
-message AiCockpitMessage {
+message IncidentMessage {
   uint64 timestamp_utc_ms = 1;
   string media_url = 2;
   ModelInfo model_info = 3;
