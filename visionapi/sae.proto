@@ -4,6 +4,8 @@ package visionapi;
 
 option java_package = "de.starwit.visionapi";
 
+import "visionapi/common.proto";
+
 message SaeMessage {
   VideoFrame frame = 1;
   repeated Detection detections = 2;
@@ -37,11 +39,6 @@ message BoundingBox {
   float min_y = 2;
   float max_x = 3;
   float max_y = 4;
-}
-
-message GeoCoordinate {
-  double latitude = 1;
-  double longitude = 2;
 }
 
 message Metrics {

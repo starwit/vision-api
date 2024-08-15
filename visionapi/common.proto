@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package visionapi;
+
+option java_package = "de.starwit.visionapi";
+
+message ModelInfo {
+  string name = 1;
+  string version = 2;
+}
+
+message GeoCoordinate {
+  double latitude = 1;
+  double longitude = 2;
+}
