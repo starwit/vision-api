@@ -49,7 +49,7 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     <dependency>
       <groupId>de.starwit</groupId>
       <artifactId>vision-api</artifactId>
-      <version>2.0.1</version>
+      <version>3.0.0</version>
     </dependency>
     ```
 

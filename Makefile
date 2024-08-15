@@ -13,10 +13,6 @@ python:
 	protoc -I=. --python_out=python/visionapi/ --pyi_out=python/visionapi/ visionapi/*.proto
 	(cd python/visionapi && poetry version $(VERSION))
 
-rust:
-	(cd rust/visionapi && cargo build)
-	sed -ri "s/version = \"[0-9\.]+\"/version = \"$(VERSION)\"/" rust/visionapi/Cargo.toml
-
 java:
 	protoc -I=. --java_out=java/visionapi/src/main/java/ visionapi/*.proto
 	(cd java/visionapi && mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$(VERSION))
