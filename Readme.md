@@ -49,15 +49,16 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     <dependency>
       <groupId>de.starwit</groupId>
       <artifactId>vision-api</artifactId>
-      <version>3.0.0</version>
+      <version>3.1.0</version>
     </dependency>
     ```
 
 ## How-To Update
 1. Make desired changes in `./visionapi`
-2. Run `make`
-3. Make sure that there are no old leftover files in the generated projects
-4. Commit, tag with version and push
+2. Increase version in `./VERSION`
+3. Run `make`
+4. Make sure that there are no old leftover files in the generated projects
+5. Commit, tag with version and push
     ```
     // Commit stuff, like git add, git commit and such
     git tag <version_tag>
@@ -68,3 +69,10 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 ## Tools & Setup
 ProtoBuf compiler can be downloaded here:
 https://github.com/protocolbuffers/protobuf/releases
+
+## Changelog
+### 3.1.0
+- Add camera location field to all messages (as type `GeoCoordinate`)
+    - Add `SaeMessage.frame.camera_location`
+    - Add `AnomalyMessage.camera_location`
+    - Add `IncidentMessage.camera_location`

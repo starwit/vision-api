@@ -17,18 +17,20 @@ class SaeMessage(_message.Message):
     def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
-    __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg")
+    __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location")
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     SHAPE_FIELD_NUMBER: _ClassVar[int]
     FRAME_DATA_FIELD_NUMBER: _ClassVar[int]
     FRAME_DATA_JPEG_FIELD_NUMBER: _ClassVar[int]
+    CAMERA_LOCATION_FIELD_NUMBER: _ClassVar[int]
     source_id: str
     timestamp_utc_ms: int
     shape: Shape
     frame_data: bytes
     frame_data_jpeg: bytes
-    def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ..., frame_data_jpeg: _Optional[bytes] = ...) -> None: ...
+    camera_location: _common_pb2.GeoCoordinate
+    def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ..., frame_data_jpeg: _Optional[bytes] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
 
 class Shape(_message.Message):
     __slots__ = ("height", "width", "channels")

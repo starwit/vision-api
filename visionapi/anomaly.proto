@@ -10,6 +10,7 @@ message AnomalyMessage {
   repeated JpegFrame jpeg_frames = 1;
   repeated Trajectory trajectories = 2;
   ModelInfo model_info = 3;
+  GeoCoordinate camera_location = 4;
 }
 
 message JpegFrame {

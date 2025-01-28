@@ -1,12 +1,11 @@
 VERSION := $(shell cat VERSION)
 
-.PHONY: all python rust java
+.PHONY: all python java
 
-all: clean python rust java
+all: clean python java
 
 clean:
 	rm -f python/visionapi/visionapi/*pb2.py*
-	rm -f rust/visionapi/src/messages.rs
 	rm -f java/visionapi/src/main/java/de/starwit/visionapi/*.java
 
 python:

@@ -7,14 +7,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AnomalyMessage(_message.Message):
-    __slots__ = ("jpeg_frames", "trajectories", "model_info")
+    __slots__ = ("jpeg_frames", "trajectories", "model_info", "camera_location")
     JPEG_FRAMES_FIELD_NUMBER: _ClassVar[int]
     TRAJECTORIES_FIELD_NUMBER: _ClassVar[int]
     MODEL_INFO_FIELD_NUMBER: _ClassVar[int]
+    CAMERA_LOCATION_FIELD_NUMBER: _ClassVar[int]
     jpeg_frames: _containers.RepeatedCompositeFieldContainer[JpegFrame]
     trajectories: _containers.RepeatedCompositeFieldContainer[Trajectory]
     model_info: _common_pb2.ModelInfo
-    def __init__(self, jpeg_frames: _Optional[_Iterable[_Union[JpegFrame, _Mapping]]] = ..., trajectories: _Optional[_Iterable[_Union[Trajectory, _Mapping]]] = ..., model_info: _Optional[_Union[_common_pb2.ModelInfo, _Mapping]] = ...) -> None: ...
+    camera_location: _common_pb2.GeoCoordinate
+    def __init__(self, jpeg_frames: _Optional[_Iterable[_Union[JpegFrame, _Mapping]]] = ..., trajectories: _Optional[_Iterable[_Union[Trajectory, _Mapping]]] = ..., model_info: _Optional[_Union[_common_pb2.ModelInfo, _Mapping]] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
 
 class JpegFrame(_message.Message):
     __slots__ = ("timestamp_utc_ms", "frame_data_jpeg")

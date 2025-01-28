@@ -60,6 +60,21 @@ public final class Reporting {
      * <code>.visionapi.ModelInfo model_info = 3;</code>
      */
     de.starwit.visionapi.Common.ModelInfoOrBuilder getModelInfoOrBuilder();
+
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     * @return Whether the cameraLocation field is set.
+     */
+    boolean hasCameraLocation();
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     * @return The cameraLocation.
+     */
+    de.starwit.visionapi.Common.GeoCoordinate getCameraLocation();
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     */
+    de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder();
   }
   /**
    * Protobuf type {@code visionapi.IncidentMessage}
@@ -176,6 +191,32 @@ public final class Reporting {
       return modelInfo_ == null ? de.starwit.visionapi.Common.ModelInfo.getDefaultInstance() : modelInfo_;
     }
 
+    public static final int CAMERA_LOCATION_FIELD_NUMBER = 4;
+    private de.starwit.visionapi.Common.GeoCoordinate cameraLocation_;
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     * @return Whether the cameraLocation field is set.
+     */
+    @java.lang.Override
+    public boolean hasCameraLocation() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     * @return The cameraLocation.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinate getCameraLocation() {
+      return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder() {
+      return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -199,6 +240,9 @@ public final class Reporting {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(3, getModelInfo());
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(4, getCameraLocation());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -218,6 +262,10 @@ public final class Reporting {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getModelInfo());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getCameraLocation());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -243,6 +291,11 @@ public final class Reporting {
         if (!getModelInfo()
             .equals(other.getModelInfo())) return false;
       }
+      if (hasCameraLocation() != other.hasCameraLocation()) return false;
+      if (hasCameraLocation()) {
+        if (!getCameraLocation()
+            .equals(other.getCameraLocation())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -262,6 +315,10 @@ public final class Reporting {
       if (hasModelInfo()) {
         hash = (37 * hash) + MODEL_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getModelInfo().hashCode();
+      }
+      if (hasCameraLocation()) {
+        hash = (37 * hash) + CAMERA_LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getCameraLocation().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -394,6 +451,7 @@ public final class Reporting {
         if (com.google.protobuf.GeneratedMessage
                 .alwaysUseFieldBuilders) {
           getModelInfoFieldBuilder();
+          getCameraLocationFieldBuilder();
         }
       }
       @java.lang.Override
@@ -406,6 +464,11 @@ public final class Reporting {
         if (modelInfoBuilder_ != null) {
           modelInfoBuilder_.dispose();
           modelInfoBuilder_ = null;
+        }
+        cameraLocation_ = null;
+        if (cameraLocationBuilder_ != null) {
+          cameraLocationBuilder_.dispose();
+          cameraLocationBuilder_ = null;
         }
         return this;
       }
@@ -453,6 +516,12 @@ public final class Reporting {
               : modelInfoBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.cameraLocation_ = cameraLocationBuilder_ == null
+              ? cameraLocation_
+              : cameraLocationBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -478,6 +547,9 @@ public final class Reporting {
         }
         if (other.hasModelInfo()) {
           mergeModelInfo(other.getModelInfo());
+        }
+        if (other.hasCameraLocation()) {
+          mergeCameraLocation(other.getCameraLocation());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -522,6 +594,13 @@ public final class Reporting {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
+              case 34: {
+                input.readMessage(
+                    getCameraLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -764,6 +843,127 @@ public final class Reporting {
         return modelInfoBuilder_;
       }
 
+      private de.starwit.visionapi.Common.GeoCoordinate cameraLocation_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> cameraLocationBuilder_;
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       * @return Whether the cameraLocation field is set.
+       */
+      public boolean hasCameraLocation() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       * @return The cameraLocation.
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate getCameraLocation() {
+        if (cameraLocationBuilder_ == null) {
+          return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
+        } else {
+          return cameraLocationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public Builder setCameraLocation(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (cameraLocationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cameraLocation_ = value;
+        } else {
+          cameraLocationBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public Builder setCameraLocation(
+          de.starwit.visionapi.Common.GeoCoordinate.Builder builderForValue) {
+        if (cameraLocationBuilder_ == null) {
+          cameraLocation_ = builderForValue.build();
+        } else {
+          cameraLocationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public Builder mergeCameraLocation(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (cameraLocationBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+            cameraLocation_ != null &&
+            cameraLocation_ != de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance()) {
+            getCameraLocationBuilder().mergeFrom(value);
+          } else {
+            cameraLocation_ = value;
+          }
+        } else {
+          cameraLocationBuilder_.mergeFrom(value);
+        }
+        if (cameraLocation_ != null) {
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public Builder clearCameraLocation() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        cameraLocation_ = null;
+        if (cameraLocationBuilder_ != null) {
+          cameraLocationBuilder_.dispose();
+          cameraLocationBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate.Builder getCameraLocationBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getCameraLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder() {
+        if (cameraLocationBuilder_ != null) {
+          return cameraLocationBuilder_.getMessageOrBuilder();
+        } else {
+          return cameraLocation_ == null ?
+              de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> 
+          getCameraLocationFieldBuilder() {
+        if (cameraLocationBuilder_ == null) {
+          cameraLocationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder>(
+                  getCameraLocation(),
+                  getParentForChildren(),
+                  isClean());
+          cameraLocation_ = null;
+        }
+        return cameraLocationBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:visionapi.IncidentMessage)
     }
 
@@ -830,10 +1030,12 @@ public final class Reporting {
   static {
     java.lang.String[] descriptorData = {
       "\n\031visionapi/reporting.proto\022\tvisionapi\032\026" +
-      "visionapi/common.proto\"h\n\017IncidentMessag" +
-      "e\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\021\n\tmedia_url" +
-      "\030\002 \001(\t\022(\n\nmodel_info\030\003 \001(\0132\024.visionapi.M" +
-      "odelInfoB\026\n\024de.starwit.visionapib\006proto3"
+      "visionapi/common.proto\"\233\001\n\017IncidentMessa" +
+      "ge\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\021\n\tmedia_ur" +
+      "l\030\002 \001(\t\022(\n\nmodel_info\030\003 \001(\0132\024.visionapi." +
+      "ModelInfo\0221\n\017camera_location\030\004 \001(\0132\030.vis" +
+      "ionapi.GeoCoordinateB\026\n\024de.starwit.visio" +
+      "napib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -845,7 +1047,7 @@ public final class Reporting {
     internal_static_visionapi_IncidentMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_IncidentMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "MediaUrl", "ModelInfo", });
+        new java.lang.String[] { "TimestampUtcMs", "MediaUrl", "ModelInfo", "CameraLocation", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

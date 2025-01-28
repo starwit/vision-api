@@ -18,6 +18,7 @@ message VideoFrame {
   Shape shape = 3;
   bytes frame_data = 4;
   bytes frame_data_jpeg = 5;
+  GeoCoordinate camera_location = 6;
 }
 
 message Shape {
