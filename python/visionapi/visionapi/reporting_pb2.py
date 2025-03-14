@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from visionapi import common_pb2 as visionapi_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19visionapi/reporting.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\x9b\x01\n\x0fIncidentMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x11\n\tmedia_url\x18\x02 \x01(\t\x12(\n\nmodel_info\x18\x03 \x01(\x0b\x32\x14.visionapi.ModelInfo\x12\x31\n\x0f\x63\x61mera_location\x18\x04 \x01(\x0b\x32\x18.visionapi.GeoCoordinateB\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19visionapi/reporting.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\xae\x01\n\x0fIncidentMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x11\n\tmedia_url\x18\x02 \x01(\t\x12(\n\nmodel_info\x18\x03 \x01(\x0b\x32\x14.visionapi.ModelInfo\x12\x31\n\x0f\x63\x61mera_location\x18\x04 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x11\n\tsource_id\x18\x05 \x01(\tB\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,5 +24,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024de.starwit.visionapi'
   _globals['_INCIDENTMESSAGE']._serialized_start=65
-  _globals['_INCIDENTMESSAGE']._serialized_end=220
+  _globals['_INCIDENTMESSAGE']._serialized_end=239
 # @@protoc_insertion_point(module_scope)

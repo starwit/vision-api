@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from visionapi import common_pb2 as visionapi_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17visionapi/anomaly.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\xc5\x01\n\x0e\x41nomalyMessage\x12)\n\x0bjpeg_frames\x18\x01 \x03(\x0b\x32\x14.visionapi.JpegFrame\x12+\n\x0ctrajectories\x18\x02 \x03(\x0b\x32\x15.visionapi.Trajectory\x12(\n\nmodel_info\x18\x03 \x01(\x0b\x32\x14.visionapi.ModelInfo\x12\x31\n\x0f\x63\x61mera_location\x18\x04 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\">\n\tJpegFrame\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x17\n\x0f\x66rame_data_jpeg\x18\x02 \x01(\x0c\"h\n\nTrajectory\x12\x35\n\x11trajectory_points\x18\x01 \x03(\x0b\x32\x1a.visionapi.TrajectoryPoint\x12\x10\n\x08\x63lass_id\x18\x02 \x01(\r\x12\x11\n\tobject_id\x18\x03 \x01(\x0c\"\xa2\x01\n\x0fTrajectoryPoint\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x30\n\x0egeo_coordinate\x18\x02 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12*\n\x10\x64\x65tection_center\x18\x03 \x01(\x0b\x32\x10.visionapi.Point\x12\x17\n\x0f\x61nomaly_trigger\x18\x04 \x01(\x08\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17visionapi/anomaly.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\xd8\x01\n\x0e\x41nomalyMessage\x12)\n\x0bjpeg_frames\x18\x01 \x03(\x0b\x32\x14.visionapi.JpegFrame\x12+\n\x0ctrajectories\x18\x02 \x03(\x0b\x32\x15.visionapi.Trajectory\x12(\n\nmodel_info\x18\x03 \x01(\x0b\x32\x14.visionapi.ModelInfo\x12\x31\n\x0f\x63\x61mera_location\x18\x04 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x11\n\tsource_id\x18\x05 \x01(\t\">\n\tJpegFrame\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x17\n\x0f\x66rame_data_jpeg\x18\x02 \x01(\x0c\"h\n\nTrajectory\x12\x35\n\x11trajectory_points\x18\x01 \x03(\x0b\x32\x1a.visionapi.TrajectoryPoint\x12\x10\n\x08\x63lass_id\x18\x02 \x01(\r\x12\x11\n\tobject_id\x18\x03 \x01(\x0c\"\xa2\x01\n\x0fTrajectoryPoint\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x30\n\x0egeo_coordinate\x18\x02 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12*\n\x10\x64\x65tection_center\x18\x03 \x01(\x0b\x32\x10.visionapi.Point\x12\x17\n\x0f\x61nomaly_trigger\x18\x04 \x01(\x08\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,13 +24,13 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024de.starwit.visionapi'
   _globals['_ANOMALYMESSAGE']._serialized_start=63
-  _globals['_ANOMALYMESSAGE']._serialized_end=260
-  _globals['_JPEGFRAME']._serialized_start=262
-  _globals['_JPEGFRAME']._serialized_end=324
-  _globals['_TRAJECTORY']._serialized_start=326
-  _globals['_TRAJECTORY']._serialized_end=430
-  _globals['_TRAJECTORYPOINT']._serialized_start=433
-  _globals['_TRAJECTORYPOINT']._serialized_end=595
-  _globals['_POINT']._serialized_start=597
-  _globals['_POINT']._serialized_end=626
+  _globals['_ANOMALYMESSAGE']._serialized_end=279
+  _globals['_JPEGFRAME']._serialized_start=281
+  _globals['_JPEGFRAME']._serialized_end=343
+  _globals['_TRAJECTORY']._serialized_start=345
+  _globals['_TRAJECTORY']._serialized_end=449
+  _globals['_TRAJECTORYPOINT']._serialized_start=452
+  _globals['_TRAJECTORYPOINT']._serialized_end=614
+  _globals['_POINT']._serialized_start=616
+  _globals['_POINT']._serialized_end=645
 # @@protoc_insertion_point(module_scope)

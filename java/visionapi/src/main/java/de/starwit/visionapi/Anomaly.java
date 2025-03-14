@@ -105,6 +105,18 @@ public final class Anomaly {
      * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
      */
     de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder();
+
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The sourceId.
+     */
+    java.lang.String getSourceId();
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
+        getSourceIdBytes();
   }
   /**
    * Protobuf type {@code visionapi.AnomalyMessage}
@@ -130,6 +142,7 @@ public final class Anomaly {
     private AnomalyMessage() {
       jpegFrames_ = java.util.Collections.emptyList();
       trajectories_ = java.util.Collections.emptyList();
+      sourceId_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -280,6 +293,45 @@ public final class Anomaly {
       return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
     }
 
+    public static final int SOURCE_ID_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceId_ = "";
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The sourceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSourceId() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sourceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -306,6 +358,9 @@ public final class Anomaly {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(4, getCameraLocation());
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, sourceId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -330,6 +385,9 @@ public final class Anomaly {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getCameraLocation());
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, sourceId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -360,6 +418,8 @@ public final class Anomaly {
         if (!getCameraLocation()
             .equals(other.getCameraLocation())) return false;
       }
+      if (!getSourceId()
+          .equals(other.getSourceId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -387,6 +447,8 @@ public final class Anomaly {
         hash = (37 * hash) + CAMERA_LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getCameraLocation().hashCode();
       }
+      hash = (37 * hash) + SOURCE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSourceId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -551,6 +613,7 @@ public final class Anomaly {
           cameraLocationBuilder_.dispose();
           cameraLocationBuilder_ = null;
         }
+        sourceId_ = "";
         return this;
       }
 
@@ -618,6 +681,9 @@ public final class Anomaly {
               ? cameraLocation_
               : cameraLocationBuilder_.build();
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.sourceId_ = sourceId_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -692,6 +758,11 @@ public final class Anomaly {
         if (other.hasCameraLocation()) {
           mergeCameraLocation(other.getCameraLocation());
         }
+        if (!other.getSourceId().isEmpty()) {
+          sourceId_ = other.sourceId_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -758,6 +829,11 @@ public final class Anomaly {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 42: {
+                sourceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1495,6 +1571,78 @@ public final class Anomaly {
           cameraLocation_ = null;
         }
         return cameraLocationBuilder_;
+      }
+
+      private java.lang.Object sourceId_ = "";
+      /**
+       * <code>string source_id = 5;</code>
+       * @return The sourceId.
+       */
+      public java.lang.String getSourceId() {
+        java.lang.Object ref = sourceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sourceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @return The bytes for sourceId.
+       */
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        java.lang.Object ref = sourceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sourceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @param value The sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        sourceId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSourceId() {
+        sourceId_ = getDefaultInstance().getSourceId();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        sourceId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:visionapi.AnomalyMessage)
@@ -4402,22 +4550,22 @@ public final class Anomaly {
   static {
     java.lang.String[] descriptorData = {
       "\n\027visionapi/anomaly.proto\022\tvisionapi\032\026vi" +
-      "sionapi/common.proto\"\305\001\n\016AnomalyMessage\022" +
+      "sionapi/common.proto\"\330\001\n\016AnomalyMessage\022" +
       ")\n\013jpeg_frames\030\001 \003(\0132\024.visionapi.JpegFra" +
       "me\022+\n\014trajectories\030\002 \003(\0132\025.visionapi.Tra" +
       "jectory\022(\n\nmodel_info\030\003 \001(\0132\024.visionapi." +
       "ModelInfo\0221\n\017camera_location\030\004 \001(\0132\030.vis" +
-      "ionapi.GeoCoordinate\">\n\tJpegFrame\022\030\n\020tim" +
-      "estamp_utc_ms\030\001 \001(\004\022\027\n\017frame_data_jpeg\030\002" +
-      " \001(\014\"h\n\nTrajectory\0225\n\021trajectory_points\030" +
-      "\001 \003(\0132\032.visionapi.TrajectoryPoint\022\020\n\010cla" +
-      "ss_id\030\002 \001(\r\022\021\n\tobject_id\030\003 \001(\014\"\242\001\n\017Traje" +
-      "ctoryPoint\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0220\n\016" +
-      "geo_coordinate\030\002 \001(\0132\030.visionapi.GeoCoor" +
-      "dinate\022*\n\020detection_center\030\003 \001(\0132\020.visio" +
-      "napi.Point\022\027\n\017anomaly_trigger\030\004 \001(\010\"\035\n\005P" +
-      "oint\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002B\026\n\024de.starwit" +
-      ".visionapib\006proto3"
+      "ionapi.GeoCoordinate\022\021\n\tsource_id\030\005 \001(\t\"" +
+      ">\n\tJpegFrame\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\027" +
+      "\n\017frame_data_jpeg\030\002 \001(\014\"h\n\nTrajectory\0225\n" +
+      "\021trajectory_points\030\001 \003(\0132\032.visionapi.Tra" +
+      "jectoryPoint\022\020\n\010class_id\030\002 \001(\r\022\021\n\tobject" +
+      "_id\030\003 \001(\014\"\242\001\n\017TrajectoryPoint\022\030\n\020timesta" +
+      "mp_utc_ms\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132" +
+      "\030.visionapi.GeoCoordinate\022*\n\020detection_c" +
+      "enter\030\003 \001(\0132\020.visionapi.Point\022\027\n\017anomaly" +
+      "_trigger\030\004 \001(\010\"\035\n\005Point\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030" +
+      "\002 \001(\002B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4429,7 +4577,7 @@ public final class Anomaly {
     internal_static_visionapi_AnomalyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_AnomalyMessage_descriptor,
-        new java.lang.String[] { "JpegFrames", "Trajectories", "ModelInfo", "CameraLocation", });
+        new java.lang.String[] { "JpegFrames", "Trajectories", "ModelInfo", "CameraLocation", "SourceId", });
     internal_static_visionapi_JpegFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_JpegFrame_fieldAccessorTable = new

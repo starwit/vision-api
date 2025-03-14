@@ -75,6 +75,18 @@ public final class Reporting {
      * <code>.visionapi.GeoCoordinate camera_location = 4;</code>
      */
     de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder();
+
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The sourceId.
+     */
+    java.lang.String getSourceId();
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
+        getSourceIdBytes();
   }
   /**
    * Protobuf type {@code visionapi.IncidentMessage}
@@ -99,6 +111,7 @@ public final class Reporting {
     }
     private IncidentMessage() {
       mediaUrl_ = "";
+      sourceId_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -217,6 +230,45 @@ public final class Reporting {
       return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
     }
 
+    public static final int SOURCE_ID_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceId_ = "";
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The sourceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSourceId() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sourceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string source_id = 5;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      java.lang.Object ref = sourceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sourceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -243,6 +295,9 @@ public final class Reporting {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(4, getCameraLocation());
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, sourceId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -266,6 +321,9 @@ public final class Reporting {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getCameraLocation());
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, sourceId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -296,6 +354,8 @@ public final class Reporting {
         if (!getCameraLocation()
             .equals(other.getCameraLocation())) return false;
       }
+      if (!getSourceId()
+          .equals(other.getSourceId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -320,6 +380,8 @@ public final class Reporting {
         hash = (37 * hash) + CAMERA_LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getCameraLocation().hashCode();
       }
+      hash = (37 * hash) + SOURCE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSourceId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -470,6 +532,7 @@ public final class Reporting {
           cameraLocationBuilder_.dispose();
           cameraLocationBuilder_ = null;
         }
+        sourceId_ = "";
         return this;
       }
 
@@ -522,6 +585,9 @@ public final class Reporting {
               : cameraLocationBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.sourceId_ = sourceId_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -550,6 +616,11 @@ public final class Reporting {
         }
         if (other.hasCameraLocation()) {
           mergeCameraLocation(other.getCameraLocation());
+        }
+        if (!other.getSourceId().isEmpty()) {
+          sourceId_ = other.sourceId_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -601,6 +672,11 @@ public final class Reporting {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 42: {
+                sourceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -964,6 +1040,78 @@ public final class Reporting {
         return cameraLocationBuilder_;
       }
 
+      private java.lang.Object sourceId_ = "";
+      /**
+       * <code>string source_id = 5;</code>
+       * @return The sourceId.
+       */
+      public java.lang.String getSourceId() {
+        java.lang.Object ref = sourceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sourceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @return The bytes for sourceId.
+       */
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        java.lang.Object ref = sourceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sourceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @param value The sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        sourceId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSourceId() {
+        sourceId_ = getDefaultInstance().getSourceId();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string source_id = 5;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        sourceId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:visionapi.IncidentMessage)
     }
 
@@ -1030,12 +1178,12 @@ public final class Reporting {
   static {
     java.lang.String[] descriptorData = {
       "\n\031visionapi/reporting.proto\022\tvisionapi\032\026" +
-      "visionapi/common.proto\"\233\001\n\017IncidentMessa" +
+      "visionapi/common.proto\"\256\001\n\017IncidentMessa" +
       "ge\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\021\n\tmedia_ur" +
       "l\030\002 \001(\t\022(\n\nmodel_info\030\003 \001(\0132\024.visionapi." +
       "ModelInfo\0221\n\017camera_location\030\004 \001(\0132\030.vis" +
-      "ionapi.GeoCoordinateB\026\n\024de.starwit.visio" +
-      "napib\006proto3"
+      "ionapi.GeoCoordinate\022\021\n\tsource_id\030\005 \001(\tB" +
+      "\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1047,7 +1195,7 @@ public final class Reporting {
     internal_static_visionapi_IncidentMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_IncidentMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "MediaUrl", "ModelInfo", "CameraLocation", });
+        new java.lang.String[] { "TimestampUtcMs", "MediaUrl", "ModelInfo", "CameraLocation", "SourceId", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

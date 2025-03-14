@@ -11,4 +11,5 @@ message IncidentMessage {
   string media_url = 2;
   ModelInfo model_info = 3;
   GeoCoordinate camera_location = 4;
+  string source_id = 5;
 }
