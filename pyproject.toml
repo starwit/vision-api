@@ -1,15 +1,18 @@
+package-mode = false
+
 [tool.poetry]
-name = "visionapi"
+name = "visionapi-make"
 version = "3.2.1"
 description = ""
-authors = ["flonix8 <flstanek@googlemail.com>"]
+authors = ["Anett Huebner <info@starwit.de>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-protobuf = "^4.23.0"
+protoc-wrapper = "^31.1.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+

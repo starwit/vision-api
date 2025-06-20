@@ -6,7 +6,7 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 
 ### Python / Poetry
 - Add the following to your `pyproject.toml` dependencies section\
-    `visionapi = { git = "https://github.com/starwit/vision-api.git", subdirectory = "python/visionapi", tag = "3.2.0" }`
+    `visionapi = { git = "https://github.com/starwit/vision-api.git", subdirectory = "python/visionapi", tag = "3.2.1" }`
     
 ### Java / Maven
 - Add dependency to your project:
@@ -14,7 +14,7 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     <dependency>
       <groupId>de.starwit</groupId>
       <artifactId>vision-api</artifactId>
-      <version>3.2.0</version>
+      <version>3.2.1</version>
     </dependency>
     ```
 - Add maven repository to your `~/.m2/settings.xml` (adapt example / your config as necessary):
@@ -58,6 +58,14 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 
     ```
 
+## Tools & Setup
+
+* Create virtual environment with python3 -m venv .venv && source .venv/bin/activate
+* Run poetry install, this should install all necessary dependencies
+
+or: ProtoBuf compiler can be downloaded here:
+https://github.com/protocolbuffers/protobuf/releases
+
 ## How-To Update
 1. Make desired changes in `./visionapi`
 2. Increase version in `./VERSION`
@@ -71,10 +79,6 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     git push
     git push <version_tag>
     ```
-
-## Tools & Setup
-ProtoBuf compiler can be downloaded here:
-https://github.com/protocolbuffers/protobuf/releases
 
 ## Changelog
 ### 3.2.0
