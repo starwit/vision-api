@@ -81,6 +81,9 @@ https://github.com/protocolbuffers/protobuf/releases
     ```
 
 ## Changelog
+### 3.2.1
+- Add `DetectionCountMessage` to summarize detection data
+
 ### 3.2.0
 - Add `source_id` to messages (to distinguish which source the messages are generated from)
     - Add `IncidentMessage.source_id`
