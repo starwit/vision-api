@@ -31,12 +31,9 @@ jobs:
       with:
         fetch-depth: '0'
 
-    - run: | 
-        ls -al >> $GITHUB_STEP_SUMMARY
-        if [ -d "java/visionapi" ]; then
-          cd java/visionapi
-          mvn clean install
-        fi
+    - run: mvn --version
 
-
-
+    - name: java mvn build
+      run: | 
+        cd java/visionapi
+        mvn clean install
