@@ -26,6 +26,11 @@ jobs:
       with:
          maven-version: 3.9.2        
 
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
     - run: | 
         ls -al >> $GITHUB_STEP_SUMMARY
         if [ -d "java/visionapi" ]; then
