@@ -5,7 +5,6 @@
 
 package de.starwit.visionapi;
 
-@com.google.protobuf.Generated
 public final class Sae {
   private Sae() {}
   static {
