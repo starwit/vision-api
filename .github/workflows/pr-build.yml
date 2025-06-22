@@ -27,6 +27,7 @@ jobs:
          maven-version: 3.9.2        
 
     - run: | 
+        ls -al
         if [ -d "java/visionapi" ]; then
           cd java/visionapi
           mvn clean install
