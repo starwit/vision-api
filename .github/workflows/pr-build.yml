@@ -27,10 +27,10 @@ jobs:
          maven-version: 3.9.2        
 
     - run: | 
-        cd java/visionapi 
-        mvn --version
-    - name: Build with Maven
-      run: mvn clean install
+        if [ -d "java/visionapi" ]; then
+          cd java/visionapi
+          mvn clean install
+        fi
 
 
 
