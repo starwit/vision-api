@@ -5,6 +5,7 @@
 
 package de.starwit.visionapi;
 
+@com.google.protobuf.Generated
 public final class Reporting {
   private Reporting() {}
   static {
