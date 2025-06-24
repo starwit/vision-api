@@ -1,11 +1,10 @@
-package-mode = false
-
 [tool.poetry]
 name = "visionapi-make"
 version = "3.2.1"
 description = ""
 authors = ["Anett Huebner <info@starwit.de>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
