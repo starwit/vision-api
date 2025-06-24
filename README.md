@@ -60,8 +60,9 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 
 ## Tools & Setup
 
-* Create virtual environment with python3 -m venv .venv && source .venv/bin/activate
+* Prerequisites: the code was generated with Python >=3.12.5 and Poetry 2.1.3
 * Run `poetry install --no-root`, this should install all necessary dependencies
+* execut `source .venv/bin/activate`
 
 or: ProtoBuf compiler can be downloaded here:
 https://github.com/protocolbuffers/protobuf/releases
