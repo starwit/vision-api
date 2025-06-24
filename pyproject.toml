@@ -8,7 +8,7 @@ authors = ["Anett Huebner <info@starwit.de>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 protoc-wrapper = "^31.1.0"
 
 
