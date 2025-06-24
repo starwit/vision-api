@@ -60,12 +60,12 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 
 ## Tools & Setup
 
-* Prerequisites: the code was generated with Python >=3.12.5 and Poetry 2.1.3
-* Run `poetry install --no-root`, this should install all necessary dependencies
-* execut `source .venv/bin/activate`
-
-or: ProtoBuf compiler can be downloaded here:
-https://github.com/protocolbuffers/protobuf/releases
+* Install protoc via pipx:
+    ```
+    sudo apt install pipx
+    pipx install protoc-wrapper==31.1.0
+    ```
+* ! if youchange protoc version, you need to change protobuf version in `java\visionapi\pom.xml` and `python\visionapi\pyproject.toml`
 
 ## How-To Update
 1. Make desired changes in `./visionapi`
