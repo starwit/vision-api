@@ -17,5 +17,5 @@ java:
 	(cd java/visionapi && mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$(VERSION))
 
 readme:
-	sed -E 's|tag = "[0-9\.]+"|tag = "$(VERSION)"|' -i Readme.md
-	sed -E 's|<version>[0-9\.]+</version>|<version>$(VERSION)</version>|' -i Readme.md
+	sed -E 's|tag = "[0-9\.]+"|tag = "$(VERSION)"|' -i README.md
+	sed -E 's|<version>[0-9\.]+</version>|<version>$(VERSION)</version>|' -i README.md

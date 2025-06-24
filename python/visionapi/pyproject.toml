@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "visionapi"
-version = "3.2.0"
+version = "3.2.1"
 description = ""
 authors = ["flonix8 <flstanek@googlemail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-protobuf = "^4.23.0"
+protobuf = "6.31.1"
 
 
 [build-system]

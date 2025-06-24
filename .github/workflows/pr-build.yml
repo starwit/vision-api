@@ -1,0 +1,39 @@
+name: PR Build
+
+# PR build
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+
+# just runs Maven, NPM and Docker build
+jobs:
+  build:
+    name: "Install software"
+    runs-on: [self-hosted, linux, X64]
+
+    steps:
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 21
+
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v5
+      with:
+         maven-version: 3.9.2        
+
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
+    - run: mvn --version
+
+    - name: java mvn build
+      run: | 
+        cd java/visionapi
+        mvn clean install
