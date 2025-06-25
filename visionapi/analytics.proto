@@ -9,11 +9,11 @@ import "visionapi/common.proto";
 message DetectionCountMessage {
   uint64 timestamp_utc_ms = 1; //Zeitpunkt der Message-Erstellung, Zeitintervall wird in der Komponenten eingestellt
   repeated DetectionCount detection_counts = 2;
-  GeoCoordinate location = 3;
   bytes sae_uuid = 4;
 }
 
 message DetectionCount {
   uint32 class_id = 1;
-  uint32 count = 2;  
+  uint32 count = 2; 
+  GeoCoordinate location = 3; 
 }

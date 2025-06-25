@@ -65,21 +65,6 @@ public final class Analytics {
         int index);
 
     /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     * @return Whether the location field is set.
-     */
-    boolean hasLocation();
-    /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     * @return The location.
-     */
-    de.starwit.visionapi.Common.GeoCoordinate getLocation();
-    /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     */
-    de.starwit.visionapi.Common.GeoCoordinateOrBuilder getLocationOrBuilder();
-
-    /**
      * <code>bytes sae_uuid = 4;</code>
      * @return The saeUuid.
      */
@@ -124,7 +109,6 @@ public final class Analytics {
               de.starwit.visionapi.Analytics.DetectionCountMessage.class, de.starwit.visionapi.Analytics.DetectionCountMessage.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TIMESTAMP_UTC_MS_FIELD_NUMBER = 1;
     private long timestampUtcMs_ = 0L;
     /**
@@ -181,32 +165,6 @@ public final class Analytics {
       return detectionCounts_.get(index);
     }
 
-    public static final int LOCATION_FIELD_NUMBER = 3;
-    private de.starwit.visionapi.Common.GeoCoordinate location_;
-    /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     * @return Whether the location field is set.
-     */
-    @java.lang.Override
-    public boolean hasLocation() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     * @return The location.
-     */
-    @java.lang.Override
-    public de.starwit.visionapi.Common.GeoCoordinate getLocation() {
-      return location_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : location_;
-    }
-    /**
-     * <code>.visionapi.GeoCoordinate location = 3;</code>
-     */
-    @java.lang.Override
-    public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getLocationOrBuilder() {
-      return location_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : location_;
-    }
-
     public static final int SAE_UUID_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString saeUuid_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -238,9 +196,6 @@ public final class Analytics {
       for (int i = 0; i < detectionCounts_.size(); i++) {
         output.writeMessage(2, detectionCounts_.get(i));
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(3, getLocation());
-      }
       if (!saeUuid_.isEmpty()) {
         output.writeBytes(4, saeUuid_);
       }
@@ -260,10 +215,6 @@ public final class Analytics {
       for (int i = 0; i < detectionCounts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, detectionCounts_.get(i));
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getLocation());
       }
       if (!saeUuid_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
@@ -288,11 +239,6 @@ public final class Analytics {
           != other.getTimestampUtcMs()) return false;
       if (!getDetectionCountsList()
           .equals(other.getDetectionCountsList())) return false;
-      if (hasLocation() != other.hasLocation()) return false;
-      if (hasLocation()) {
-        if (!getLocation()
-            .equals(other.getLocation())) return false;
-      }
       if (!getSaeUuid()
           .equals(other.getSaeUuid())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -312,10 +258,6 @@ public final class Analytics {
       if (getDetectionCountsCount() > 0) {
         hash = (37 * hash) + DETECTION_COUNTS_FIELD_NUMBER;
         hash = (53 * hash) + getDetectionCountsList().hashCode();
-      }
-      if (hasLocation()) {
-        hash = (37 * hash) + LOCATION_FIELD_NUMBER;
-        hash = (53 * hash) + getLocation().hashCode();
       }
       hash = (37 * hash) + SAE_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getSaeUuid().hashCode();
@@ -438,20 +380,13 @@ public final class Analytics {
 
       // Construct using de.starwit.visionapi.Analytics.DetectionCountMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage
-                .alwaysUseFieldBuilders) {
-          internalGetDetectionCountsFieldBuilder();
-          internalGetLocationFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -465,11 +400,6 @@ public final class Analytics {
           detectionCountsBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        location_ = null;
-        if (locationBuilder_ != null) {
-          locationBuilder_.dispose();
-          locationBuilder_ = null;
-        }
         saeUuid_ = com.google.protobuf.ByteString.EMPTY;
         return this;
       }
@@ -520,17 +450,9 @@ public final class Analytics {
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.timestampUtcMs_ = timestampUtcMs_;
         }
-        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.location_ = locationBuilder_ == null
-              ? location_
-              : locationBuilder_.build();
-          to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.saeUuid_ = saeUuid_;
         }
-        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -573,9 +495,6 @@ public final class Analytics {
               detectionCountsBuilder_.addAllMessages(other.detectionCounts_);
             }
           }
-        }
-        if (other.hasLocation()) {
-          mergeLocation(other.getLocation());
         }
         if (!other.getSaeUuid().isEmpty()) {
           setSaeUuid(other.getSaeUuid());
@@ -624,16 +543,9 @@ public final class Analytics {
                 }
                 break;
               } // case 18
-              case 26: {
-                input.readMessage(
-                    internalGetLocationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
               case 34: {
                 saeUuid_ = input.readBytes();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000004;
                 break;
               } // case 34
               default: {
@@ -937,6 +849,631 @@ public final class Analytics {
         return detectionCountsBuilder_;
       }
 
+      private com.google.protobuf.ByteString saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes sae_uuid = 4;</code>
+       * @return The saeUuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSaeUuid() {
+        return saeUuid_;
+      }
+      /**
+       * <code>bytes sae_uuid = 4;</code>
+       * @param value The saeUuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSaeUuid(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        saeUuid_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes sae_uuid = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSaeUuid() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        saeUuid_ = getDefaultInstance().getSaeUuid();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.DetectionCountMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.DetectionCountMessage)
+    private static final de.starwit.visionapi.Analytics.DetectionCountMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Analytics.DetectionCountMessage();
+    }
+
+    public static de.starwit.visionapi.Analytics.DetectionCountMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DetectionCountMessage>
+        PARSER = new com.google.protobuf.AbstractParser<DetectionCountMessage>() {
+      @java.lang.Override
+      public DetectionCountMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<DetectionCountMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DetectionCountMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Analytics.DetectionCountMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DetectionCountOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.DetectionCount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 class_id = 1;</code>
+     * @return The classId.
+     */
+    int getClassId();
+
+    /**
+     * <code>uint32 count = 2;</code>
+     * @return The count.
+     */
+    int getCount();
+
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     * @return Whether the location field is set.
+     */
+    boolean hasLocation();
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     * @return The location.
+     */
+    de.starwit.visionapi.Common.GeoCoordinate getLocation();
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     */
+    de.starwit.visionapi.Common.GeoCoordinateOrBuilder getLocationOrBuilder();
+  }
+  /**
+   * Protobuf type {@code visionapi.DetectionCount}
+   */
+  public static final class DetectionCount extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.DetectionCount)
+      DetectionCountOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        DetectionCount.class.getName());
+    }
+    // Use DetectionCount.newBuilder() to construct.
+    private DetectionCount(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private DetectionCount() {
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Analytics.DetectionCount.class, de.starwit.visionapi.Analytics.DetectionCount.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CLASS_ID_FIELD_NUMBER = 1;
+    private int classId_ = 0;
+    /**
+     * <code>uint32 class_id = 1;</code>
+     * @return The classId.
+     */
+    @java.lang.Override
+    public int getClassId() {
+      return classId_;
+    }
+
+    public static final int COUNT_FIELD_NUMBER = 2;
+    private int count_ = 0;
+    /**
+     * <code>uint32 count = 2;</code>
+     * @return The count.
+     */
+    @java.lang.Override
+    public int getCount() {
+      return count_;
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 3;
+    private de.starwit.visionapi.Common.GeoCoordinate location_;
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     * @return Whether the location field is set.
+     */
+    @java.lang.Override
+    public boolean hasLocation() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     * @return The location.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinate getLocation() {
+      return location_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : location_;
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate location = 3;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getLocationOrBuilder() {
+      return location_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : location_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (classId_ != 0) {
+        output.writeUInt32(1, classId_);
+      }
+      if (count_ != 0) {
+        output.writeUInt32(2, count_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(3, getLocation());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (classId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, classId_);
+      }
+      if (count_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, count_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getLocation());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Analytics.DetectionCount)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Analytics.DetectionCount other = (de.starwit.visionapi.Analytics.DetectionCount) obj;
+
+      if (getClassId()
+          != other.getClassId()) return false;
+      if (getCount()
+          != other.getCount()) return false;
+      if (hasLocation() != other.hasLocation()) return false;
+      if (hasLocation()) {
+        if (!getLocation()
+            .equals(other.getLocation())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CLASS_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getClassId();
+      hash = (37 * hash) + COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getCount();
+      if (hasLocation()) {
+        hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLocation().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Analytics.DetectionCount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Analytics.DetectionCount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Analytics.DetectionCount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.DetectionCount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.DetectionCount)
+        de.starwit.visionapi.Analytics.DetectionCountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Analytics.DetectionCount.class, de.starwit.visionapi.Analytics.DetectionCount.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Analytics.DetectionCount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage
+                .alwaysUseFieldBuilders) {
+          internalGetLocationFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        classId_ = 0;
+        count_ = 0;
+        location_ = null;
+        if (locationBuilder_ != null) {
+          locationBuilder_.dispose();
+          locationBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Analytics.DetectionCount getDefaultInstanceForType() {
+        return de.starwit.visionapi.Analytics.DetectionCount.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Analytics.DetectionCount build() {
+        de.starwit.visionapi.Analytics.DetectionCount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Analytics.DetectionCount buildPartial() {
+        de.starwit.visionapi.Analytics.DetectionCount result = new de.starwit.visionapi.Analytics.DetectionCount(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Analytics.DetectionCount result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.classId_ = classId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.count_ = count_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.location_ = locationBuilder_ == null
+              ? location_
+              : locationBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Analytics.DetectionCount) {
+          return mergeFrom((de.starwit.visionapi.Analytics.DetectionCount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Analytics.DetectionCount other) {
+        if (other == de.starwit.visionapi.Analytics.DetectionCount.getDefaultInstance()) return this;
+        if (other.getClassId() != 0) {
+          setClassId(other.getClassId());
+        }
+        if (other.getCount() != 0) {
+          setCount(other.getCount());
+        }
+        if (other.hasLocation()) {
+          mergeLocation(other.getLocation());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                classId_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                count_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    internalGetLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int classId_ ;
+      /**
+       * <code>uint32 class_id = 1;</code>
+       * @return The classId.
+       */
+      @java.lang.Override
+      public int getClassId() {
+        return classId_;
+      }
+      /**
+       * <code>uint32 class_id = 1;</code>
+       * @param value The classId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClassId(int value) {
+
+        classId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 class_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClassId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        classId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int count_ ;
+      /**
+       * <code>uint32 count = 2;</code>
+       * @return The count.
+       */
+      @java.lang.Override
+      public int getCount() {
+        return count_;
+      }
+      /**
+       * <code>uint32 count = 2;</code>
+       * @param value The count to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCount(int value) {
+
+        count_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 count = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        count_ = 0;
+        onChanged();
+        return this;
+      }
+
       private de.starwit.visionapi.Common.GeoCoordinate location_;
       private com.google.protobuf.SingleFieldBuilder<
           de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> locationBuilder_;
@@ -1058,544 +1595,6 @@ public final class Analytics {
         return locationBuilder_;
       }
 
-      private com.google.protobuf.ByteString saeUuid_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes sae_uuid = 4;</code>
-       * @return The saeUuid.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getSaeUuid() {
-        return saeUuid_;
-      }
-      /**
-       * <code>bytes sae_uuid = 4;</code>
-       * @param value The saeUuid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSaeUuid(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        saeUuid_ = value;
-        bitField0_ |= 0x00000008;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes sae_uuid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSaeUuid() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        saeUuid_ = getDefaultInstance().getSaeUuid();
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:visionapi.DetectionCountMessage)
-    }
-
-    // @@protoc_insertion_point(class_scope:visionapi.DetectionCountMessage)
-    private static final de.starwit.visionapi.Analytics.DetectionCountMessage DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new de.starwit.visionapi.Analytics.DetectionCountMessage();
-    }
-
-    public static de.starwit.visionapi.Analytics.DetectionCountMessage getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DetectionCountMessage>
-        PARSER = new com.google.protobuf.AbstractParser<DetectionCountMessage>() {
-      @java.lang.Override
-      public DetectionCountMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<DetectionCountMessage> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DetectionCountMessage> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public de.starwit.visionapi.Analytics.DetectionCountMessage getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DetectionCountOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:visionapi.DetectionCount)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint32 class_id = 1;</code>
-     * @return The classId.
-     */
-    int getClassId();
-
-    /**
-     * <code>uint32 count = 2;</code>
-     * @return The count.
-     */
-    int getCount();
-  }
-  /**
-   * Protobuf type {@code visionapi.DetectionCount}
-   */
-  public static final class DetectionCount extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:visionapi.DetectionCount)
-      DetectionCountOrBuilder {
-  private static final long serialVersionUID = 0L;
-    static {
-      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-        /* major= */ 4,
-        /* minor= */ 31,
-        /* patch= */ 1,
-        /* suffix= */ "",
-        DetectionCount.class.getName());
-    }
-    // Use DetectionCount.newBuilder() to construct.
-    private DetectionCount(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
-    private DetectionCount() {
-    }
-
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              de.starwit.visionapi.Analytics.DetectionCount.class, de.starwit.visionapi.Analytics.DetectionCount.Builder.class);
-    }
-
-    public static final int CLASS_ID_FIELD_NUMBER = 1;
-    private int classId_ = 0;
-    /**
-     * <code>uint32 class_id = 1;</code>
-     * @return The classId.
-     */
-    @java.lang.Override
-    public int getClassId() {
-      return classId_;
-    }
-
-    public static final int COUNT_FIELD_NUMBER = 2;
-    private int count_ = 0;
-    /**
-     * <code>uint32 count = 2;</code>
-     * @return The count.
-     */
-    @java.lang.Override
-    public int getCount() {
-      return count_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (classId_ != 0) {
-        output.writeUInt32(1, classId_);
-      }
-      if (count_ != 0) {
-        output.writeUInt32(2, count_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (classId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, classId_);
-      }
-      if (count_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, count_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof de.starwit.visionapi.Analytics.DetectionCount)) {
-        return super.equals(obj);
-      }
-      de.starwit.visionapi.Analytics.DetectionCount other = (de.starwit.visionapi.Analytics.DetectionCount) obj;
-
-      if (getClassId()
-          != other.getClassId()) return false;
-      if (getCount()
-          != other.getCount()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLASS_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClassId();
-      hash = (37 * hash) + COUNT_FIELD_NUMBER;
-      hash = (53 * hash) + getCount();
-      hash = (29 * hash) + getUnknownFields().hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static de.starwit.visionapi.Analytics.DetectionCount parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static de.starwit.visionapi.Analytics.DetectionCount parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static de.starwit.visionapi.Analytics.DetectionCount parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(de.starwit.visionapi.Analytics.DetectionCount prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code visionapi.DetectionCount}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:visionapi.DetectionCount)
-        de.starwit.visionapi.Analytics.DetectionCountOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                de.starwit.visionapi.Analytics.DetectionCount.class, de.starwit.visionapi.Analytics.DetectionCount.Builder.class);
-      }
-
-      // Construct using de.starwit.visionapi.Analytics.DetectionCount.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        bitField0_ = 0;
-        classId_ = 0;
-        count_ = 0;
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return de.starwit.visionapi.Analytics.internal_static_visionapi_DetectionCount_descriptor;
-      }
-
-      @java.lang.Override
-      public de.starwit.visionapi.Analytics.DetectionCount getDefaultInstanceForType() {
-        return de.starwit.visionapi.Analytics.DetectionCount.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public de.starwit.visionapi.Analytics.DetectionCount build() {
-        de.starwit.visionapi.Analytics.DetectionCount result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public de.starwit.visionapi.Analytics.DetectionCount buildPartial() {
-        de.starwit.visionapi.Analytics.DetectionCount result = new de.starwit.visionapi.Analytics.DetectionCount(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartial0(de.starwit.visionapi.Analytics.DetectionCount result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.classId_ = classId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.count_ = count_;
-        }
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof de.starwit.visionapi.Analytics.DetectionCount) {
-          return mergeFrom((de.starwit.visionapi.Analytics.DetectionCount)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(de.starwit.visionapi.Analytics.DetectionCount other) {
-        if (other == de.starwit.visionapi.Analytics.DetectionCount.getDefaultInstance()) return this;
-        if (other.getClassId() != 0) {
-          setClassId(other.getClassId());
-        }
-        if (other.getCount() != 0) {
-          setCount(other.getCount());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                classId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                count_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.unwrapIOException();
-        } finally {
-          onChanged();
-        } // finally
-        return this;
-      }
-      private int bitField0_;
-
-      private int classId_ ;
-      /**
-       * <code>uint32 class_id = 1;</code>
-       * @return The classId.
-       */
-      @java.lang.Override
-      public int getClassId() {
-        return classId_;
-      }
-      /**
-       * <code>uint32 class_id = 1;</code>
-       * @param value The classId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClassId(int value) {
-
-        classId_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 class_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearClassId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        classId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int count_ ;
-      /**
-       * <code>uint32 count = 2;</code>
-       * @return The count.
-       */
-      @java.lang.Override
-      public int getCount() {
-        return count_;
-      }
-      /**
-       * <code>uint32 count = 2;</code>
-       * @param value The count to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCount(int value) {
-
-        count_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 count = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        count_ = 0;
-        onChanged();
-        return this;
-      }
-
       // @@protoc_insertion_point(builder_scope:visionapi.DetectionCount)
     }
 
@@ -1667,13 +1666,13 @@ public final class Analytics {
   static {
     java.lang.String[] descriptorData = {
       "\n\031visionapi/analytics.proto\022\tvisionapi\032\026" +
-      "visionapi/common.proto\"\244\001\n\025DetectionCoun" +
-      "tMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0223\n\020de" +
-      "tection_counts\030\002 \003(\0132\031.visionapi.Detecti" +
-      "onCount\022*\n\010location\030\003 \001(\0132\030.visionapi.Ge" +
-      "oCoordinate\022\020\n\010sae_uuid\030\004 \001(\014\"1\n\016Detecti" +
-      "onCount\022\020\n\010class_id\030\001 \001(\r\022\r\n\005count\030\002 \001(\r" +
-      "B\026\n\024de.starwit.visionapib\006proto3"
+      "visionapi/common.proto\"x\n\025DetectionCount" +
+      "Message\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0223\n\020det" +
+      "ection_counts\030\002 \003(\0132\031.visionapi.Detectio" +
+      "nCount\022\020\n\010sae_uuid\030\004 \001(\014\"]\n\016DetectionCou" +
+      "nt\022\020\n\010class_id\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022*\n\010l" +
+      "ocation\030\003 \001(\0132\030.visionapi.GeoCoordinateB" +
+      "\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1685,13 +1684,13 @@ public final class Analytics {
     internal_static_visionapi_DetectionCountMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_DetectionCountMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "DetectionCounts", "Location", "SaeUuid", });
+        new java.lang.String[] { "TimestampUtcMs", "DetectionCounts", "SaeUuid", });
     internal_static_visionapi_DetectionCount_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_DetectionCount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_DetectionCount_descriptor,
-        new java.lang.String[] { "ClassId", "Count", });
+        new java.lang.String[] { "ClassId", "Count", "Location", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

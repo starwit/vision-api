@@ -8,21 +8,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DetectionCountMessage(_message.Message):
-    __slots__ = ("timestamp_utc_ms", "detection_counts", "location", "sae_uuid")
+    __slots__ = ("timestamp_utc_ms", "detection_counts", "sae_uuid")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     DETECTION_COUNTS_FIELD_NUMBER: _ClassVar[int]
-    LOCATION_FIELD_NUMBER: _ClassVar[int]
     SAE_UUID_FIELD_NUMBER: _ClassVar[int]
     timestamp_utc_ms: int
     detection_counts: _containers.RepeatedCompositeFieldContainer[DetectionCount]
-    location: _common_pb2.GeoCoordinate
     sae_uuid: bytes
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., detection_counts: _Optional[_Iterable[_Union[DetectionCount, _Mapping]]] = ..., location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., sae_uuid: _Optional[bytes] = ...) -> None: ...
+    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., detection_counts: _Optional[_Iterable[_Union[DetectionCount, _Mapping]]] = ..., sae_uuid: _Optional[bytes] = ...) -> None: ...
 
 class DetectionCount(_message.Message):
-    __slots__ = ("class_id", "count")
+    __slots__ = ("class_id", "count", "location")
     CLASS_ID_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
+    LOCATION_FIELD_NUMBER: _ClassVar[int]
     class_id: int
     count: int
-    def __init__(self, class_id: _Optional[int] = ..., count: _Optional[int] = ...) -> None: ...
+    location: _common_pb2.GeoCoordinate
+    def __init__(self, class_id: _Optional[int] = ..., count: _Optional[int] = ..., location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
