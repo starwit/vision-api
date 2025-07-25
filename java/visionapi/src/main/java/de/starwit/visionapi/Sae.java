@@ -5043,6 +5043,796 @@ public final class Sae {
 
   }
 
+  public interface PositionMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.PositionMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 timestamp_utc_ms = 1;</code>
+     * @return The timestampUtcMs.
+     */
+    long getTimestampUtcMs();
+
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     * @return Whether the geoCoordinate field is set.
+     */
+    boolean hasGeoCoordinate();
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     * @return The geoCoordinate.
+     */
+    de.starwit.visionapi.Common.GeoCoordinate getGeoCoordinate();
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     */
+    de.starwit.visionapi.Common.GeoCoordinateOrBuilder getGeoCoordinateOrBuilder();
+
+    /**
+     * <code>float hdop = 3;</code>
+     * @return The hdop.
+     */
+    float getHdop();
+
+    /**
+     * <code>bool fix = 4;</code>
+     * @return The fix.
+     */
+    boolean getFix();
+  }
+  /**
+   * Protobuf type {@code visionapi.PositionMessage}
+   */
+  public static final class PositionMessage extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.PositionMessage)
+      PositionMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        PositionMessage.class.getName());
+    }
+    // Use PositionMessage.newBuilder() to construct.
+    private PositionMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private PositionMessage() {
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_PositionMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_PositionMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Sae.PositionMessage.class, de.starwit.visionapi.Sae.PositionMessage.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TIMESTAMP_UTC_MS_FIELD_NUMBER = 1;
+    private long timestampUtcMs_ = 0L;
+    /**
+     * <code>uint64 timestamp_utc_ms = 1;</code>
+     * @return The timestampUtcMs.
+     */
+    @java.lang.Override
+    public long getTimestampUtcMs() {
+      return timestampUtcMs_;
+    }
+
+    public static final int GEO_COORDINATE_FIELD_NUMBER = 2;
+    private de.starwit.visionapi.Common.GeoCoordinate geoCoordinate_;
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     * @return Whether the geoCoordinate field is set.
+     */
+    @java.lang.Override
+    public boolean hasGeoCoordinate() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     * @return The geoCoordinate.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinate getGeoCoordinate() {
+      return geoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : geoCoordinate_;
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getGeoCoordinateOrBuilder() {
+      return geoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : geoCoordinate_;
+    }
+
+    public static final int HDOP_FIELD_NUMBER = 3;
+    private float hdop_ = 0F;
+    /**
+     * <code>float hdop = 3;</code>
+     * @return The hdop.
+     */
+    @java.lang.Override
+    public float getHdop() {
+      return hdop_;
+    }
+
+    public static final int FIX_FIELD_NUMBER = 4;
+    private boolean fix_ = false;
+    /**
+     * <code>bool fix = 4;</code>
+     * @return The fix.
+     */
+    @java.lang.Override
+    public boolean getFix() {
+      return fix_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (timestampUtcMs_ != 0L) {
+        output.writeUInt64(1, timestampUtcMs_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(2, getGeoCoordinate());
+      }
+      if (java.lang.Float.floatToRawIntBits(hdop_) != 0) {
+        output.writeFloat(3, hdop_);
+      }
+      if (fix_ != false) {
+        output.writeBool(4, fix_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (timestampUtcMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, timestampUtcMs_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getGeoCoordinate());
+      }
+      if (java.lang.Float.floatToRawIntBits(hdop_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, hdop_);
+      }
+      if (fix_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, fix_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Sae.PositionMessage)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Sae.PositionMessage other = (de.starwit.visionapi.Sae.PositionMessage) obj;
+
+      if (getTimestampUtcMs()
+          != other.getTimestampUtcMs()) return false;
+      if (hasGeoCoordinate() != other.hasGeoCoordinate()) return false;
+      if (hasGeoCoordinate()) {
+        if (!getGeoCoordinate()
+            .equals(other.getGeoCoordinate())) return false;
+      }
+      if (java.lang.Float.floatToIntBits(getHdop())
+          != java.lang.Float.floatToIntBits(
+              other.getHdop())) return false;
+      if (getFix()
+          != other.getFix()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TIMESTAMP_UTC_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestampUtcMs());
+      if (hasGeoCoordinate()) {
+        hash = (37 * hash) + GEO_COORDINATE_FIELD_NUMBER;
+        hash = (53 * hash) + getGeoCoordinate().hashCode();
+      }
+      hash = (37 * hash) + HDOP_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getHdop());
+      hash = (37 * hash) + FIX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFix());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Sae.PositionMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Sae.PositionMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.PositionMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Sae.PositionMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.PositionMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.PositionMessage)
+        de.starwit.visionapi.Sae.PositionMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_PositionMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_PositionMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Sae.PositionMessage.class, de.starwit.visionapi.Sae.PositionMessage.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Sae.PositionMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage
+                .alwaysUseFieldBuilders) {
+          internalGetGeoCoordinateFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        timestampUtcMs_ = 0L;
+        geoCoordinate_ = null;
+        if (geoCoordinateBuilder_ != null) {
+          geoCoordinateBuilder_.dispose();
+          geoCoordinateBuilder_ = null;
+        }
+        hdop_ = 0F;
+        fix_ = false;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_PositionMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.PositionMessage getDefaultInstanceForType() {
+        return de.starwit.visionapi.Sae.PositionMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.PositionMessage build() {
+        de.starwit.visionapi.Sae.PositionMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.PositionMessage buildPartial() {
+        de.starwit.visionapi.Sae.PositionMessage result = new de.starwit.visionapi.Sae.PositionMessage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Sae.PositionMessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.timestampUtcMs_ = timestampUtcMs_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.geoCoordinate_ = geoCoordinateBuilder_ == null
+              ? geoCoordinate_
+              : geoCoordinateBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.hdop_ = hdop_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.fix_ = fix_;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Sae.PositionMessage) {
+          return mergeFrom((de.starwit.visionapi.Sae.PositionMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Sae.PositionMessage other) {
+        if (other == de.starwit.visionapi.Sae.PositionMessage.getDefaultInstance()) return this;
+        if (other.getTimestampUtcMs() != 0L) {
+          setTimestampUtcMs(other.getTimestampUtcMs());
+        }
+        if (other.hasGeoCoordinate()) {
+          mergeGeoCoordinate(other.getGeoCoordinate());
+        }
+        if (java.lang.Float.floatToRawIntBits(other.getHdop()) != 0) {
+          setHdop(other.getHdop());
+        }
+        if (other.getFix() != false) {
+          setFix(other.getFix());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                timestampUtcMs_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    internalGetGeoCoordinateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 29: {
+                hdop_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 32: {
+                fix_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private long timestampUtcMs_ ;
+      /**
+       * <code>uint64 timestamp_utc_ms = 1;</code>
+       * @return The timestampUtcMs.
+       */
+      @java.lang.Override
+      public long getTimestampUtcMs() {
+        return timestampUtcMs_;
+      }
+      /**
+       * <code>uint64 timestamp_utc_ms = 1;</code>
+       * @param value The timestampUtcMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestampUtcMs(long value) {
+
+        timestampUtcMs_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 timestamp_utc_ms = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestampUtcMs() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestampUtcMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private de.starwit.visionapi.Common.GeoCoordinate geoCoordinate_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> geoCoordinateBuilder_;
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       * @return Whether the geoCoordinate field is set.
+       */
+      public boolean hasGeoCoordinate() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       * @return The geoCoordinate.
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate getGeoCoordinate() {
+        if (geoCoordinateBuilder_ == null) {
+          return geoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : geoCoordinate_;
+        } else {
+          return geoCoordinateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public Builder setGeoCoordinate(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (geoCoordinateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          geoCoordinate_ = value;
+        } else {
+          geoCoordinateBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public Builder setGeoCoordinate(
+          de.starwit.visionapi.Common.GeoCoordinate.Builder builderForValue) {
+        if (geoCoordinateBuilder_ == null) {
+          geoCoordinate_ = builderForValue.build();
+        } else {
+          geoCoordinateBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public Builder mergeGeoCoordinate(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (geoCoordinateBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+            geoCoordinate_ != null &&
+            geoCoordinate_ != de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance()) {
+            getGeoCoordinateBuilder().mergeFrom(value);
+          } else {
+            geoCoordinate_ = value;
+          }
+        } else {
+          geoCoordinateBuilder_.mergeFrom(value);
+        }
+        if (geoCoordinate_ != null) {
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public Builder clearGeoCoordinate() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        geoCoordinate_ = null;
+        if (geoCoordinateBuilder_ != null) {
+          geoCoordinateBuilder_.dispose();
+          geoCoordinateBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate.Builder getGeoCoordinateBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return internalGetGeoCoordinateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getGeoCoordinateOrBuilder() {
+        if (geoCoordinateBuilder_ != null) {
+          return geoCoordinateBuilder_.getMessageOrBuilder();
+        } else {
+          return geoCoordinate_ == null ?
+              de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : geoCoordinate_;
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate geo_coordinate = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> 
+          internalGetGeoCoordinateFieldBuilder() {
+        if (geoCoordinateBuilder_ == null) {
+          geoCoordinateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder>(
+                  getGeoCoordinate(),
+                  getParentForChildren(),
+                  isClean());
+          geoCoordinate_ = null;
+        }
+        return geoCoordinateBuilder_;
+      }
+
+      private float hdop_ ;
+      /**
+       * <code>float hdop = 3;</code>
+       * @return The hdop.
+       */
+      @java.lang.Override
+      public float getHdop() {
+        return hdop_;
+      }
+      /**
+       * <code>float hdop = 3;</code>
+       * @param value The hdop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHdop(float value) {
+
+        hdop_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float hdop = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHdop() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        hdop_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private boolean fix_ ;
+      /**
+       * <code>bool fix = 4;</code>
+       * @return The fix.
+       */
+      @java.lang.Override
+      public boolean getFix() {
+        return fix_;
+      }
+      /**
+       * <code>bool fix = 4;</code>
+       * @param value The fix to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFix(boolean value) {
+
+        fix_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool fix = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFix() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fix_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.PositionMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.PositionMessage)
+    private static final de.starwit.visionapi.Sae.PositionMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Sae.PositionMessage();
+    }
+
+    public static de.starwit.visionapi.Sae.PositionMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PositionMessage>
+        PARSER = new com.google.protobuf.AbstractParser<PositionMessage>() {
+      @java.lang.Override
+      public PositionMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PositionMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PositionMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.PositionMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_SaeMessage_descriptor;
   private static final 
@@ -5073,6 +5863,11 @@ public final class Sae {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_Metrics_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_PositionMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_PositionMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5101,7 +5896,10 @@ public final class Sae {
       "y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n" +
       "\007Metrics\022#\n\033detection_inference_time_us\030" +
       "\001 \001(\r\022\"\n\032tracking_inference_time_us\030\002 \001(" +
-      "\rB\026\n\024de.starwit.visionapib\006proto3"
+      "\r\"x\n\017PositionMessage\022\030\n\020timestamp_utc_ms" +
+      "\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.visiona" +
+      "pi.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 " +
+      "\001(\010B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5144,6 +5942,12 @@ public final class Sae {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_Metrics_descriptor,
         new java.lang.String[] { "DetectionInferenceTimeUs", "TrackingInferenceTimeUs", });
+    internal_static_visionapi_PositionMessage_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_visionapi_PositionMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_PositionMessage_descriptor,
+        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

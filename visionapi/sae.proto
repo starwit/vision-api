@@ -46,3 +46,10 @@ message Metrics {
   uint32 detection_inference_time_us = 1;
   uint32 tracking_inference_time_us = 2;
 }
+
+message PositionMessage {
+  uint64 timestamp_utc_ms = 1;
+  GeoCoordinate geo_coordinate = 2;
+  float hdop = 3;
+  bool fix = 4;
+}
