@@ -78,13 +78,15 @@ class Metrics(_message.Message):
     def __init__(self, detection_inference_time_us: _Optional[int] = ..., tracking_inference_time_us: _Optional[int] = ...) -> None: ...
 
 class PositionMessage(_message.Message):
-    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix")
+    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     GEO_COORDINATE_FIELD_NUMBER: _ClassVar[int]
     HDOP_FIELD_NUMBER: _ClassVar[int]
     FIX_FIELD_NUMBER: _ClassVar[int]
+    SAE_UUID_FIELD_NUMBER: _ClassVar[int]
     timestamp_utc_ms: int
     geo_coordinate: _common_pb2.GeoCoordinate
     hdop: float
     fix: bool
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ...) -> None: ...
+    sae_uuid: bytes
+    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ...) -> None: ...

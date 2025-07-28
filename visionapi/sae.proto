@@ -52,4 +52,5 @@ message PositionMessage {
   GeoCoordinate geo_coordinate = 2;
   float hdop = 3;
   bool fix = 4;
+  bytes sae_uuid = 5;
 }

@@ -5079,6 +5079,12 @@ public final class Sae {
      * @return The fix.
      */
     boolean getFix();
+
+    /**
+     * <code>bytes sae_uuid = 5;</code>
+     * @return The saeUuid.
+     */
+    com.google.protobuf.ByteString getSaeUuid();
   }
   /**
    * Protobuf type {@code visionapi.PositionMessage}
@@ -5102,6 +5108,7 @@ public final class Sae {
       super(builder);
     }
     private PositionMessage() {
+      saeUuid_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -5177,6 +5184,17 @@ public final class Sae {
       return fix_;
     }
 
+    public static final int SAE_UUID_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes sae_uuid = 5;</code>
+     * @return The saeUuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSaeUuid() {
+      return saeUuid_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5203,6 +5221,9 @@ public final class Sae {
       if (fix_ != false) {
         output.writeBool(4, fix_);
       }
+      if (!saeUuid_.isEmpty()) {
+        output.writeBytes(5, saeUuid_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -5227,6 +5248,10 @@ public final class Sae {
       if (fix_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, fix_);
+      }
+      if (!saeUuid_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, saeUuid_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -5255,6 +5280,8 @@ public final class Sae {
               other.getHdop())) return false;
       if (getFix()
           != other.getFix()) return false;
+      if (!getSaeUuid()
+          .equals(other.getSaeUuid())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5279,6 +5306,8 @@ public final class Sae {
       hash = (37 * hash) + FIX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getFix());
+      hash = (37 * hash) + SAE_UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getSaeUuid().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5424,6 +5453,7 @@ public final class Sae {
         }
         hdop_ = 0F;
         fix_ = false;
+        saeUuid_ = com.google.protobuf.ByteString.EMPTY;
         return this;
       }
 
@@ -5473,6 +5503,9 @@ public final class Sae {
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.fix_ = fix_;
         }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.saeUuid_ = saeUuid_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -5499,6 +5532,9 @@ public final class Sae {
         }
         if (other.getFix() != false) {
           setFix(other.getFix());
+        }
+        if (!other.getSaeUuid().isEmpty()) {
+          setSaeUuid(other.getSaeUuid());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -5548,6 +5584,11 @@ public final class Sae {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
+              case 42: {
+                saeUuid_ = input.readBytes();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5782,6 +5823,38 @@ public final class Sae {
         return this;
       }
 
+      private com.google.protobuf.ByteString saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes sae_uuid = 5;</code>
+       * @return The saeUuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSaeUuid() {
+        return saeUuid_;
+      }
+      /**
+       * <code>bytes sae_uuid = 5;</code>
+       * @param value The saeUuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSaeUuid(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        saeUuid_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes sae_uuid = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSaeUuid() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        saeUuid_ = getDefaultInstance().getSaeUuid();
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:visionapi.PositionMessage)
     }
 
@@ -5896,10 +5969,11 @@ public final class Sae {
       "y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n" +
       "\007Metrics\022#\n\033detection_inference_time_us\030" +
       "\001 \001(\r\022\"\n\032tracking_inference_time_us\030\002 \001(" +
-      "\r\"x\n\017PositionMessage\022\030\n\020timestamp_utc_ms" +
-      "\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.visiona" +
-      "pi.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 " +
-      "\001(\010B\026\n\024de.starwit.visionapib\006proto3"
+      "\r\"\212\001\n\017PositionMessage\022\030\n\020timestamp_utc_m" +
+      "s\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.vision" +
+      "api.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004" +
+      " \001(\010\022\020\n\010sae_uuid\030\005 \001(\014B\026\n\024de.starwit.vis" +
+      "ionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5947,7 +6021,7 @@ public final class Sae {
     internal_static_visionapi_PositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", });
+        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }
