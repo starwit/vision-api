@@ -12,6 +12,7 @@ message AnomalyMessage {
   ModelInfo model_info = 3;
   GeoCoordinate camera_location = 4;
   string source_id = 5;
+  MessageType type = 1000;
 }
 
 message JpegFrame {
