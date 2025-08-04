@@ -26,6 +26,159 @@ public final class Common {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code visionapi.MessageType}
+   */
+  public enum MessageType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNSPECIFIED = 0;</code>
+     */
+    UNSPECIFIED(0),
+    /**
+     * <code>SAE = 1;</code>
+     */
+    SAE(1),
+    /**
+     * <code>DETECTION_COUNT = 2;</code>
+     */
+    DETECTION_COUNT(2),
+    /**
+     * <code>POSITION = 3;</code>
+     */
+    POSITION(3),
+    /**
+     * <code>ANOMALY = 4;</code>
+     */
+    ANOMALY(4),
+    /**
+     * <code>INCIDENT = 5;</code>
+     */
+    INCIDENT(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        MessageType.class.getName());
+    }
+    /**
+     * <code>UNSPECIFIED = 0;</code>
+     */
+    public static final int UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>SAE = 1;</code>
+     */
+    public static final int SAE_VALUE = 1;
+    /**
+     * <code>DETECTION_COUNT = 2;</code>
+     */
+    public static final int DETECTION_COUNT_VALUE = 2;
+    /**
+     * <code>POSITION = 3;</code>
+     */
+    public static final int POSITION_VALUE = 3;
+    /**
+     * <code>ANOMALY = 4;</code>
+     */
+    public static final int ANOMALY_VALUE = 4;
+    /**
+     * <code>INCIDENT = 5;</code>
+     */
+    public static final int INCIDENT_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static MessageType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static MessageType forNumber(int value) {
+      switch (value) {
+        case 0: return UNSPECIFIED;
+        case 1: return SAE;
+        case 2: return DETECTION_COUNT;
+        case 3: return POSITION;
+        case 4: return ANOMALY;
+        case 5: return INCIDENT;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MessageType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        MessageType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MessageType>() {
+            public MessageType findValueByNumber(int number) {
+              return MessageType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Common.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final MessageType[] VALUES = values();
+
+    public static MessageType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private MessageType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:visionapi.MessageType)
+  }
+
   public interface ModelInfoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:visionapi.ModelInfo)
       com.google.protobuf.MessageOrBuilder {
@@ -1194,6 +1347,479 @@ public final class Common {
 
   }
 
+  public interface TypeMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.TypeMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
+  }
+  /**
+   * <pre>
+   * Dummy message used solely for deserializing the 'type' field, cleaning up parser code.
+   * </pre>
+   *
+   * Protobuf type {@code visionapi.TypeMessage}
+   */
+  public static final class TypeMessage extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.TypeMessage)
+      TypeMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        TypeMessage.class.getName());
+    }
+    // Use TypeMessage.newBuilder() to construct.
+    private TypeMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private TypeMessage() {
+      type_ = 0;
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Common.internal_static_visionapi_TypeMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Common.internal_static_visionapi_TypeMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Common.TypeMessage.class, de.starwit.visionapi.Common.TypeMessage.Builder.class);
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Common.TypeMessage)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Common.TypeMessage other = (de.starwit.visionapi.Common.TypeMessage) obj;
+
+      if (type_ != other.type_) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Common.TypeMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Common.TypeMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Common.TypeMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Common.TypeMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Dummy message used solely for deserializing the 'type' field, cleaning up parser code.
+     * </pre>
+     *
+     * Protobuf type {@code visionapi.TypeMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.TypeMessage)
+        de.starwit.visionapi.Common.TypeMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_TypeMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_TypeMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Common.TypeMessage.class, de.starwit.visionapi.Common.TypeMessage.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Common.TypeMessage.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        type_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_TypeMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.TypeMessage getDefaultInstanceForType() {
+        return de.starwit.visionapi.Common.TypeMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.TypeMessage build() {
+        de.starwit.visionapi.Common.TypeMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.TypeMessage buildPartial() {
+        de.starwit.visionapi.Common.TypeMessage result = new de.starwit.visionapi.Common.TypeMessage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Common.TypeMessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Common.TypeMessage) {
+          return mergeFrom((de.starwit.visionapi.Common.TypeMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Common.TypeMessage other) {
+        if (other == de.starwit.visionapi.Common.TypeMessage.getDefaultInstance()) return this;
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8000
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000001;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.TypeMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.TypeMessage)
+    private static final de.starwit.visionapi.Common.TypeMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Common.TypeMessage();
+    }
+
+    public static de.starwit.visionapi.Common.TypeMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TypeMessage>
+        PARSER = new com.google.protobuf.AbstractParser<TypeMessage>() {
+      @java.lang.Override
+      public TypeMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TypeMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TypeMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Common.TypeMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_ModelInfo_descriptor;
   private static final 
@@ -1204,6 +1830,11 @@ public final class Common {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_GeoCoordinate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_TypeMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_TypeMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1216,8 +1847,12 @@ public final class Common {
       "\n\026visionapi/common.proto\022\tvisionapi\"*\n\tM" +
       "odelInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"" +
       "4\n\rGeoCoordinate\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlo" +
-      "ngitude\030\002 \001(\001B\026\n\024de.starwit.visionapib\006p" +
-      "roto3"
+      "ngitude\030\002 \001(\001\"4\n\013TypeMessage\022%\n\004type\030\350\007 " +
+      "\001(\0162\026.visionapi.MessageType*e\n\013MessageTy" +
+      "pe\022\017\n\013UNSPECIFIED\020\000\022\007\n\003SAE\020\001\022\023\n\017DETECTIO" +
+      "N_COUNT\020\002\022\014\n\010POSITION\020\003\022\013\n\007ANOMALY\020\004\022\014\n\010" +
+      "INCIDENT\020\005B\026\n\024de.starwit.visionapib\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1235,6 +1870,12 @@ public final class Common {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_GeoCoordinate_descriptor,
         new java.lang.String[] { "Latitude", "Longitude", });
+    internal_static_visionapi_TypeMessage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_visionapi_TypeMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_TypeMessage_descriptor,
+        new java.lang.String[] { "Type", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

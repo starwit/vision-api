@@ -83,6 +83,17 @@ public final class Sae {
      * <code>.visionapi.Metrics metrics = 99;</code>
      */
     de.starwit.visionapi.Sae.MetricsOrBuilder getMetricsOrBuilder();
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
   }
   /**
    * Protobuf type {@code visionapi.SaeMessage}
@@ -107,6 +118,7 @@ public final class Sae {
     }
     private SaeMessage() {
       detections_ = java.util.Collections.emptyList();
+      type_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -216,6 +228,24 @@ public final class Sae {
       return metrics_ == null ? de.starwit.visionapi.Sae.Metrics.getDefaultInstance() : metrics_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -239,6 +269,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(99, getMetrics());
       }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -259,6 +292,10 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(99, getMetrics());
+      }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -287,6 +324,7 @@ public final class Sae {
         if (!getMetrics()
             .equals(other.getMetrics())) return false;
       }
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -310,6 +348,8 @@ public final class Sae {
         hash = (37 * hash) + METRICS_FIELD_NUMBER;
         hash = (53 * hash) + getMetrics().hashCode();
       }
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -466,6 +506,7 @@ public final class Sae {
           metricsBuilder_.dispose();
           metricsBuilder_ = null;
         }
+        type_ = 0;
         return this;
       }
 
@@ -525,6 +566,9 @@ public final class Sae {
               : metricsBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.type_ = type_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -571,6 +615,9 @@ public final class Sae {
         }
         if (other.hasMetrics()) {
           mergeMetrics(other.getMetrics());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -625,6 +672,11 @@ public final class Sae {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 794
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 8000
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1122,6 +1174,57 @@ public final class Sae {
           metrics_ = null;
         }
         return metricsBuilder_;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000008;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        type_ = 0;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:visionapi.SaeMessage)
@@ -5085,6 +5188,17 @@ public final class Sae {
      * @return The saeUuid.
      */
     com.google.protobuf.ByteString getSaeUuid();
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
   }
   /**
    * Protobuf type {@code visionapi.PositionMessage}
@@ -5109,6 +5223,7 @@ public final class Sae {
     }
     private PositionMessage() {
       saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+      type_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -5195,6 +5310,24 @@ public final class Sae {
       return saeUuid_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5223,6 +5356,9 @@ public final class Sae {
       }
       if (!saeUuid_.isEmpty()) {
         output.writeBytes(5, saeUuid_);
+      }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5253,6 +5389,10 @@ public final class Sae {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, saeUuid_);
       }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5282,6 +5422,7 @@ public final class Sae {
           != other.getFix()) return false;
       if (!getSaeUuid()
           .equals(other.getSaeUuid())) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5308,6 +5449,8 @@ public final class Sae {
           getFix());
       hash = (37 * hash) + SAE_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getSaeUuid().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5454,6 +5597,7 @@ public final class Sae {
         hdop_ = 0F;
         fix_ = false;
         saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+        type_ = 0;
         return this;
       }
 
@@ -5506,6 +5650,9 @@ public final class Sae {
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.saeUuid_ = saeUuid_;
         }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.type_ = type_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -5535,6 +5682,9 @@ public final class Sae {
         }
         if (!other.getSaeUuid().isEmpty()) {
           setSaeUuid(other.getSaeUuid());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -5589,6 +5739,11 @@ public final class Sae {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 8000
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5855,6 +6010,57 @@ public final class Sae {
         return this;
       }
 
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000020;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:visionapi.PositionMessage)
     }
 
@@ -5951,29 +6157,31 @@ public final class Sae {
   static {
     java.lang.String[] descriptorData = {
       "\n\023visionapi/sae.proto\022\tvisionapi\032\026vision" +
-      "api/common.proto\"\201\001\n\nSaeMessage\022$\n\005frame" +
+      "api/common.proto\"\250\001\n\nSaeMessage\022$\n\005frame" +
       "\030\001 \001(\0132\025.visionapi.VideoFrame\022(\n\ndetecti" +
       "ons\030\002 \003(\0132\024.visionapi.Detection\022#\n\007metri" +
-      "cs\030c \001(\0132\022.visionapi.Metrics\"\272\001\n\nVideoFr" +
-      "ame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020timestamp_utc_" +
-      "ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visionapi.Shap" +
-      "e\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_data_jpeg" +
-      "\030\005 \001(\014\0221\n\017camera_location\030\006 \001(\0132\030.vision" +
-      "api.GeoCoordinate\"8\n\005Shape\022\016\n\006height\030\001 \001" +
-      "(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"\244\001\n\t" +
-      "Detection\022,\n\014bounding_box\030\001 \001(\0132\026.vision" +
-      "api.BoundingBox\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010c" +
-      "lass_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(\014\0220\n\016geo_" +
-      "coordinate\030\005 \001(\0132\030.visionapi.GeoCoordina" +
-      "te\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\002\022\r\n\005min_" +
-      "y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n" +
-      "\007Metrics\022#\n\033detection_inference_time_us\030" +
-      "\001 \001(\r\022\"\n\032tracking_inference_time_us\030\002 \001(" +
-      "\r\"\212\001\n\017PositionMessage\022\030\n\020timestamp_utc_m" +
-      "s\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.vision" +
-      "api.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004" +
-      " \001(\010\022\020\n\010sae_uuid\030\005 \001(\014B\026\n\024de.starwit.vis" +
-      "ionapib\006proto3"
+      "cs\030c \001(\0132\022.visionapi.Metrics\022%\n\004type\030\350\007 " +
+      "\001(\0162\026.visionapi.MessageType\"\272\001\n\nVideoFra" +
+      "me\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020timestamp_utc_m" +
+      "s\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visionapi.Shape" +
+      "\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_data_jpeg\030" +
+      "\005 \001(\014\0221\n\017camera_location\030\006 \001(\0132\030.visiona" +
+      "pi.GeoCoordinate\"8\n\005Shape\022\016\n\006height\030\001 \001(" +
+      "\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"\244\001\n\tD" +
+      "etection\022,\n\014bounding_box\030\001 \001(\0132\026.visiona" +
+      "pi.BoundingBox\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010cl" +
+      "ass_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(\014\0220\n\016geo_c" +
+      "oordinate\030\005 \001(\0132\030.visionapi.GeoCoordinat" +
+      "e\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\002\022\r\n\005min_y" +
+      "\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007" +
+      "Metrics\022#\n\033detection_inference_time_us\030\001" +
+      " \001(\r\022\"\n\032tracking_inference_time_us\030\002 \001(\r" +
+      "\"\261\001\n\017PositionMessage\022\030\n\020timestamp_utc_ms" +
+      "\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.visiona" +
+      "pi.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 " +
+      "\001(\010\022\020\n\010sae_uuid\030\005 \001(\014\022%\n\004type\030\350\007 \001(\0162\026.v" +
+      "isionapi.MessageTypeB\026\n\024de.starwit.visio" +
+      "napib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5985,7 +6193,7 @@ public final class Sae {
     internal_static_visionapi_SaeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_SaeMessage_descriptor,
-        new java.lang.String[] { "Frame", "Detections", "Metrics", });
+        new java.lang.String[] { "Frame", "Detections", "Metrics", "Type", });
     internal_static_visionapi_VideoFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
@@ -6021,7 +6229,7 @@ public final class Sae {
     internal_static_visionapi_PositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", });
+        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", "Type", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

@@ -119,6 +119,17 @@ public final class Anomaly {
      */
     com.google.protobuf.ByteString
         getSourceIdBytes();
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
   }
   /**
    * Protobuf type {@code visionapi.AnomalyMessage}
@@ -145,6 +156,7 @@ public final class Anomaly {
       jpegFrames_ = java.util.Collections.emptyList();
       trajectories_ = java.util.Collections.emptyList();
       sourceId_ = "";
+      type_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -334,6 +346,24 @@ public final class Anomaly {
       }
     }
 
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -363,6 +393,9 @@ public final class Anomaly {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 5, sourceId_);
       }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -390,6 +423,10 @@ public final class Anomaly {
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sourceId_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(5, sourceId_);
+      }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -422,6 +459,7 @@ public final class Anomaly {
       }
       if (!getSourceId()
           .equals(other.getSourceId())) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -451,6 +489,8 @@ public final class Anomaly {
       }
       hash = (37 * hash) + SOURCE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSourceId().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -616,6 +656,7 @@ public final class Anomaly {
           cameraLocationBuilder_ = null;
         }
         sourceId_ = "";
+        type_ = 0;
         return this;
       }
 
@@ -686,6 +727,9 @@ public final class Anomaly {
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.sourceId_ = sourceId_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.type_ = type_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -765,6 +809,9 @@ public final class Anomaly {
           bitField0_ |= 0x00000010;
           onChanged();
         }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -836,6 +883,11 @@ public final class Anomaly {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 8000
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1643,6 +1695,57 @@ public final class Anomaly {
         checkByteStringIsUtf8(value);
         sourceId_ = value;
         bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000020;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -4552,22 +4655,23 @@ public final class Anomaly {
   static {
     java.lang.String[] descriptorData = {
       "\n\027visionapi/anomaly.proto\022\tvisionapi\032\026vi" +
-      "sionapi/common.proto\"\330\001\n\016AnomalyMessage\022" +
+      "sionapi/common.proto\"\377\001\n\016AnomalyMessage\022" +
       ")\n\013jpeg_frames\030\001 \003(\0132\024.visionapi.JpegFra" +
       "me\022+\n\014trajectories\030\002 \003(\0132\025.visionapi.Tra" +
       "jectory\022(\n\nmodel_info\030\003 \001(\0132\024.visionapi." +
       "ModelInfo\0221\n\017camera_location\030\004 \001(\0132\030.vis" +
-      "ionapi.GeoCoordinate\022\021\n\tsource_id\030\005 \001(\t\"" +
-      ">\n\tJpegFrame\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\027" +
-      "\n\017frame_data_jpeg\030\002 \001(\014\"h\n\nTrajectory\0225\n" +
-      "\021trajectory_points\030\001 \003(\0132\032.visionapi.Tra" +
-      "jectoryPoint\022\020\n\010class_id\030\002 \001(\r\022\021\n\tobject" +
-      "_id\030\003 \001(\014\"\242\001\n\017TrajectoryPoint\022\030\n\020timesta" +
-      "mp_utc_ms\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132" +
-      "\030.visionapi.GeoCoordinate\022*\n\020detection_c" +
-      "enter\030\003 \001(\0132\020.visionapi.Point\022\027\n\017anomaly" +
-      "_trigger\030\004 \001(\010\"\035\n\005Point\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030" +
-      "\002 \001(\002B\026\n\024de.starwit.visionapib\006proto3"
+      "ionapi.GeoCoordinate\022\021\n\tsource_id\030\005 \001(\t\022" +
+      "%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\">" +
+      "\n\tJpegFrame\022\030\n\020timestamp_utc_ms\030\001 \001(\004\022\027\n" +
+      "\017frame_data_jpeg\030\002 \001(\014\"h\n\nTrajectory\0225\n\021" +
+      "trajectory_points\030\001 \003(\0132\032.visionapi.Traj" +
+      "ectoryPoint\022\020\n\010class_id\030\002 \001(\r\022\021\n\tobject_" +
+      "id\030\003 \001(\014\"\242\001\n\017TrajectoryPoint\022\030\n\020timestam" +
+      "p_utc_ms\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030" +
+      ".visionapi.GeoCoordinate\022*\n\020detection_ce" +
+      "nter\030\003 \001(\0132\020.visionapi.Point\022\027\n\017anomaly_" +
+      "trigger\030\004 \001(\010\"\035\n\005Point\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002" +
+      " \001(\002B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4579,7 +4683,7 @@ public final class Anomaly {
     internal_static_visionapi_AnomalyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_AnomalyMessage_descriptor,
-        new java.lang.String[] { "JpegFrames", "Trajectories", "ModelInfo", "CameraLocation", "SourceId", });
+        new java.lang.String[] { "JpegFrames", "Trajectories", "ModelInfo", "CameraLocation", "SourceId", "Type", });
     internal_static_visionapi_JpegFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_JpegFrame_fieldAccessorTable = new
