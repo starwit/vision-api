@@ -8,14 +8,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DetectionCountMessage(_message.Message):
-    __slots__ = ("timestamp_utc_ms", "detection_counts", "sae_uuid")
+    __slots__ = ("timestamp_utc_ms", "detection_counts", "sae_uuid", "type")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     DETECTION_COUNTS_FIELD_NUMBER: _ClassVar[int]
     SAE_UUID_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     timestamp_utc_ms: int
     detection_counts: _containers.RepeatedCompositeFieldContainer[DetectionCount]
     sae_uuid: bytes
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., detection_counts: _Optional[_Iterable[_Union[DetectionCount, _Mapping]]] = ..., sae_uuid: _Optional[bytes] = ...) -> None: ...
+    type: _common_pb2.MessageType
+    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., detection_counts: _Optional[_Iterable[_Union[DetectionCount, _Mapping]]] = ..., sae_uuid: _Optional[bytes] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class DetectionCount(_message.Message):
     __slots__ = ("class_id", "count", "location")

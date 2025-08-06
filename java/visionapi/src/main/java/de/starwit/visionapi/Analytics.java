@@ -69,6 +69,17 @@ public final class Analytics {
      * @return The saeUuid.
      */
     com.google.protobuf.ByteString getSaeUuid();
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
   }
   /**
    * Protobuf type {@code visionapi.DetectionCountMessage}
@@ -94,6 +105,7 @@ public final class Analytics {
     private DetectionCountMessage() {
       detectionCounts_ = java.util.Collections.emptyList();
       saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+      type_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -176,6 +188,24 @@ public final class Analytics {
       return saeUuid_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -199,6 +229,9 @@ public final class Analytics {
       if (!saeUuid_.isEmpty()) {
         output.writeBytes(4, saeUuid_);
       }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -219,6 +252,10 @@ public final class Analytics {
       if (!saeUuid_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, saeUuid_);
+      }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -241,6 +278,7 @@ public final class Analytics {
           .equals(other.getDetectionCountsList())) return false;
       if (!getSaeUuid()
           .equals(other.getSaeUuid())) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -261,6 +299,8 @@ public final class Analytics {
       }
       hash = (37 * hash) + SAE_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getSaeUuid().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -401,6 +441,7 @@ public final class Analytics {
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+        type_ = 0;
         return this;
       }
 
@@ -453,6 +494,9 @@ public final class Analytics {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.saeUuid_ = saeUuid_;
         }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -498,6 +542,9 @@ public final class Analytics {
         }
         if (!other.getSaeUuid().isEmpty()) {
           setSaeUuid(other.getSaeUuid());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -548,6 +595,11 @@ public final class Analytics {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 34
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 8000
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -877,6 +929,57 @@ public final class Analytics {
       public Builder clearSaeUuid() {
         bitField0_ = (bitField0_ & ~0x00000004);
         saeUuid_ = getDefaultInstance().getSaeUuid();
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000008;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -1666,10 +1769,11 @@ public final class Analytics {
   static {
     java.lang.String[] descriptorData = {
       "\n\031visionapi/analytics.proto\022\tvisionapi\032\026" +
-      "visionapi/common.proto\"x\n\025DetectionCount" +
-      "Message\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0223\n\020det" +
-      "ection_counts\030\002 \003(\0132\031.visionapi.Detectio" +
-      "nCount\022\020\n\010sae_uuid\030\004 \001(\014\"]\n\016DetectionCou" +
+      "visionapi/common.proto\"\237\001\n\025DetectionCoun" +
+      "tMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0223\n\020de" +
+      "tection_counts\030\002 \003(\0132\031.visionapi.Detecti" +
+      "onCount\022\020\n\010sae_uuid\030\004 \001(\014\022%\n\004type\030\350\007 \001(\016" +
+      "2\026.visionapi.MessageType\"]\n\016DetectionCou" +
       "nt\022\020\n\010class_id\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022*\n\010l" +
       "ocation\030\003 \001(\0132\030.visionapi.GeoCoordinateB" +
       "\026\n\024de.starwit.visionapib\006proto3"
@@ -1684,7 +1788,7 @@ public final class Analytics {
     internal_static_visionapi_DetectionCountMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_DetectionCountMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "DetectionCounts", "SaeUuid", });
+        new java.lang.String[] { "TimestampUtcMs", "DetectionCounts", "SaeUuid", "Type", });
     internal_static_visionapi_DetectionCount_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_DetectionCount_fieldAccessorTable = new

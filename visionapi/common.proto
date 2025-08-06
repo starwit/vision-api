@@ -13,3 +13,17 @@ message GeoCoordinate {
   double latitude = 1;
   double longitude = 2;
 }
+
+// Dummy message used solely for deserializing the 'type' field, cleaning up parser code.
+message TypeMessage {
+  MessageType type = 1000;
+}
+
+enum MessageType {
+  UNSPECIFIED = 0;
+  SAE = 1;
+  DETECTION_COUNT = 2;
+  POSITION = 3;
+  ANOMALY = 4;
+  INCIDENT = 5;
+}

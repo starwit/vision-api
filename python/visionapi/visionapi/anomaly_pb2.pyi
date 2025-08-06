@@ -8,18 +8,20 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AnomalyMessage(_message.Message):
-    __slots__ = ("jpeg_frames", "trajectories", "model_info", "camera_location", "source_id")
+    __slots__ = ("jpeg_frames", "trajectories", "model_info", "camera_location", "source_id", "type")
     JPEG_FRAMES_FIELD_NUMBER: _ClassVar[int]
     TRAJECTORIES_FIELD_NUMBER: _ClassVar[int]
     MODEL_INFO_FIELD_NUMBER: _ClassVar[int]
     CAMERA_LOCATION_FIELD_NUMBER: _ClassVar[int]
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     jpeg_frames: _containers.RepeatedCompositeFieldContainer[JpegFrame]
     trajectories: _containers.RepeatedCompositeFieldContainer[Trajectory]
     model_info: _common_pb2.ModelInfo
     camera_location: _common_pb2.GeoCoordinate
     source_id: str
-    def __init__(self, jpeg_frames: _Optional[_Iterable[_Union[JpegFrame, _Mapping]]] = ..., trajectories: _Optional[_Iterable[_Union[Trajectory, _Mapping]]] = ..., model_info: _Optional[_Union[_common_pb2.ModelInfo, _Mapping]] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., source_id: _Optional[str] = ...) -> None: ...
+    type: _common_pb2.MessageType
+    def __init__(self, jpeg_frames: _Optional[_Iterable[_Union[JpegFrame, _Mapping]]] = ..., trajectories: _Optional[_Iterable[_Union[Trajectory, _Mapping]]] = ..., model_info: _Optional[_Union[_common_pb2.ModelInfo, _Mapping]] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., source_id: _Optional[str] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class JpegFrame(_message.Message):
     __slots__ = ("timestamp_utc_ms", "frame_data_jpeg")

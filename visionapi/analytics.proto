@@ -10,6 +10,7 @@ message DetectionCountMessage {
   uint64 timestamp_utc_ms = 1; //Zeitpunkt der Message-Erstellung, Zeitintervall wird in der Komponenten eingestellt
   repeated DetectionCount detection_counts = 2;
   bytes sae_uuid = 4;
+  MessageType type = 1000;
 }
 
 message DetectionCount {

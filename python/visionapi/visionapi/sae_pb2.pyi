@@ -8,14 +8,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SaeMessage(_message.Message):
-    __slots__ = ("frame", "detections", "metrics")
+    __slots__ = ("frame", "detections", "metrics", "type")
     FRAME_FIELD_NUMBER: _ClassVar[int]
     DETECTIONS_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     frame: VideoFrame
     detections: _containers.RepeatedCompositeFieldContainer[Detection]
     metrics: Metrics
-    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ...) -> None: ...
+    type: _common_pb2.MessageType
+    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
     __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location")
@@ -78,15 +80,17 @@ class Metrics(_message.Message):
     def __init__(self, detection_inference_time_us: _Optional[int] = ..., tracking_inference_time_us: _Optional[int] = ...) -> None: ...
 
 class PositionMessage(_message.Message):
-    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid")
+    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid", "type")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     GEO_COORDINATE_FIELD_NUMBER: _ClassVar[int]
     HDOP_FIELD_NUMBER: _ClassVar[int]
     FIX_FIELD_NUMBER: _ClassVar[int]
     SAE_UUID_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     timestamp_utc_ms: int
     geo_coordinate: _common_pb2.GeoCoordinate
     hdop: float
     fix: bool
     sae_uuid: bytes
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ...) -> None: ...
+    type: _common_pb2.MessageType
+    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
