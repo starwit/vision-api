@@ -10,6 +10,7 @@ message SaeMessage {
   VideoFrame frame = 1;
   repeated Detection detections = 2;
   Metrics metrics = 99;
+  ModelMetadata model_metadata = 100;
   MessageType type = 1000;
 }
 
@@ -46,6 +47,10 @@ message BoundingBox {
 message Metrics {
   uint32 detection_inference_time_us = 1;
   uint32 tracking_inference_time_us = 2;
+}
+
+message ModelMetadata {
+  map<uint32, string> class_names = 1;
 }
 
 message PositionMessage {
