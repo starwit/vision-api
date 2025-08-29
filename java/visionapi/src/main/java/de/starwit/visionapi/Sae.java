@@ -85,6 +85,21 @@ public final class Sae {
     de.starwit.visionapi.Sae.MetricsOrBuilder getMetricsOrBuilder();
 
     /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     * @return Whether the modelMetadata field is set.
+     */
+    boolean hasModelMetadata();
+    /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     * @return The modelMetadata.
+     */
+    de.starwit.visionapi.Sae.ModelMetadata getModelMetadata();
+    /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     */
+    de.starwit.visionapi.Sae.ModelMetadataOrBuilder getModelMetadataOrBuilder();
+
+    /**
      * <code>.visionapi.MessageType type = 1000;</code>
      * @return The enum numeric value on the wire for type.
      */
@@ -228,6 +243,32 @@ public final class Sae {
       return metrics_ == null ? de.starwit.visionapi.Sae.Metrics.getDefaultInstance() : metrics_;
     }
 
+    public static final int MODEL_METADATA_FIELD_NUMBER = 100;
+    private de.starwit.visionapi.Sae.ModelMetadata modelMetadata_;
+    /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     * @return Whether the modelMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasModelMetadata() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     * @return The modelMetadata.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.ModelMetadata getModelMetadata() {
+      return modelMetadata_ == null ? de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
+    }
+    /**
+     * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.ModelMetadataOrBuilder getModelMetadataOrBuilder() {
+      return modelMetadata_ == null ? de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
+    }
+
     public static final int TYPE_FIELD_NUMBER = 1000;
     private int type_ = 0;
     /**
@@ -269,6 +310,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(99, getMetrics());
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(100, getModelMetadata());
+      }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         output.writeEnum(1000, type_);
       }
@@ -292,6 +336,10 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(99, getMetrics());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(100, getModelMetadata());
       }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -324,6 +372,11 @@ public final class Sae {
         if (!getMetrics()
             .equals(other.getMetrics())) return false;
       }
+      if (hasModelMetadata() != other.hasModelMetadata()) return false;
+      if (hasModelMetadata()) {
+        if (!getModelMetadata()
+            .equals(other.getModelMetadata())) return false;
+      }
       if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -347,6 +400,10 @@ public final class Sae {
       if (hasMetrics()) {
         hash = (37 * hash) + METRICS_FIELD_NUMBER;
         hash = (53 * hash) + getMetrics().hashCode();
+      }
+      if (hasModelMetadata()) {
+        hash = (37 * hash) + MODEL_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getModelMetadata().hashCode();
       }
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
@@ -483,6 +540,7 @@ public final class Sae {
           internalGetFrameFieldBuilder();
           internalGetDetectionsFieldBuilder();
           internalGetMetricsFieldBuilder();
+          internalGetModelMetadataFieldBuilder();
         }
       }
       @java.lang.Override
@@ -505,6 +563,11 @@ public final class Sae {
         if (metricsBuilder_ != null) {
           metricsBuilder_.dispose();
           metricsBuilder_ = null;
+        }
+        modelMetadata_ = null;
+        if (modelMetadataBuilder_ != null) {
+          modelMetadataBuilder_.dispose();
+          modelMetadataBuilder_ = null;
         }
         type_ = 0;
         return this;
@@ -567,6 +630,12 @@ public final class Sae {
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.modelMetadata_ = modelMetadataBuilder_ == null
+              ? modelMetadata_
+              : modelMetadataBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           result.type_ = type_;
         }
         result.bitField0_ |= to_bitField0_;
@@ -615,6 +684,9 @@ public final class Sae {
         }
         if (other.hasMetrics()) {
           mergeMetrics(other.getMetrics());
+        }
+        if (other.hasModelMetadata()) {
+          mergeModelMetadata(other.getModelMetadata());
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
@@ -672,9 +744,16 @@ public final class Sae {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 794
+              case 802: {
+                input.readMessage(
+                    internalGetModelMetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 802
               case 8000: {
                 type_ = input.readEnum();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000010;
                 break;
               } // case 8000
               default: {
@@ -1176,6 +1255,127 @@ public final class Sae {
         return metricsBuilder_;
       }
 
+      private de.starwit.visionapi.Sae.ModelMetadata modelMetadata_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Sae.ModelMetadata, de.starwit.visionapi.Sae.ModelMetadata.Builder, de.starwit.visionapi.Sae.ModelMetadataOrBuilder> modelMetadataBuilder_;
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       * @return Whether the modelMetadata field is set.
+       */
+      public boolean hasModelMetadata() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       * @return The modelMetadata.
+       */
+      public de.starwit.visionapi.Sae.ModelMetadata getModelMetadata() {
+        if (modelMetadataBuilder_ == null) {
+          return modelMetadata_ == null ? de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
+        } else {
+          return modelMetadataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public Builder setModelMetadata(de.starwit.visionapi.Sae.ModelMetadata value) {
+        if (modelMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          modelMetadata_ = value;
+        } else {
+          modelMetadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public Builder setModelMetadata(
+          de.starwit.visionapi.Sae.ModelMetadata.Builder builderForValue) {
+        if (modelMetadataBuilder_ == null) {
+          modelMetadata_ = builderForValue.build();
+        } else {
+          modelMetadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public Builder mergeModelMetadata(de.starwit.visionapi.Sae.ModelMetadata value) {
+        if (modelMetadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+            modelMetadata_ != null &&
+            modelMetadata_ != de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance()) {
+            getModelMetadataBuilder().mergeFrom(value);
+          } else {
+            modelMetadata_ = value;
+          }
+        } else {
+          modelMetadataBuilder_.mergeFrom(value);
+        }
+        if (modelMetadata_ != null) {
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public Builder clearModelMetadata() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        modelMetadata_ = null;
+        if (modelMetadataBuilder_ != null) {
+          modelMetadataBuilder_.dispose();
+          modelMetadataBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public de.starwit.visionapi.Sae.ModelMetadata.Builder getModelMetadataBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return internalGetModelMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      public de.starwit.visionapi.Sae.ModelMetadataOrBuilder getModelMetadataOrBuilder() {
+        if (modelMetadataBuilder_ != null) {
+          return modelMetadataBuilder_.getMessageOrBuilder();
+        } else {
+          return modelMetadata_ == null ?
+              de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
+        }
+      }
+      /**
+       * <code>.visionapi.ModelMetadata model_metadata = 100;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Sae.ModelMetadata, de.starwit.visionapi.Sae.ModelMetadata.Builder, de.starwit.visionapi.Sae.ModelMetadataOrBuilder> 
+          internalGetModelMetadataFieldBuilder() {
+        if (modelMetadataBuilder_ == null) {
+          modelMetadataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Sae.ModelMetadata, de.starwit.visionapi.Sae.ModelMetadata.Builder, de.starwit.visionapi.Sae.ModelMetadataOrBuilder>(
+                  getModelMetadata(),
+                  getParentForChildren(),
+                  isClean());
+          modelMetadata_ = null;
+        }
+        return modelMetadataBuilder_;
+      }
+
       private int type_ = 0;
       /**
        * <code>.visionapi.MessageType type = 1000;</code>
@@ -1191,7 +1391,7 @@ public final class Sae {
        */
       public Builder setTypeValue(int value) {
         type_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1211,7 +1411,7 @@ public final class Sae {
        */
       public Builder setType(de.starwit.visionapi.Common.MessageType value) {
         if (value == null) { throw new NullPointerException(); }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1221,7 +1421,7 @@ public final class Sae {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         type_ = 0;
         onChanged();
         return this;
@@ -5146,6 +5346,681 @@ public final class Sae {
 
   }
 
+  public interface ModelMetadataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.ModelMetadata)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    int getClassNamesCount();
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    boolean containsClassNames(
+        int key);
+    /**
+     * Use {@link #getClassNamesMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getClassNames();
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getClassNamesMap();
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    /* nullable */
+java.lang.String getClassNamesOrDefault(
+        int key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    java.lang.String getClassNamesOrThrow(
+        int key);
+  }
+  /**
+   * Protobuf type {@code visionapi.ModelMetadata}
+   */
+  public static final class ModelMetadata extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.ModelMetadata)
+      ModelMetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        ModelMetadata.class.getName());
+    }
+    // Use ModelMetadata.newBuilder() to construct.
+    private ModelMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private ModelMetadata() {
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetClassNames();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Sae.ModelMetadata.class, de.starwit.visionapi.Sae.ModelMetadata.Builder.class);
+    }
+
+    public static final int CLASS_NAMES_FIELD_NUMBER = 1;
+    private static final class ClassNamesDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Integer, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Integer, java.lang.String>newDefaultInstance(
+                  de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_ClassNamesEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    @SuppressWarnings("serial")
+    private com.google.protobuf.MapField<
+        java.lang.Integer, java.lang.String> classNames_;
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+    internalGetClassNames() {
+      if (classNames_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ClassNamesDefaultEntryHolder.defaultEntry);
+      }
+      return classNames_;
+    }
+    public int getClassNamesCount() {
+      return internalGetClassNames().getMap().size();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    @java.lang.Override
+    public boolean containsClassNames(
+        int key) {
+
+      return internalGetClassNames().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getClassNamesMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.String> getClassNames() {
+      return getClassNamesMap();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.Integer, java.lang.String> getClassNamesMap() {
+      return internalGetClassNames().getMap();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getClassNamesOrDefault(
+        int key,
+        /* nullable */
+java.lang.String defaultValue) {
+
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetClassNames().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getClassNamesOrThrow(
+        int key) {
+
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetClassNames().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessage
+        .serializeIntegerMapTo(
+          output,
+          internalGetClassNames(),
+          ClassNamesDefaultEntryHolder.defaultEntry,
+          1);
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.Integer, java.lang.String> entry
+           : internalGetClassNames().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+        classNames__ = ClassNamesDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, classNames__);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Sae.ModelMetadata)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Sae.ModelMetadata other = (de.starwit.visionapi.Sae.ModelMetadata) obj;
+
+      if (!internalGetClassNames().equals(
+          other.internalGetClassNames())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetClassNames().getMap().isEmpty()) {
+        hash = (37 * hash) + CLASS_NAMES_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetClassNames().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Sae.ModelMetadata parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Sae.ModelMetadata parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.ModelMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Sae.ModelMetadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.ModelMetadata}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.ModelMetadata)
+        de.starwit.visionapi.Sae.ModelMetadataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetClassNames();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapFieldReflectionAccessor internalGetMutableMapFieldReflection(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableClassNames();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Sae.ModelMetadata.class, de.starwit.visionapi.Sae.ModelMetadata.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Sae.ModelMetadata.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        internalGetMutableClassNames().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_ModelMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.ModelMetadata getDefaultInstanceForType() {
+        return de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.ModelMetadata build() {
+        de.starwit.visionapi.Sae.ModelMetadata result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.ModelMetadata buildPartial() {
+        de.starwit.visionapi.Sae.ModelMetadata result = new de.starwit.visionapi.Sae.ModelMetadata(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Sae.ModelMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.classNames_ = internalGetClassNames();
+          result.classNames_.makeImmutable();
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Sae.ModelMetadata) {
+          return mergeFrom((de.starwit.visionapi.Sae.ModelMetadata)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Sae.ModelMetadata other) {
+        if (other == de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance()) return this;
+        internalGetMutableClassNames().mergeFrom(
+            other.internalGetClassNames());
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+                classNames__ = input.readMessage(
+                    ClassNamesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableClassNames().getMutableMap().put(
+                    classNames__.getKey(), classNames__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.Integer, java.lang.String> classNames_;
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+          internalGetClassNames() {
+        if (classNames_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ClassNamesDefaultEntryHolder.defaultEntry);
+        }
+        return classNames_;
+      }
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+          internalGetMutableClassNames() {
+        if (classNames_ == null) {
+          classNames_ = com.google.protobuf.MapField.newMapField(
+              ClassNamesDefaultEntryHolder.defaultEntry);
+        }
+        if (!classNames_.isMutable()) {
+          classNames_ = classNames_.copy();
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return classNames_;
+      }
+      public int getClassNamesCount() {
+        return internalGetClassNames().getMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      @java.lang.Override
+      public boolean containsClassNames(
+          int key) {
+
+        return internalGetClassNames().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getClassNamesMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.String> getClassNames() {
+        return getClassNamesMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, java.lang.String> getClassNamesMap() {
+        return internalGetClassNames().getMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      @java.lang.Override
+      public /* nullable */
+java.lang.String getClassNamesOrDefault(
+          int key,
+          /* nullable */
+java.lang.String defaultValue) {
+
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            internalGetClassNames().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      @java.lang.Override
+      public java.lang.String getClassNamesOrThrow(
+          int key) {
+
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            internalGetClassNames().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      public Builder clearClassNames() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        internalGetMutableClassNames().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      public Builder removeClassNames(
+          int key) {
+
+        internalGetMutableClassNames().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.String>
+          getMutableClassNames() {
+        bitField0_ |= 0x00000001;
+        return internalGetMutableClassNames().getMutableMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      public Builder putClassNames(
+          int key,
+          java.lang.String value) {
+
+        if (value == null) { throw new NullPointerException("map value"); }
+        internalGetMutableClassNames().getMutableMap()
+            .put(key, value);
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; class_names = 1;</code>
+       */
+      public Builder putAllClassNames(
+          java.util.Map<java.lang.Integer, java.lang.String> values) {
+        internalGetMutableClassNames().getMutableMap()
+            .putAll(values);
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.ModelMetadata)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.ModelMetadata)
+    private static final de.starwit.visionapi.Sae.ModelMetadata DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Sae.ModelMetadata();
+    }
+
+    public static de.starwit.visionapi.Sae.ModelMetadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ModelMetadata>
+        PARSER = new com.google.protobuf.AbstractParser<ModelMetadata>() {
+      @java.lang.Override
+      public ModelMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ModelMetadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ModelMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.ModelMetadata getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PositionMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:visionapi.PositionMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -6143,6 +7018,16 @@ public final class Sae {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_Metrics_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_ModelMetadata_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_ModelMetadata_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_ModelMetadata_ClassNamesEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_ModelMetadata_ClassNamesEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_PositionMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -6157,31 +7042,35 @@ public final class Sae {
   static {
     java.lang.String[] descriptorData = {
       "\n\023visionapi/sae.proto\022\tvisionapi\032\026vision" +
-      "api/common.proto\"\250\001\n\nSaeMessage\022$\n\005frame" +
+      "api/common.proto\"\332\001\n\nSaeMessage\022$\n\005frame" +
       "\030\001 \001(\0132\025.visionapi.VideoFrame\022(\n\ndetecti" +
       "ons\030\002 \003(\0132\024.visionapi.Detection\022#\n\007metri" +
-      "cs\030c \001(\0132\022.visionapi.Metrics\022%\n\004type\030\350\007 " +
-      "\001(\0162\026.visionapi.MessageType\"\272\001\n\nVideoFra" +
-      "me\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020timestamp_utc_m" +
-      "s\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visionapi.Shape" +
-      "\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_data_jpeg\030" +
-      "\005 \001(\014\0221\n\017camera_location\030\006 \001(\0132\030.visiona" +
-      "pi.GeoCoordinate\"8\n\005Shape\022\016\n\006height\030\001 \001(" +
-      "\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"\244\001\n\tD" +
-      "etection\022,\n\014bounding_box\030\001 \001(\0132\026.visiona" +
-      "pi.BoundingBox\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010cl" +
-      "ass_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(\014\0220\n\016geo_c" +
-      "oordinate\030\005 \001(\0132\030.visionapi.GeoCoordinat" +
-      "e\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\002\022\r\n\005min_y" +
-      "\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007" +
-      "Metrics\022#\n\033detection_inference_time_us\030\001" +
-      " \001(\r\022\"\n\032tracking_inference_time_us\030\002 \001(\r" +
-      "\"\261\001\n\017PositionMessage\022\030\n\020timestamp_utc_ms" +
-      "\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030.visiona" +
-      "pi.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 " +
-      "\001(\010\022\020\n\010sae_uuid\030\005 \001(\014\022%\n\004type\030\350\007 \001(\0162\026.v" +
-      "isionapi.MessageTypeB\026\n\024de.starwit.visio" +
-      "napib\006proto3"
+      "cs\030c \001(\0132\022.visionapi.Metrics\0220\n\016model_me" +
+      "tadata\030d \001(\0132\030.visionapi.ModelMetadata\022%" +
+      "\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"\272\001" +
+      "\n\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020times" +
+      "tamp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visio" +
+      "napi.Shape\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_" +
+      "data_jpeg\030\005 \001(\014\0221\n\017camera_location\030\006 \001(\013" +
+      "2\030.visionapi.GeoCoordinate\"8\n\005Shape\022\016\n\006h" +
+      "eight\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003" +
+      " \001(\r\"\244\001\n\tDetection\022,\n\014bounding_box\030\001 \001(\013" +
+      "2\026.visionapi.BoundingBox\022\022\n\nconfidence\030\002" +
+      " \001(\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(" +
+      "\014\0220\n\016geo_coordinate\030\005 \001(\0132\030.visionapi.Ge" +
+      "oCoordinate\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(" +
+      "\002\022\r\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y" +
+      "\030\004 \001(\002\"R\n\007Metrics\022#\n\033detection_inference" +
+      "_time_us\030\001 \001(\r\022\"\n\032tracking_inference_tim" +
+      "e_us\030\002 \001(\r\"\201\001\n\rModelMetadata\022=\n\013class_na" +
+      "mes\030\001 \003(\0132(.visionapi.ModelMetadata.Clas" +
+      "sNamesEntry\0321\n\017ClassNamesEntry\022\013\n\003key\030\001 " +
+      "\001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\261\001\n\017PositionMessa" +
+      "ge\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0220\n\016geo_coor" +
+      "dinate\030\002 \001(\0132\030.visionapi.GeoCoordinate\022\014" +
+      "\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n\010sae_uuid\030\005 " +
+      "\001(\014\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageTy" +
+      "peB\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6193,7 +7082,7 @@ public final class Sae {
     internal_static_visionapi_SaeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_SaeMessage_descriptor,
-        new java.lang.String[] { "Frame", "Detections", "Metrics", "Type", });
+        new java.lang.String[] { "Frame", "Detections", "Metrics", "ModelMetadata", "Type", });
     internal_static_visionapi_VideoFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
@@ -6224,8 +7113,20 @@ public final class Sae {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_Metrics_descriptor,
         new java.lang.String[] { "DetectionInferenceTimeUs", "TrackingInferenceTimeUs", });
-    internal_static_visionapi_PositionMessage_descriptor =
+    internal_static_visionapi_ModelMetadata_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_visionapi_ModelMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_ModelMetadata_descriptor,
+        new java.lang.String[] { "ClassNames", });
+    internal_static_visionapi_ModelMetadata_ClassNamesEntry_descriptor =
+      internal_static_visionapi_ModelMetadata_descriptor.getNestedTypes().get(0);
+    internal_static_visionapi_ModelMetadata_ClassNamesEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_ModelMetadata_ClassNamesEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_visionapi_PositionMessage_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_visionapi_PositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,

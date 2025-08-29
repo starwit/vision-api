@@ -8,16 +8,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SaeMessage(_message.Message):
-    __slots__ = ("frame", "detections", "metrics", "type")
+    __slots__ = ("frame", "detections", "metrics", "model_metadata", "type")
     FRAME_FIELD_NUMBER: _ClassVar[int]
     DETECTIONS_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
+    MODEL_METADATA_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     frame: VideoFrame
     detections: _containers.RepeatedCompositeFieldContainer[Detection]
     metrics: Metrics
+    model_metadata: ModelMetadata
     type: _common_pb2.MessageType
-    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
+    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
     __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location")
@@ -78,6 +80,19 @@ class Metrics(_message.Message):
     detection_inference_time_us: int
     tracking_inference_time_us: int
     def __init__(self, detection_inference_time_us: _Optional[int] = ..., tracking_inference_time_us: _Optional[int] = ...) -> None: ...
+
+class ModelMetadata(_message.Message):
+    __slots__ = ("class_names",)
+    class ClassNamesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: str
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[str] = ...) -> None: ...
+    CLASS_NAMES_FIELD_NUMBER: _ClassVar[int]
+    class_names: _containers.ScalarMap[int, str]
+    def __init__(self, class_names: _Optional[_Mapping[int, str]] = ...) -> None: ...
 
 class PositionMessage(_message.Message):
     __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid", "type")
