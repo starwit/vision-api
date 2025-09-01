@@ -6,7 +6,7 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
 
 ### Python / Poetry
 - Add the following to your `pyproject.toml` dependencies section\
-    `visionapi = { git = "https://github.com/starwit/vision-api.git", subdirectory = "python/visionapi", tag = "3.5.0" }`
+    `visionapi = { git = "https://github.com/starwit/vision-api.git", subdirectory = "python/visionapi", tag = "3.5.1" }`
     
 ### Java / Maven
 - Add dependency to your project:
@@ -14,7 +14,7 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     <dependency>
       <groupId>de.starwit</groupId>
       <artifactId>vision-api</artifactId>
-      <version>3.5.0</version>
+      <version>3.5.1</version>
     </dependency>
     ```
 - Add maven repository to your `~/.m2/settings.xml` (adapt example / your config as necessary):
@@ -82,6 +82,9 @@ This repo contains the main data model for the Starwit Awareness Engine (SAE). S
     ```
 
 ## Changelog
+### 3.5.1
+- Add `class_name` to `DetectionCount`
+
 ### 3.5.0
 - Add `ModelMetadata` containing `class_names` mapping to `SaeMessage`
 

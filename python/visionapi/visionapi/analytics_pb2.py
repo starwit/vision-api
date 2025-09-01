@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from visionapi import common_pb2 as visionapi_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19visionapi/analytics.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\x9f\x01\n\x15\x44\x65tectionCountMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x33\n\x10\x64\x65tection_counts\x18\x02 \x03(\x0b\x32\x19.visionapi.DetectionCount\x12\x10\n\x08sae_uuid\x18\x04 \x01(\x0c\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"]\n\x0e\x44\x65tectionCount\x12\x10\n\x08\x63lass_id\x18\x01 \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12*\n\x08location\x18\x03 \x01(\x0b\x32\x18.visionapi.GeoCoordinateB\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19visionapi/analytics.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\x9f\x01\n\x15\x44\x65tectionCountMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x33\n\x10\x64\x65tection_counts\x18\x02 \x03(\x0b\x32\x19.visionapi.DetectionCount\x12\x10\n\x08sae_uuid\x18\x04 \x01(\x0c\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"q\n\x0e\x44\x65tectionCount\x12\x10\n\x08\x63lass_id\x18\x01 \x01(\r\x12\x12\n\nclass_name\x18\n \x01(\r\x12\r\n\x05\x63ount\x18\x02 \x01(\r\x12*\n\x08location\x18\x03 \x01(\x0b\x32\x18.visionapi.GeoCoordinateB\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,5 +36,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_DETECTIONCOUNTMESSAGE']._serialized_start=65
   _globals['_DETECTIONCOUNTMESSAGE']._serialized_end=224
   _globals['_DETECTIONCOUNT']._serialized_start=226
-  _globals['_DETECTIONCOUNT']._serialized_end=319
+  _globals['_DETECTIONCOUNT']._serialized_end=339
 # @@protoc_insertion_point(module_scope)

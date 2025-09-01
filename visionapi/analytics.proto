@@ -15,6 +15,7 @@ message DetectionCountMessage {
 
 message DetectionCount {
   uint32 class_id = 1;
+  uint32 class_name = 10;
   uint32 count = 2; 
   GeoCoordinate location = 3; 
 }
