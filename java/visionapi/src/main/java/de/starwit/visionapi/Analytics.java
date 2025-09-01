@@ -1046,6 +1046,12 @@ public final class Analytics {
     int getClassId();
 
     /**
+     * <code>uint32 class_name = 10;</code>
+     * @return The className.
+     */
+    int getClassName();
+
+    /**
      * <code>uint32 count = 2;</code>
      * @return The count.
      */
@@ -1115,6 +1121,17 @@ public final class Analytics {
       return classId_;
     }
 
+    public static final int CLASS_NAME_FIELD_NUMBER = 10;
+    private int className_ = 0;
+    /**
+     * <code>uint32 class_name = 10;</code>
+     * @return The className.
+     */
+    @java.lang.Override
+    public int getClassName() {
+      return className_;
+    }
+
     public static final int COUNT_FIELD_NUMBER = 2;
     private int count_ = 0;
     /**
@@ -1175,6 +1192,9 @@ public final class Analytics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(3, getLocation());
       }
+      if (className_ != 0) {
+        output.writeUInt32(10, className_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1196,6 +1216,10 @@ public final class Analytics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getLocation());
       }
+      if (className_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(10, className_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1213,6 +1237,8 @@ public final class Analytics {
 
       if (getClassId()
           != other.getClassId()) return false;
+      if (getClassName()
+          != other.getClassName()) return false;
       if (getCount()
           != other.getCount()) return false;
       if (hasLocation() != other.hasLocation()) return false;
@@ -1233,6 +1259,8 @@ public final class Analytics {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CLASS_ID_FIELD_NUMBER;
       hash = (53 * hash) + getClassId();
+      hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getClassName();
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getCount();
       if (hasLocation()) {
@@ -1377,6 +1405,7 @@ public final class Analytics {
         super.clear();
         bitField0_ = 0;
         classId_ = 0;
+        className_ = 0;
         count_ = 0;
         location_ = null;
         if (locationBuilder_ != null) {
@@ -1420,10 +1449,13 @@ public final class Analytics {
           result.classId_ = classId_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.className_ = className_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           result.count_ = count_;
         }
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.location_ = locationBuilder_ == null
               ? location_
               : locationBuilder_.build();
@@ -1446,6 +1478,9 @@ public final class Analytics {
         if (other == de.starwit.visionapi.Analytics.DetectionCount.getDefaultInstance()) return this;
         if (other.getClassId() != 0) {
           setClassId(other.getClassId());
+        }
+        if (other.getClassName() != 0) {
+          setClassName(other.getClassName());
         }
         if (other.getCount() != 0) {
           setCount(other.getCount());
@@ -1486,16 +1521,21 @@ public final class Analytics {
               } // case 8
               case 16: {
                 count_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
                 break;
               } // case 16
               case 26: {
                 input.readMessage(
                     internalGetLocationFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000008;
                 break;
               } // case 26
+              case 80: {
+                className_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 80
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1545,6 +1585,38 @@ public final class Analytics {
         return this;
       }
 
+      private int className_ ;
+      /**
+       * <code>uint32 class_name = 10;</code>
+       * @return The className.
+       */
+      @java.lang.Override
+      public int getClassName() {
+        return className_;
+      }
+      /**
+       * <code>uint32 class_name = 10;</code>
+       * @param value The className to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClassName(int value) {
+
+        className_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 class_name = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClassName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        className_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int count_ ;
       /**
        * <code>uint32 count = 2;</code>
@@ -1562,7 +1634,7 @@ public final class Analytics {
       public Builder setCount(int value) {
 
         count_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1571,7 +1643,7 @@ public final class Analytics {
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         count_ = 0;
         onChanged();
         return this;
@@ -1585,7 +1657,7 @@ public final class Analytics {
        * @return Whether the location field is set.
        */
       public boolean hasLocation() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>.visionapi.GeoCoordinate location = 3;</code>
@@ -1610,7 +1682,7 @@ public final class Analytics {
         } else {
           locationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1624,7 +1696,7 @@ public final class Analytics {
         } else {
           locationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1633,7 +1705,7 @@ public final class Analytics {
        */
       public Builder mergeLocation(de.starwit.visionapi.Common.GeoCoordinate value) {
         if (locationBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
+          if (((bitField0_ & 0x00000008) != 0) &&
             location_ != null &&
             location_ != de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance()) {
             getLocationBuilder().mergeFrom(value);
@@ -1644,7 +1716,7 @@ public final class Analytics {
           locationBuilder_.mergeFrom(value);
         }
         if (location_ != null) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         return this;
@@ -1653,7 +1725,7 @@ public final class Analytics {
        * <code>.visionapi.GeoCoordinate location = 3;</code>
        */
       public Builder clearLocation() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         location_ = null;
         if (locationBuilder_ != null) {
           locationBuilder_.dispose();
@@ -1666,7 +1738,7 @@ public final class Analytics {
        * <code>.visionapi.GeoCoordinate location = 3;</code>
        */
       public de.starwit.visionapi.Common.GeoCoordinate.Builder getLocationBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return internalGetLocationFieldBuilder().getBuilder();
       }
@@ -1773,10 +1845,11 @@ public final class Analytics {
       "tMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0223\n\020de" +
       "tection_counts\030\002 \003(\0132\031.visionapi.Detecti" +
       "onCount\022\020\n\010sae_uuid\030\004 \001(\014\022%\n\004type\030\350\007 \001(\016" +
-      "2\026.visionapi.MessageType\"]\n\016DetectionCou" +
-      "nt\022\020\n\010class_id\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022*\n\010l" +
-      "ocation\030\003 \001(\0132\030.visionapi.GeoCoordinateB" +
-      "\026\n\024de.starwit.visionapib\006proto3"
+      "2\026.visionapi.MessageType\"q\n\016DetectionCou" +
+      "nt\022\020\n\010class_id\030\001 \001(\r\022\022\n\nclass_name\030\n \001(\r" +
+      "\022\r\n\005count\030\002 \001(\r\022*\n\010location\030\003 \001(\0132\030.visi" +
+      "onapi.GeoCoordinateB\026\n\024de.starwit.vision" +
+      "apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1794,7 +1867,7 @@ public final class Analytics {
     internal_static_visionapi_DetectionCount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_DetectionCount_descriptor,
-        new java.lang.String[] { "ClassId", "Count", "Location", });
+        new java.lang.String[] { "ClassId", "ClassName", "Count", "Location", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }
