@@ -1046,10 +1046,16 @@ public final class Analytics {
     int getClassId();
 
     /**
-     * <code>uint32 class_name = 10;</code>
+     * <code>string class_name = 10;</code>
      * @return The className.
      */
-    int getClassName();
+    java.lang.String getClassName();
+    /**
+     * <code>string class_name = 10;</code>
+     * @return The bytes for className.
+     */
+    com.google.protobuf.ByteString
+        getClassNameBytes();
 
     /**
      * <code>uint32 count = 2;</code>
@@ -1094,6 +1100,7 @@ public final class Analytics {
       super(builder);
     }
     private DetectionCount() {
+      className_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -1122,14 +1129,42 @@ public final class Analytics {
     }
 
     public static final int CLASS_NAME_FIELD_NUMBER = 10;
-    private int className_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object className_ = "";
     /**
-     * <code>uint32 class_name = 10;</code>
+     * <code>string class_name = 10;</code>
      * @return The className.
      */
     @java.lang.Override
-    public int getClassName() {
-      return className_;
+    public java.lang.String getClassName() {
+      java.lang.Object ref = className_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        className_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string class_name = 10;</code>
+     * @return The bytes for className.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getClassNameBytes() {
+      java.lang.Object ref = className_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        className_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int COUNT_FIELD_NUMBER = 2;
@@ -1192,8 +1227,8 @@ public final class Analytics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(3, getLocation());
       }
-      if (className_ != 0) {
-        output.writeUInt32(10, className_);
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(className_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 10, className_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1216,9 +1251,8 @@ public final class Analytics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getLocation());
       }
-      if (className_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(10, className_);
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(className_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(10, className_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1237,8 +1271,8 @@ public final class Analytics {
 
       if (getClassId()
           != other.getClassId()) return false;
-      if (getClassName()
-          != other.getClassName()) return false;
+      if (!getClassName()
+          .equals(other.getClassName())) return false;
       if (getCount()
           != other.getCount()) return false;
       if (hasLocation() != other.hasLocation()) return false;
@@ -1260,7 +1294,7 @@ public final class Analytics {
       hash = (37 * hash) + CLASS_ID_FIELD_NUMBER;
       hash = (53 * hash) + getClassId();
       hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getClassName();
+      hash = (53 * hash) + getClassName().hashCode();
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getCount();
       if (hasLocation()) {
@@ -1405,7 +1439,7 @@ public final class Analytics {
         super.clear();
         bitField0_ = 0;
         classId_ = 0;
-        className_ = 0;
+        className_ = "";
         count_ = 0;
         location_ = null;
         if (locationBuilder_ != null) {
@@ -1479,8 +1513,10 @@ public final class Analytics {
         if (other.getClassId() != 0) {
           setClassId(other.getClassId());
         }
-        if (other.getClassName() != 0) {
-          setClassName(other.getClassName());
+        if (!other.getClassName().isEmpty()) {
+          className_ = other.className_;
+          bitField0_ |= 0x00000002;
+          onChanged();
         }
         if (other.getCount() != 0) {
           setCount(other.getCount());
@@ -1531,11 +1567,11 @@ public final class Analytics {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 26
-              case 80: {
-                className_ = input.readUInt32();
+              case 82: {
+                className_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 80
+              } // case 82
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1585,34 +1621,74 @@ public final class Analytics {
         return this;
       }
 
-      private int className_ ;
+      private java.lang.Object className_ = "";
       /**
-       * <code>uint32 class_name = 10;</code>
+       * <code>string class_name = 10;</code>
        * @return The className.
        */
-      @java.lang.Override
-      public int getClassName() {
-        return className_;
+      public java.lang.String getClassName() {
+        java.lang.Object ref = className_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          className_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>uint32 class_name = 10;</code>
+       * <code>string class_name = 10;</code>
+       * @return The bytes for className.
+       */
+      public com.google.protobuf.ByteString
+          getClassNameBytes() {
+        java.lang.Object ref = className_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          className_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string class_name = 10;</code>
        * @param value The className to set.
        * @return This builder for chaining.
        */
-      public Builder setClassName(int value) {
-
+      public Builder setClassName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         className_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 class_name = 10;</code>
+       * <code>string class_name = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearClassName() {
+        className_ = getDefaultInstance().getClassName();
         bitField0_ = (bitField0_ & ~0x00000002);
-        className_ = 0;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string class_name = 10;</code>
+       * @param value The bytes for className to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClassNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        className_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1846,7 +1922,7 @@ public final class Analytics {
       "tection_counts\030\002 \003(\0132\031.visionapi.Detecti" +
       "onCount\022\020\n\010sae_uuid\030\004 \001(\014\022%\n\004type\030\350\007 \001(\016" +
       "2\026.visionapi.MessageType\"q\n\016DetectionCou" +
-      "nt\022\020\n\010class_id\030\001 \001(\r\022\022\n\nclass_name\030\n \001(\r" +
+      "nt\022\020\n\010class_id\030\001 \001(\r\022\022\n\nclass_name\030\n \001(\t" +
       "\022\r\n\005count\030\002 \001(\r\022*\n\010location\030\003 \001(\0132\030.visi" +
       "onapi.GeoCoordinateB\026\n\024de.starwit.vision" +
       "apib\006proto3"

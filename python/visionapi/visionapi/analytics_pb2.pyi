@@ -26,7 +26,7 @@ class DetectionCount(_message.Message):
     COUNT_FIELD_NUMBER: _ClassVar[int]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
     class_id: int
-    class_name: int
+    class_name: str
     count: int
     location: _common_pb2.GeoCoordinate
-    def __init__(self, class_id: _Optional[int] = ..., class_name: _Optional[int] = ..., count: _Optional[int] = ..., location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
+    def __init__(self, class_id: _Optional[int] = ..., class_name: _Optional[str] = ..., count: _Optional[int] = ..., location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
