@@ -6,7 +6,7 @@
   <artifactId>vision-api</artifactId>
 
   <packaging>jar</packaging>
-  <version>3.5.2</version>
+  <version>3.5.3</version>
   <name>visionapi</name>
   <url>https://github.com/starwit/vision-api</url>
 
@@ -30,6 +30,11 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
+      <version>4.31.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java-util</artifactId>
       <version>4.31.1</version>
     </dependency>
   </dependencies>
