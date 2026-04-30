@@ -21,6 +21,7 @@ message VideoFrame {
   bytes frame_data = 4;
   bytes frame_data_jpeg = 5;
   GeoCoordinate camera_location = 6;
+  MovementVector movement_vector = 7;
 }
 
 message Shape {
@@ -59,5 +60,7 @@ message PositionMessage {
   float hdop = 3;
   bool fix = 4;
   bytes sae_uuid = 5;
+  MovementVector movement_vector = 6;
+  GeoCoordinate raw_geo_coordinate = 7;
   MessageType type = 1000;
 }
