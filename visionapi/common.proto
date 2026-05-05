@@ -15,7 +15,7 @@ message GeoCoordinate {
 }
 
 message MovementVector {
-  double speed_mps = 1;
+  double speed_kmh = 1;
   double heading_deg = 2;
 }
 

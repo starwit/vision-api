@@ -1352,10 +1352,10 @@ public final class Common {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>double speed_mps = 1;</code>
-     * @return The speedMps.
+     * <code>double speed_kmh = 1;</code>
+     * @return The speedKmh.
      */
-    double getSpeedMps();
+    double getSpeedKmh();
 
     /**
      * <code>double heading_deg = 2;</code>
@@ -1400,15 +1400,15 @@ public final class Common {
               de.starwit.visionapi.Common.MovementVector.class, de.starwit.visionapi.Common.MovementVector.Builder.class);
     }
 
-    public static final int SPEED_MPS_FIELD_NUMBER = 1;
-    private double speedMps_ = 0D;
+    public static final int SPEED_KMH_FIELD_NUMBER = 1;
+    private double speedKmh_ = 0D;
     /**
-     * <code>double speed_mps = 1;</code>
-     * @return The speedMps.
+     * <code>double speed_kmh = 1;</code>
+     * @return The speedKmh.
      */
     @java.lang.Override
-    public double getSpeedMps() {
-      return speedMps_;
+    public double getSpeedKmh() {
+      return speedKmh_;
     }
 
     public static final int HEADING_DEG_FIELD_NUMBER = 2;
@@ -1436,8 +1436,8 @@ public final class Common {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (java.lang.Double.doubleToRawLongBits(speedMps_) != 0) {
-        output.writeDouble(1, speedMps_);
+      if (java.lang.Double.doubleToRawLongBits(speedKmh_) != 0) {
+        output.writeDouble(1, speedKmh_);
       }
       if (java.lang.Double.doubleToRawLongBits(headingDeg_) != 0) {
         output.writeDouble(2, headingDeg_);
@@ -1451,9 +1451,9 @@ public final class Common {
       if (size != -1) return size;
 
       size = 0;
-      if (java.lang.Double.doubleToRawLongBits(speedMps_) != 0) {
+      if (java.lang.Double.doubleToRawLongBits(speedKmh_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(1, speedMps_);
+          .computeDoubleSize(1, speedKmh_);
       }
       if (java.lang.Double.doubleToRawLongBits(headingDeg_) != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -1474,9 +1474,9 @@ public final class Common {
       }
       de.starwit.visionapi.Common.MovementVector other = (de.starwit.visionapi.Common.MovementVector) obj;
 
-      if (java.lang.Double.doubleToLongBits(getSpeedMps())
+      if (java.lang.Double.doubleToLongBits(getSpeedKmh())
           != java.lang.Double.doubleToLongBits(
-              other.getSpeedMps())) return false;
+              other.getSpeedKmh())) return false;
       if (java.lang.Double.doubleToLongBits(getHeadingDeg())
           != java.lang.Double.doubleToLongBits(
               other.getHeadingDeg())) return false;
@@ -1491,9 +1491,9 @@ public final class Common {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SPEED_MPS_FIELD_NUMBER;
+      hash = (37 * hash) + SPEED_KMH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getSpeedMps()));
+          java.lang.Double.doubleToLongBits(getSpeedKmh()));
       hash = (37 * hash) + HEADING_DEG_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getHeadingDeg()));
@@ -1628,7 +1628,7 @@ public final class Common {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        speedMps_ = 0D;
+        speedKmh_ = 0D;
         headingDeg_ = 0D;
         return this;
       }
@@ -1664,7 +1664,7 @@ public final class Common {
       private void buildPartial0(de.starwit.visionapi.Common.MovementVector result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.speedMps_ = speedMps_;
+          result.speedKmh_ = speedKmh_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.headingDeg_ = headingDeg_;
@@ -1683,8 +1683,8 @@ public final class Common {
 
       public Builder mergeFrom(de.starwit.visionapi.Common.MovementVector other) {
         if (other == de.starwit.visionapi.Common.MovementVector.getDefaultInstance()) return this;
-        if (java.lang.Double.doubleToRawLongBits(other.getSpeedMps()) != 0) {
-          setSpeedMps(other.getSpeedMps());
+        if (java.lang.Double.doubleToRawLongBits(other.getSpeedKmh()) != 0) {
+          setSpeedKmh(other.getSpeedKmh());
         }
         if (java.lang.Double.doubleToRawLongBits(other.getHeadingDeg()) != 0) {
           setHeadingDeg(other.getHeadingDeg());
@@ -1716,7 +1716,7 @@ public final class Common {
                 done = true;
                 break;
               case 9: {
-                speedMps_ = input.readDouble();
+                speedKmh_ = input.readDouble();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 9
@@ -1742,34 +1742,34 @@ public final class Common {
       }
       private int bitField0_;
 
-      private double speedMps_ ;
+      private double speedKmh_ ;
       /**
-       * <code>double speed_mps = 1;</code>
-       * @return The speedMps.
+       * <code>double speed_kmh = 1;</code>
+       * @return The speedKmh.
        */
       @java.lang.Override
-      public double getSpeedMps() {
-        return speedMps_;
+      public double getSpeedKmh() {
+        return speedKmh_;
       }
       /**
-       * <code>double speed_mps = 1;</code>
-       * @param value The speedMps to set.
+       * <code>double speed_kmh = 1;</code>
+       * @param value The speedKmh to set.
        * @return This builder for chaining.
        */
-      public Builder setSpeedMps(double value) {
+      public Builder setSpeedKmh(double value) {
 
-        speedMps_ = value;
+        speedKmh_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>double speed_mps = 1;</code>
+       * <code>double speed_kmh = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSpeedMps() {
+      public Builder clearSpeedKmh() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        speedMps_ = 0D;
+        speedKmh_ = 0D;
         onChanged();
         return this;
       }
@@ -2363,7 +2363,7 @@ public final class Common {
       "odelInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"" +
       "4\n\rGeoCoordinate\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlo" +
       "ngitude\030\002 \001(\001\"8\n\016MovementVector\022\021\n\tspeed" +
-      "_mps\030\001 \001(\001\022\023\n\013heading_deg\030\002 \001(\001\"4\n\013TypeM" +
+      "_kmh\030\001 \001(\001\022\023\n\013heading_deg\030\002 \001(\001\"4\n\013TypeM" +
       "essage\022%\n\004type\030\350\007 \001(\0162\026.visionapi.Messag" +
       "eType*e\n\013MessageType\022\017\n\013UNSPECIFIED\020\000\022\007\n" +
       "\003SAE\020\001\022\023\n\017DETECTION_COUNT\020\002\022\014\n\010POSITION\020" +
@@ -2391,7 +2391,7 @@ public final class Common {
     internal_static_visionapi_MovementVector_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_MovementVector_descriptor,
-        new java.lang.String[] { "SpeedMps", "HeadingDeg", });
+        new java.lang.String[] { "SpeedKmh", "HeadingDeg", });
     internal_static_visionapi_TypeMessage_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_visionapi_TypeMessage_fieldAccessorTable = new
