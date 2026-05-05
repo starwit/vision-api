@@ -1541,6 +1541,21 @@ public final class Sae {
      * <code>.visionapi.GeoCoordinate camera_location = 6;</code>
      */
     de.starwit.visionapi.Common.GeoCoordinateOrBuilder getCameraLocationOrBuilder();
+
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     * @return Whether the movementVector field is set.
+     */
+    boolean hasMovementVector();
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     * @return The movementVector.
+     */
+    de.starwit.visionapi.Common.MovementVector getMovementVector();
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     */
+    de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder();
   }
   /**
    * Protobuf type {@code visionapi.VideoFrame}
@@ -1707,6 +1722,32 @@ public final class Sae {
       return cameraLocation_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : cameraLocation_;
     }
 
+    public static final int MOVEMENT_VECTOR_FIELD_NUMBER = 7;
+    private de.starwit.visionapi.Common.MovementVector movementVector_;
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     * @return Whether the movementVector field is set.
+     */
+    @java.lang.Override
+    public boolean hasMovementVector() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     * @return The movementVector.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.MovementVector getMovementVector() {
+      return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+    }
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 7;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder() {
+      return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1739,6 +1780,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(6, getCameraLocation());
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(7, getMovementVector());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1770,6 +1814,10 @@ public final class Sae {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getCameraLocation());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getMovementVector());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1804,6 +1852,11 @@ public final class Sae {
         if (!getCameraLocation()
             .equals(other.getCameraLocation())) return false;
       }
+      if (hasMovementVector() != other.hasMovementVector()) return false;
+      if (hasMovementVector()) {
+        if (!getMovementVector()
+            .equals(other.getMovementVector())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1831,6 +1884,10 @@ public final class Sae {
       if (hasCameraLocation()) {
         hash = (37 * hash) + CAMERA_LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getCameraLocation().hashCode();
+      }
+      if (hasMovementVector()) {
+        hash = (37 * hash) + MOVEMENT_VECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getMovementVector().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -1964,6 +2021,7 @@ public final class Sae {
                 .alwaysUseFieldBuilders) {
           internalGetShapeFieldBuilder();
           internalGetCameraLocationFieldBuilder();
+          internalGetMovementVectorFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1983,6 +2041,11 @@ public final class Sae {
         if (cameraLocationBuilder_ != null) {
           cameraLocationBuilder_.dispose();
           cameraLocationBuilder_ = null;
+        }
+        movementVector_ = null;
+        if (movementVectorBuilder_ != null) {
+          movementVectorBuilder_.dispose();
+          movementVectorBuilder_ = null;
         }
         return this;
       }
@@ -2042,6 +2105,12 @@ public final class Sae {
               : cameraLocationBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.movementVector_ = movementVectorBuilder_ == null
+              ? movementVector_
+              : movementVectorBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -2076,6 +2145,9 @@ public final class Sae {
         }
         if (other.hasCameraLocation()) {
           mergeCameraLocation(other.getCameraLocation());
+        }
+        if (other.hasMovementVector()) {
+          mergeMovementVector(other.getMovementVector());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -2137,6 +2209,13 @@ public final class Sae {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 50
+              case 58: {
+                input.readMessage(
+                    internalGetMovementVectorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -2562,6 +2641,127 @@ public final class Sae {
           cameraLocation_ = null;
         }
         return cameraLocationBuilder_;
+      }
+
+      private de.starwit.visionapi.Common.MovementVector movementVector_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder> movementVectorBuilder_;
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       * @return Whether the movementVector field is set.
+       */
+      public boolean hasMovementVector() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       * @return The movementVector.
+       */
+      public de.starwit.visionapi.Common.MovementVector getMovementVector() {
+        if (movementVectorBuilder_ == null) {
+          return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+        } else {
+          return movementVectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public Builder setMovementVector(de.starwit.visionapi.Common.MovementVector value) {
+        if (movementVectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          movementVector_ = value;
+        } else {
+          movementVectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public Builder setMovementVector(
+          de.starwit.visionapi.Common.MovementVector.Builder builderForValue) {
+        if (movementVectorBuilder_ == null) {
+          movementVector_ = builderForValue.build();
+        } else {
+          movementVectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public Builder mergeMovementVector(de.starwit.visionapi.Common.MovementVector value) {
+        if (movementVectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+            movementVector_ != null &&
+            movementVector_ != de.starwit.visionapi.Common.MovementVector.getDefaultInstance()) {
+            getMovementVectorBuilder().mergeFrom(value);
+          } else {
+            movementVector_ = value;
+          }
+        } else {
+          movementVectorBuilder_.mergeFrom(value);
+        }
+        if (movementVector_ != null) {
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public Builder clearMovementVector() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        movementVector_ = null;
+        if (movementVectorBuilder_ != null) {
+          movementVectorBuilder_.dispose();
+          movementVectorBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public de.starwit.visionapi.Common.MovementVector.Builder getMovementVectorBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return internalGetMovementVectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      public de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder() {
+        if (movementVectorBuilder_ != null) {
+          return movementVectorBuilder_.getMessageOrBuilder();
+        } else {
+          return movementVector_ == null ?
+              de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+        }
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder> 
+          internalGetMovementVectorFieldBuilder() {
+        if (movementVectorBuilder_ == null) {
+          movementVectorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder>(
+                  getMovementVector(),
+                  getParentForChildren(),
+                  isClean());
+          movementVector_ = null;
+        }
+        return movementVectorBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:visionapi.VideoFrame)
@@ -6065,6 +6265,36 @@ java.lang.String defaultValue) {
     com.google.protobuf.ByteString getSaeUuid();
 
     /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     * @return Whether the movementVector field is set.
+     */
+    boolean hasMovementVector();
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     * @return The movementVector.
+     */
+    de.starwit.visionapi.Common.MovementVector getMovementVector();
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     */
+    de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder();
+
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     * @return Whether the rawGeoCoordinate field is set.
+     */
+    boolean hasRawGeoCoordinate();
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     * @return The rawGeoCoordinate.
+     */
+    de.starwit.visionapi.Common.GeoCoordinate getRawGeoCoordinate();
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     */
+    de.starwit.visionapi.Common.GeoCoordinateOrBuilder getRawGeoCoordinateOrBuilder();
+
+    /**
      * <code>.visionapi.MessageType type = 1000;</code>
      * @return The enum numeric value on the wire for type.
      */
@@ -6185,6 +6415,58 @@ java.lang.String defaultValue) {
       return saeUuid_;
     }
 
+    public static final int MOVEMENT_VECTOR_FIELD_NUMBER = 6;
+    private de.starwit.visionapi.Common.MovementVector movementVector_;
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     * @return Whether the movementVector field is set.
+     */
+    @java.lang.Override
+    public boolean hasMovementVector() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     * @return The movementVector.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.MovementVector getMovementVector() {
+      return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+    }
+    /**
+     * <code>.visionapi.MovementVector movement_vector = 6;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder() {
+      return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+    }
+
+    public static final int RAW_GEO_COORDINATE_FIELD_NUMBER = 7;
+    private de.starwit.visionapi.Common.GeoCoordinate rawGeoCoordinate_;
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     * @return Whether the rawGeoCoordinate field is set.
+     */
+    @java.lang.Override
+    public boolean hasRawGeoCoordinate() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     * @return The rawGeoCoordinate.
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinate getRawGeoCoordinate() {
+      return rawGeoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : rawGeoCoordinate_;
+    }
+    /**
+     * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getRawGeoCoordinateOrBuilder() {
+      return rawGeoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : rawGeoCoordinate_;
+    }
+
     public static final int TYPE_FIELD_NUMBER = 1000;
     private int type_ = 0;
     /**
@@ -6232,6 +6514,12 @@ java.lang.String defaultValue) {
       if (!saeUuid_.isEmpty()) {
         output.writeBytes(5, saeUuid_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(6, getMovementVector());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(7, getRawGeoCoordinate());
+      }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         output.writeEnum(1000, type_);
       }
@@ -6263,6 +6551,14 @@ java.lang.String defaultValue) {
       if (!saeUuid_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, saeUuid_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getMovementVector());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getRawGeoCoordinate());
       }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -6297,6 +6593,16 @@ java.lang.String defaultValue) {
           != other.getFix()) return false;
       if (!getSaeUuid()
           .equals(other.getSaeUuid())) return false;
+      if (hasMovementVector() != other.hasMovementVector()) return false;
+      if (hasMovementVector()) {
+        if (!getMovementVector()
+            .equals(other.getMovementVector())) return false;
+      }
+      if (hasRawGeoCoordinate() != other.hasRawGeoCoordinate()) return false;
+      if (hasRawGeoCoordinate()) {
+        if (!getRawGeoCoordinate()
+            .equals(other.getRawGeoCoordinate())) return false;
+      }
       if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -6324,6 +6630,14 @@ java.lang.String defaultValue) {
           getFix());
       hash = (37 * hash) + SAE_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getSaeUuid().hashCode();
+      if (hasMovementVector()) {
+        hash = (37 * hash) + MOVEMENT_VECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getMovementVector().hashCode();
+      }
+      if (hasRawGeoCoordinate()) {
+        hash = (37 * hash) + RAW_GEO_COORDINATE_FIELD_NUMBER;
+        hash = (53 * hash) + getRawGeoCoordinate().hashCode();
+      }
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -6457,6 +6771,8 @@ java.lang.String defaultValue) {
         if (com.google.protobuf.GeneratedMessage
                 .alwaysUseFieldBuilders) {
           internalGetGeoCoordinateFieldBuilder();
+          internalGetMovementVectorFieldBuilder();
+          internalGetRawGeoCoordinateFieldBuilder();
         }
       }
       @java.lang.Override
@@ -6472,6 +6788,16 @@ java.lang.String defaultValue) {
         hdop_ = 0F;
         fix_ = false;
         saeUuid_ = com.google.protobuf.ByteString.EMPTY;
+        movementVector_ = null;
+        if (movementVectorBuilder_ != null) {
+          movementVectorBuilder_.dispose();
+          movementVectorBuilder_ = null;
+        }
+        rawGeoCoordinate_ = null;
+        if (rawGeoCoordinateBuilder_ != null) {
+          rawGeoCoordinateBuilder_.dispose();
+          rawGeoCoordinateBuilder_ = null;
+        }
         type_ = 0;
         return this;
       }
@@ -6526,6 +6852,18 @@ java.lang.String defaultValue) {
           result.saeUuid_ = saeUuid_;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.movementVector_ = movementVectorBuilder_ == null
+              ? movementVector_
+              : movementVectorBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.rawGeoCoordinate_ = rawGeoCoordinateBuilder_ == null
+              ? rawGeoCoordinate_
+              : rawGeoCoordinateBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
           result.type_ = type_;
         }
         result.bitField0_ |= to_bitField0_;
@@ -6557,6 +6895,12 @@ java.lang.String defaultValue) {
         }
         if (!other.getSaeUuid().isEmpty()) {
           setSaeUuid(other.getSaeUuid());
+        }
+        if (other.hasMovementVector()) {
+          mergeMovementVector(other.getMovementVector());
+        }
+        if (other.hasRawGeoCoordinate()) {
+          mergeRawGeoCoordinate(other.getRawGeoCoordinate());
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
@@ -6614,9 +6958,23 @@ java.lang.String defaultValue) {
                 bitField0_ |= 0x00000010;
                 break;
               } // case 42
+              case 50: {
+                input.readMessage(
+                    internalGetMovementVectorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    internalGetRawGeoCoordinateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
               case 8000: {
                 type_ = input.readEnum();
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000080;
                 break;
               } // case 8000
               default: {
@@ -6885,6 +7243,248 @@ java.lang.String defaultValue) {
         return this;
       }
 
+      private de.starwit.visionapi.Common.MovementVector movementVector_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder> movementVectorBuilder_;
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       * @return Whether the movementVector field is set.
+       */
+      public boolean hasMovementVector() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       * @return The movementVector.
+       */
+      public de.starwit.visionapi.Common.MovementVector getMovementVector() {
+        if (movementVectorBuilder_ == null) {
+          return movementVector_ == null ? de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+        } else {
+          return movementVectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public Builder setMovementVector(de.starwit.visionapi.Common.MovementVector value) {
+        if (movementVectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          movementVector_ = value;
+        } else {
+          movementVectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public Builder setMovementVector(
+          de.starwit.visionapi.Common.MovementVector.Builder builderForValue) {
+        if (movementVectorBuilder_ == null) {
+          movementVector_ = builderForValue.build();
+        } else {
+          movementVectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public Builder mergeMovementVector(de.starwit.visionapi.Common.MovementVector value) {
+        if (movementVectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+            movementVector_ != null &&
+            movementVector_ != de.starwit.visionapi.Common.MovementVector.getDefaultInstance()) {
+            getMovementVectorBuilder().mergeFrom(value);
+          } else {
+            movementVector_ = value;
+          }
+        } else {
+          movementVectorBuilder_.mergeFrom(value);
+        }
+        if (movementVector_ != null) {
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public Builder clearMovementVector() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        movementVector_ = null;
+        if (movementVectorBuilder_ != null) {
+          movementVectorBuilder_.dispose();
+          movementVectorBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public de.starwit.visionapi.Common.MovementVector.Builder getMovementVectorBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return internalGetMovementVectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      public de.starwit.visionapi.Common.MovementVectorOrBuilder getMovementVectorOrBuilder() {
+        if (movementVectorBuilder_ != null) {
+          return movementVectorBuilder_.getMessageOrBuilder();
+        } else {
+          return movementVector_ == null ?
+              de.starwit.visionapi.Common.MovementVector.getDefaultInstance() : movementVector_;
+        }
+      }
+      /**
+       * <code>.visionapi.MovementVector movement_vector = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder> 
+          internalGetMovementVectorFieldBuilder() {
+        if (movementVectorBuilder_ == null) {
+          movementVectorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Common.MovementVector, de.starwit.visionapi.Common.MovementVector.Builder, de.starwit.visionapi.Common.MovementVectorOrBuilder>(
+                  getMovementVector(),
+                  getParentForChildren(),
+                  isClean());
+          movementVector_ = null;
+        }
+        return movementVectorBuilder_;
+      }
+
+      private de.starwit.visionapi.Common.GeoCoordinate rawGeoCoordinate_;
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> rawGeoCoordinateBuilder_;
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       * @return Whether the rawGeoCoordinate field is set.
+       */
+      public boolean hasRawGeoCoordinate() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       * @return The rawGeoCoordinate.
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate getRawGeoCoordinate() {
+        if (rawGeoCoordinateBuilder_ == null) {
+          return rawGeoCoordinate_ == null ? de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : rawGeoCoordinate_;
+        } else {
+          return rawGeoCoordinateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public Builder setRawGeoCoordinate(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (rawGeoCoordinateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rawGeoCoordinate_ = value;
+        } else {
+          rawGeoCoordinateBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public Builder setRawGeoCoordinate(
+          de.starwit.visionapi.Common.GeoCoordinate.Builder builderForValue) {
+        if (rawGeoCoordinateBuilder_ == null) {
+          rawGeoCoordinate_ = builderForValue.build();
+        } else {
+          rawGeoCoordinateBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public Builder mergeRawGeoCoordinate(de.starwit.visionapi.Common.GeoCoordinate value) {
+        if (rawGeoCoordinateBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+            rawGeoCoordinate_ != null &&
+            rawGeoCoordinate_ != de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance()) {
+            getRawGeoCoordinateBuilder().mergeFrom(value);
+          } else {
+            rawGeoCoordinate_ = value;
+          }
+        } else {
+          rawGeoCoordinateBuilder_.mergeFrom(value);
+        }
+        if (rawGeoCoordinate_ != null) {
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public Builder clearRawGeoCoordinate() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        rawGeoCoordinate_ = null;
+        if (rawGeoCoordinateBuilder_ != null) {
+          rawGeoCoordinateBuilder_.dispose();
+          rawGeoCoordinateBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinate.Builder getRawGeoCoordinateBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return internalGetRawGeoCoordinateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      public de.starwit.visionapi.Common.GeoCoordinateOrBuilder getRawGeoCoordinateOrBuilder() {
+        if (rawGeoCoordinateBuilder_ != null) {
+          return rawGeoCoordinateBuilder_.getMessageOrBuilder();
+        } else {
+          return rawGeoCoordinate_ == null ?
+              de.starwit.visionapi.Common.GeoCoordinate.getDefaultInstance() : rawGeoCoordinate_;
+        }
+      }
+      /**
+       * <code>.visionapi.GeoCoordinate raw_geo_coordinate = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder> 
+          internalGetRawGeoCoordinateFieldBuilder() {
+        if (rawGeoCoordinateBuilder_ == null) {
+          rawGeoCoordinateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              de.starwit.visionapi.Common.GeoCoordinate, de.starwit.visionapi.Common.GeoCoordinate.Builder, de.starwit.visionapi.Common.GeoCoordinateOrBuilder>(
+                  getRawGeoCoordinate(),
+                  getParentForChildren(),
+                  isClean());
+          rawGeoCoordinate_ = null;
+        }
+        return rawGeoCoordinateBuilder_;
+      }
+
       private int type_ = 0;
       /**
        * <code>.visionapi.MessageType type = 1000;</code>
@@ -6900,7 +7500,7 @@ java.lang.String defaultValue) {
        */
       public Builder setTypeValue(int value) {
         type_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -6920,7 +7520,7 @@ java.lang.String defaultValue) {
        */
       public Builder setType(de.starwit.visionapi.Common.MessageType value) {
         if (value == null) { throw new NullPointerException(); }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -6930,7 +7530,7 @@ java.lang.String defaultValue) {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000080);
         type_ = 0;
         onChanged();
         return this;
@@ -7047,30 +7647,34 @@ java.lang.String defaultValue) {
       "ons\030\002 \003(\0132\024.visionapi.Detection\022#\n\007metri" +
       "cs\030c \001(\0132\022.visionapi.Metrics\0220\n\016model_me" +
       "tadata\030d \001(\0132\030.visionapi.ModelMetadata\022%" +
-      "\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"\272\001" +
+      "\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"\356\001" +
       "\n\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020times" +
       "tamp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visio" +
       "napi.Shape\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_" +
       "data_jpeg\030\005 \001(\014\0221\n\017camera_location\030\006 \001(\013" +
-      "2\030.visionapi.GeoCoordinate\"8\n\005Shape\022\016\n\006h" +
-      "eight\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003" +
-      " \001(\r\"\244\001\n\tDetection\022,\n\014bounding_box\030\001 \001(\013" +
-      "2\026.visionapi.BoundingBox\022\022\n\nconfidence\030\002" +
-      " \001(\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(" +
-      "\014\0220\n\016geo_coordinate\030\005 \001(\0132\030.visionapi.Ge" +
-      "oCoordinate\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(" +
-      "\002\022\r\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y" +
-      "\030\004 \001(\002\"R\n\007Metrics\022#\n\033detection_inference" +
-      "_time_us\030\001 \001(\r\022\"\n\032tracking_inference_tim" +
-      "e_us\030\002 \001(\r\"\201\001\n\rModelMetadata\022=\n\013class_na" +
-      "mes\030\001 \003(\0132(.visionapi.ModelMetadata.Clas" +
-      "sNamesEntry\0321\n\017ClassNamesEntry\022\013\n\003key\030\001 " +
-      "\001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\261\001\n\017PositionMessa" +
-      "ge\022\030\n\020timestamp_utc_ms\030\001 \001(\004\0220\n\016geo_coor" +
-      "dinate\030\002 \001(\0132\030.visionapi.GeoCoordinate\022\014" +
-      "\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n\010sae_uuid\030\005 " +
-      "\001(\014\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageTy" +
-      "peB\026\n\024de.starwit.visionapib\006proto3"
+      "2\030.visionapi.GeoCoordinate\0222\n\017movement_v" +
+      "ector\030\007 \001(\0132\031.visionapi.MovementVector\"8" +
+      "\n\005Shape\022\016\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020" +
+      "\n\010channels\030\003 \001(\r\"\244\001\n\tDetection\022,\n\014boundi" +
+      "ng_box\030\001 \001(\0132\026.visionapi.BoundingBox\022\022\n\n" +
+      "confidence\030\002 \001(\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tob" +
+      "ject_id\030\004 \001(\014\0220\n\016geo_coordinate\030\005 \001(\0132\030." +
+      "visionapi.GeoCoordinate\"I\n\013BoundingBox\022\r" +
+      "\n\005min_x\030\001 \001(\002\022\r\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 " +
+      "\001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007Metrics\022#\n\033detecti" +
+      "on_inference_time_us\030\001 \001(\r\022\"\n\032tracking_i" +
+      "nference_time_us\030\002 \001(\r\"\201\001\n\rModelMetadata" +
+      "\022=\n\013class_names\030\001 \003(\0132(.visionapi.ModelM" +
+      "etadata.ClassNamesEntry\0321\n\017ClassNamesEnt" +
+      "ry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\233\002\n\017P" +
+      "ositionMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004" +
+      "\0220\n\016geo_coordinate\030\002 \001(\0132\030.visionapi.Geo" +
+      "Coordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n" +
+      "\010sae_uuid\030\005 \001(\014\0222\n\017movement_vector\030\006 \001(\013" +
+      "2\031.visionapi.MovementVector\0224\n\022raw_geo_c" +
+      "oordinate\030\007 \001(\0132\030.visionapi.GeoCoordinat" +
+      "e\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
+      "B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7088,7 +7692,7 @@ java.lang.String defaultValue) {
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_VideoFrame_descriptor,
-        new java.lang.String[] { "SourceId", "TimestampUtcMs", "Shape", "FrameData", "FrameDataJpeg", "CameraLocation", });
+        new java.lang.String[] { "SourceId", "TimestampUtcMs", "Shape", "FrameData", "FrameDataJpeg", "CameraLocation", "MovementVector", });
     internal_static_visionapi_Shape_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_visionapi_Shape_fieldAccessorTable = new
@@ -7130,7 +7734,7 @@ java.lang.String defaultValue) {
     internal_static_visionapi_PositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,
-        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", "Type", });
+        new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", "MovementVector", "RawGeoCoordinate", "Type", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

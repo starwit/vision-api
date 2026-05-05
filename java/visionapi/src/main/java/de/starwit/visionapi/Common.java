@@ -1347,6 +1347,516 @@ public final class Common {
 
   }
 
+  public interface MovementVectorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.MovementVector)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>double speed_mps = 1;</code>
+     * @return The speedMps.
+     */
+    double getSpeedMps();
+
+    /**
+     * <code>double heading_deg = 2;</code>
+     * @return The headingDeg.
+     */
+    double getHeadingDeg();
+  }
+  /**
+   * Protobuf type {@code visionapi.MovementVector}
+   */
+  public static final class MovementVector extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.MovementVector)
+      MovementVectorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        MovementVector.class.getName());
+    }
+    // Use MovementVector.newBuilder() to construct.
+    private MovementVector(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private MovementVector() {
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Common.internal_static_visionapi_MovementVector_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Common.internal_static_visionapi_MovementVector_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Common.MovementVector.class, de.starwit.visionapi.Common.MovementVector.Builder.class);
+    }
+
+    public static final int SPEED_MPS_FIELD_NUMBER = 1;
+    private double speedMps_ = 0D;
+    /**
+     * <code>double speed_mps = 1;</code>
+     * @return The speedMps.
+     */
+    @java.lang.Override
+    public double getSpeedMps() {
+      return speedMps_;
+    }
+
+    public static final int HEADING_DEG_FIELD_NUMBER = 2;
+    private double headingDeg_ = 0D;
+    /**
+     * <code>double heading_deg = 2;</code>
+     * @return The headingDeg.
+     */
+    @java.lang.Override
+    public double getHeadingDeg() {
+      return headingDeg_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (java.lang.Double.doubleToRawLongBits(speedMps_) != 0) {
+        output.writeDouble(1, speedMps_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(headingDeg_) != 0) {
+        output.writeDouble(2, headingDeg_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (java.lang.Double.doubleToRawLongBits(speedMps_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(1, speedMps_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(headingDeg_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, headingDeg_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Common.MovementVector)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Common.MovementVector other = (de.starwit.visionapi.Common.MovementVector) obj;
+
+      if (java.lang.Double.doubleToLongBits(getSpeedMps())
+          != java.lang.Double.doubleToLongBits(
+              other.getSpeedMps())) return false;
+      if (java.lang.Double.doubleToLongBits(getHeadingDeg())
+          != java.lang.Double.doubleToLongBits(
+              other.getHeadingDeg())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SPEED_MPS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getSpeedMps()));
+      hash = (37 * hash) + HEADING_DEG_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getHeadingDeg()));
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Common.MovementVector parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Common.MovementVector parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Common.MovementVector parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Common.MovementVector prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.MovementVector}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.MovementVector)
+        de.starwit.visionapi.Common.MovementVectorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_MovementVector_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_MovementVector_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Common.MovementVector.class, de.starwit.visionapi.Common.MovementVector.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Common.MovementVector.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        speedMps_ = 0D;
+        headingDeg_ = 0D;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Common.internal_static_visionapi_MovementVector_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MovementVector getDefaultInstanceForType() {
+        return de.starwit.visionapi.Common.MovementVector.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MovementVector build() {
+        de.starwit.visionapi.Common.MovementVector result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MovementVector buildPartial() {
+        de.starwit.visionapi.Common.MovementVector result = new de.starwit.visionapi.Common.MovementVector(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Common.MovementVector result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.speedMps_ = speedMps_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.headingDeg_ = headingDeg_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Common.MovementVector) {
+          return mergeFrom((de.starwit.visionapi.Common.MovementVector)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Common.MovementVector other) {
+        if (other == de.starwit.visionapi.Common.MovementVector.getDefaultInstance()) return this;
+        if (java.lang.Double.doubleToRawLongBits(other.getSpeedMps()) != 0) {
+          setSpeedMps(other.getSpeedMps());
+        }
+        if (java.lang.Double.doubleToRawLongBits(other.getHeadingDeg()) != 0) {
+          setHeadingDeg(other.getHeadingDeg());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                speedMps_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                headingDeg_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private double speedMps_ ;
+      /**
+       * <code>double speed_mps = 1;</code>
+       * @return The speedMps.
+       */
+      @java.lang.Override
+      public double getSpeedMps() {
+        return speedMps_;
+      }
+      /**
+       * <code>double speed_mps = 1;</code>
+       * @param value The speedMps to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSpeedMps(double value) {
+
+        speedMps_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double speed_mps = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSpeedMps() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        speedMps_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double headingDeg_ ;
+      /**
+       * <code>double heading_deg = 2;</code>
+       * @return The headingDeg.
+       */
+      @java.lang.Override
+      public double getHeadingDeg() {
+        return headingDeg_;
+      }
+      /**
+       * <code>double heading_deg = 2;</code>
+       * @param value The headingDeg to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeadingDeg(double value) {
+
+        headingDeg_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double heading_deg = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeadingDeg() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        headingDeg_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.MovementVector)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.MovementVector)
+    private static final de.starwit.visionapi.Common.MovementVector DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Common.MovementVector();
+    }
+
+    public static de.starwit.visionapi.Common.MovementVector getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MovementVector>
+        PARSER = new com.google.protobuf.AbstractParser<MovementVector>() {
+      @java.lang.Override
+      public MovementVector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MovementVector> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MovementVector> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Common.MovementVector getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface TypeMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:visionapi.TypeMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -1831,6 +2341,11 @@ public final class Common {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_GeoCoordinate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_MovementVector_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_MovementVector_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_TypeMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1847,12 +2362,13 @@ public final class Common {
       "\n\026visionapi/common.proto\022\tvisionapi\"*\n\tM" +
       "odelInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"" +
       "4\n\rGeoCoordinate\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlo" +
-      "ngitude\030\002 \001(\001\"4\n\013TypeMessage\022%\n\004type\030\350\007 " +
-      "\001(\0162\026.visionapi.MessageType*e\n\013MessageTy" +
-      "pe\022\017\n\013UNSPECIFIED\020\000\022\007\n\003SAE\020\001\022\023\n\017DETECTIO" +
-      "N_COUNT\020\002\022\014\n\010POSITION\020\003\022\013\n\007ANOMALY\020\004\022\014\n\010" +
-      "INCIDENT\020\005B\026\n\024de.starwit.visionapib\006prot" +
-      "o3"
+      "ngitude\030\002 \001(\001\"8\n\016MovementVector\022\021\n\tspeed" +
+      "_mps\030\001 \001(\001\022\023\n\013heading_deg\030\002 \001(\001\"4\n\013TypeM" +
+      "essage\022%\n\004type\030\350\007 \001(\0162\026.visionapi.Messag" +
+      "eType*e\n\013MessageType\022\017\n\013UNSPECIFIED\020\000\022\007\n" +
+      "\003SAE\020\001\022\023\n\017DETECTION_COUNT\020\002\022\014\n\010POSITION\020" +
+      "\003\022\013\n\007ANOMALY\020\004\022\014\n\010INCIDENT\020\005B\026\n\024de.starw" +
+      "it.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1870,8 +2386,14 @@ public final class Common {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_GeoCoordinate_descriptor,
         new java.lang.String[] { "Latitude", "Longitude", });
-    internal_static_visionapi_TypeMessage_descriptor =
+    internal_static_visionapi_MovementVector_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_visionapi_MovementVector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_MovementVector_descriptor,
+        new java.lang.String[] { "SpeedMps", "HeadingDeg", });
+    internal_static_visionapi_TypeMessage_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_visionapi_TypeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_TypeMessage_descriptor,

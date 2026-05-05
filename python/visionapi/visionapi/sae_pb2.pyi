@@ -22,20 +22,22 @@ class SaeMessage(_message.Message):
     def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
-    __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location")
+    __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location", "movement_vector")
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     SHAPE_FIELD_NUMBER: _ClassVar[int]
     FRAME_DATA_FIELD_NUMBER: _ClassVar[int]
     FRAME_DATA_JPEG_FIELD_NUMBER: _ClassVar[int]
     CAMERA_LOCATION_FIELD_NUMBER: _ClassVar[int]
+    MOVEMENT_VECTOR_FIELD_NUMBER: _ClassVar[int]
     source_id: str
     timestamp_utc_ms: int
     shape: Shape
     frame_data: bytes
     frame_data_jpeg: bytes
     camera_location: _common_pb2.GeoCoordinate
-    def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ..., frame_data_jpeg: _Optional[bytes] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ...) -> None: ...
+    movement_vector: _common_pb2.MovementVector
+    def __init__(self, source_id: _Optional[str] = ..., timestamp_utc_ms: _Optional[int] = ..., shape: _Optional[_Union[Shape, _Mapping]] = ..., frame_data: _Optional[bytes] = ..., frame_data_jpeg: _Optional[bytes] = ..., camera_location: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., movement_vector: _Optional[_Union[_common_pb2.MovementVector, _Mapping]] = ...) -> None: ...
 
 class Shape(_message.Message):
     __slots__ = ("height", "width", "channels")
@@ -95,17 +97,21 @@ class ModelMetadata(_message.Message):
     def __init__(self, class_names: _Optional[_Mapping[int, str]] = ...) -> None: ...
 
 class PositionMessage(_message.Message):
-    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid", "type")
+    __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid", "movement_vector", "raw_geo_coordinate", "type")
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
     GEO_COORDINATE_FIELD_NUMBER: _ClassVar[int]
     HDOP_FIELD_NUMBER: _ClassVar[int]
     FIX_FIELD_NUMBER: _ClassVar[int]
     SAE_UUID_FIELD_NUMBER: _ClassVar[int]
+    MOVEMENT_VECTOR_FIELD_NUMBER: _ClassVar[int]
+    RAW_GEO_COORDINATE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     timestamp_utc_ms: int
     geo_coordinate: _common_pb2.GeoCoordinate
     hdop: float
     fix: bool
     sae_uuid: bytes
+    movement_vector: _common_pb2.MovementVector
+    raw_geo_coordinate: _common_pb2.GeoCoordinate
     type: _common_pb2.MessageType
-    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
+    def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ..., movement_vector: _Optional[_Union[_common_pb2.MovementVector, _Mapping]] = ..., raw_geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
