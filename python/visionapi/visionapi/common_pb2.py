@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16visionapi/common.proto\x12\tvisionapi\"*\n\tModelInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"4\n\rGeoCoordinate\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\"4\n\x0bTypeMessage\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType*e\n\x0bMessageType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x07\n\x03SAE\x10\x01\x12\x13\n\x0f\x44\x45TECTION_COUNT\x10\x02\x12\x0c\n\x08POSITION\x10\x03\x12\x0b\n\x07\x41NOMALY\x10\x04\x12\x0c\n\x08INCIDENT\x10\x05\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16visionapi/common.proto\x12\tvisionapi\"*\n\tModelInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"4\n\rGeoCoordinate\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\"8\n\x0eMovementVector\x12\x11\n\tspeed_kmh\x18\x01 \x01(\x01\x12\x13\n\x0bheading_deg\x18\x02 \x01(\x01\"4\n\x0bTypeMessage\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType*e\n\x0bMessageType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x07\n\x03SAE\x10\x01\x12\x13\n\x0f\x44\x45TECTION_COUNT\x10\x02\x12\x0c\n\x08POSITION\x10\x03\x12\x0b\n\x07\x41NOMALY\x10\x04\x12\x0c\n\x08INCIDENT\x10\x05\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,12 +32,14 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'visionapi.common_pb2', _glo
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024de.starwit.visionapi'
-  _globals['_MESSAGETYPE']._serialized_start=189
-  _globals['_MESSAGETYPE']._serialized_end=290
+  _globals['_MESSAGETYPE']._serialized_start=247
+  _globals['_MESSAGETYPE']._serialized_end=348
   _globals['_MODELINFO']._serialized_start=37
   _globals['_MODELINFO']._serialized_end=79
   _globals['_GEOCOORDINATE']._serialized_start=81
   _globals['_GEOCOORDINATE']._serialized_end=133
-  _globals['_TYPEMESSAGE']._serialized_start=135
-  _globals['_TYPEMESSAGE']._serialized_end=187
+  _globals['_MOVEMENTVECTOR']._serialized_start=135
+  _globals['_MOVEMENTVECTOR']._serialized_end=191
+  _globals['_TYPEMESSAGE']._serialized_start=193
+  _globals['_TYPEMESSAGE']._serialized_end=245
 # @@protoc_insertion_point(module_scope)

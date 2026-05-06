@@ -36,6 +36,14 @@ class GeoCoordinate(_message.Message):
     longitude: float
     def __init__(self, latitude: _Optional[float] = ..., longitude: _Optional[float] = ...) -> None: ...
 
+class MovementVector(_message.Message):
+    __slots__ = ("speed_kmh", "heading_deg")
+    SPEED_KMH_FIELD_NUMBER: _ClassVar[int]
+    HEADING_DEG_FIELD_NUMBER: _ClassVar[int]
+    speed_kmh: float
+    heading_deg: float
+    def __init__(self, speed_kmh: _Optional[float] = ..., heading_deg: _Optional[float] = ...) -> None: ...
+
 class TypeMessage(_message.Message):
     __slots__ = ("type",)
     TYPE_FIELD_NUMBER: _ClassVar[int]
