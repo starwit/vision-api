@@ -7619,6 +7619,17 @@ java.lang.String defaultValue) {
      * @return The timestampUtcMs.
      */
     long getTimestampUtcMs();
+
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    de.starwit.visionapi.Common.MessageType getType();
   }
   /**
    * Protobuf type {@code visionapi.StatusMessage}
@@ -7644,6 +7655,7 @@ java.lang.String defaultValue) {
     private StatusMessage() {
       instanceId_ = "";
       lastEvent_ = 0;
+      type_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -7853,6 +7865,24 @@ java.lang.String defaultValue) {
       return timestampUtcMs_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 1000;
+    private int type_ = 0;
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.visionapi.MessageType type = 1000;</code>
+     * @return The type.
+     */
+    @java.lang.Override public de.starwit.visionapi.Common.MessageType getType() {
+      de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+      return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7876,6 +7906,9 @@ java.lang.String defaultValue) {
       if (timestampUtcMs_ != 0L) {
         output.writeUInt64(3, timestampUtcMs_);
       }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(1000, type_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -7895,6 +7928,10 @@ java.lang.String defaultValue) {
       if (timestampUtcMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, timestampUtcMs_);
+      }
+      if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1000, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7916,6 +7953,7 @@ java.lang.String defaultValue) {
       if (lastEvent_ != other.lastEvent_) return false;
       if (getTimestampUtcMs()
           != other.getTimestampUtcMs()) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7934,6 +7972,8 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + TIMESTAMP_UTC_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestampUtcMs());
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8068,6 +8108,7 @@ java.lang.String defaultValue) {
         instanceId_ = "";
         lastEvent_ = 0;
         timestampUtcMs_ = 0L;
+        type_ = 0;
         return this;
       }
 
@@ -8110,6 +8151,9 @@ java.lang.String defaultValue) {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.timestampUtcMs_ = timestampUtcMs_;
         }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -8134,6 +8178,9 @@ java.lang.String defaultValue) {
         }
         if (other.getTimestampUtcMs() != 0L) {
           setTimestampUtcMs(other.getTimestampUtcMs());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -8176,6 +8223,11 @@ java.lang.String defaultValue) {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
+              case 8000: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 8000
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -8348,6 +8400,57 @@ java.lang.String defaultValue) {
         return this;
       }
 
+      private int type_ = 0;
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Common.MessageType getType() {
+        de.starwit.visionapi.Common.MessageType result = de.starwit.visionapi.Common.MessageType.forNumber(type_);
+        return result == null ? de.starwit.visionapi.Common.MessageType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(de.starwit.visionapi.Common.MessageType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000008;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.MessageType type = 1000;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:visionapi.StatusMessage)
     }
 
@@ -8491,12 +8594,13 @@ java.lang.String defaultValue) {
       "2\031.visionapi.MovementVector\0224\n\022raw_geo_c" +
       "oordinate\030\007 \001(\0132\030.visionapi.GeoCoordinat" +
       "e\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
-      "\"\257\001\n\rStatusMessage\022\023\n\013instance_id\030\001 \001(\t\022" +
+      "\"\326\001\n\rStatusMessage\022\023\n\013instance_id\030\001 \001(\t\022" +
       "6\n\nlast_event\030\002 \001(\0162\".visionapi.StatusMe" +
       "ssage.EventType\022\030\n\020timestamp_utc_ms\030\003 \001(" +
-      "\004\"7\n\tEventType\022\017\n\013UNSPECIFIED\020\000\022\013\n\007START" +
-      "UP\020\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starwit.visiona" +
-      "pib\006proto3"
+      "\004\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
+      "\"7\n\tEventType\022\017\n\013UNSPECIFIED\020\000\022\013\n\007STARTU" +
+      "P\020\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starwit.visionap" +
+      "ib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8562,7 +8666,7 @@ java.lang.String defaultValue) {
     internal_static_visionapi_StatusMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_StatusMessage_descriptor,
-        new java.lang.String[] { "InstanceId", "LastEvent", "TimestampUtcMs", });
+        new java.lang.String[] { "InstanceId", "LastEvent", "TimestampUtcMs", "Type", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }

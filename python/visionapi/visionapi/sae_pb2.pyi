@@ -118,7 +118,7 @@ class PositionMessage(_message.Message):
     def __init__(self, timestamp_utc_ms: _Optional[int] = ..., geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., hdop: _Optional[float] = ..., fix: bool = ..., sae_uuid: _Optional[bytes] = ..., movement_vector: _Optional[_Union[_common_pb2.MovementVector, _Mapping]] = ..., raw_geo_coordinate: _Optional[_Union[_common_pb2.GeoCoordinate, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class StatusMessage(_message.Message):
-    __slots__ = ("instance_id", "last_event", "timestamp_utc_ms")
+    __slots__ = ("instance_id", "last_event", "timestamp_utc_ms", "type")
     class EventType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         UNSPECIFIED: _ClassVar[StatusMessage.EventType]
@@ -130,7 +130,9 @@ class StatusMessage(_message.Message):
     INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     LAST_EVENT_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_UTC_MS_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
     instance_id: str
     last_event: StatusMessage.EventType
     timestamp_utc_ms: int
-    def __init__(self, instance_id: _Optional[str] = ..., last_event: _Optional[_Union[StatusMessage.EventType, str]] = ..., timestamp_utc_ms: _Optional[int] = ...) -> None: ...
+    type: _common_pb2.MessageType
+    def __init__(self, instance_id: _Optional[str] = ..., last_event: _Optional[_Union[StatusMessage.EventType, str]] = ..., timestamp_utc_ms: _Optional[int] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
