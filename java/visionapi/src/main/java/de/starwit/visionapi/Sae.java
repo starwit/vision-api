@@ -7587,6 +7587,818 @@ java.lang.String defaultValue) {
 
   }
 
+  public interface StatusMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.StatusMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string instance_id = 1;</code>
+     * @return The instanceId.
+     */
+    java.lang.String getInstanceId();
+    /**
+     * <code>string instance_id = 1;</code>
+     * @return The bytes for instanceId.
+     */
+    com.google.protobuf.ByteString
+        getInstanceIdBytes();
+
+    /**
+     * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+     * @return The enum numeric value on the wire for lastEvent.
+     */
+    int getLastEventValue();
+    /**
+     * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+     * @return The lastEvent.
+     */
+    de.starwit.visionapi.Sae.StatusMessage.EventType getLastEvent();
+
+    /**
+     * <code>uint64 timestamp_utc_ms = 3;</code>
+     * @return The timestampUtcMs.
+     */
+    long getTimestampUtcMs();
+  }
+  /**
+   * Protobuf type {@code visionapi.StatusMessage}
+   */
+  public static final class StatusMessage extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.StatusMessage)
+      StatusMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        StatusMessage.class.getName());
+    }
+    // Use StatusMessage.newBuilder() to construct.
+    private StatusMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private StatusMessage() {
+      instanceId_ = "";
+      lastEvent_ = 0;
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_StatusMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_StatusMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Sae.StatusMessage.class, de.starwit.visionapi.Sae.StatusMessage.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code visionapi.StatusMessage.EventType}
+     */
+    public enum EventType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>UNSPECIFIED = 0;</code>
+       */
+      UNSPECIFIED(0),
+      /**
+       * <code>STARTUP = 1;</code>
+       */
+      STARTUP(1),
+      /**
+       * <code>SHUTDOWN = 2;</code>
+       */
+      SHUTDOWN(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      static {
+        com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+          com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+          /* major= */ 4,
+          /* minor= */ 31,
+          /* patch= */ 1,
+          /* suffix= */ "",
+          EventType.class.getName());
+      }
+      /**
+       * <code>UNSPECIFIED = 0;</code>
+       */
+      public static final int UNSPECIFIED_VALUE = 0;
+      /**
+       * <code>STARTUP = 1;</code>
+       */
+      public static final int STARTUP_VALUE = 1;
+      /**
+       * <code>SHUTDOWN = 2;</code>
+       */
+      public static final int SHUTDOWN_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static EventType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static EventType forNumber(int value) {
+        switch (value) {
+          case 0: return UNSPECIFIED;
+          case 1: return STARTUP;
+          case 2: return SHUTDOWN;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<EventType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          EventType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<EventType>() {
+              public EventType findValueByNumber(int number) {
+                return EventType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.StatusMessage.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final EventType[] VALUES = values();
+
+      public static EventType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private EventType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:visionapi.StatusMessage.EventType)
+    }
+
+    public static final int INSTANCE_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object instanceId_ = "";
+    /**
+     * <code>string instance_id = 1;</code>
+     * @return The instanceId.
+     */
+    @java.lang.Override
+    public java.lang.String getInstanceId() {
+      java.lang.Object ref = instanceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        instanceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string instance_id = 1;</code>
+     * @return The bytes for instanceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getInstanceIdBytes() {
+      java.lang.Object ref = instanceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        instanceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LAST_EVENT_FIELD_NUMBER = 2;
+    private int lastEvent_ = 0;
+    /**
+     * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+     * @return The enum numeric value on the wire for lastEvent.
+     */
+    @java.lang.Override public int getLastEventValue() {
+      return lastEvent_;
+    }
+    /**
+     * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+     * @return The lastEvent.
+     */
+    @java.lang.Override public de.starwit.visionapi.Sae.StatusMessage.EventType getLastEvent() {
+      de.starwit.visionapi.Sae.StatusMessage.EventType result = de.starwit.visionapi.Sae.StatusMessage.EventType.forNumber(lastEvent_);
+      return result == null ? de.starwit.visionapi.Sae.StatusMessage.EventType.UNRECOGNIZED : result;
+    }
+
+    public static final int TIMESTAMP_UTC_MS_FIELD_NUMBER = 3;
+    private long timestampUtcMs_ = 0L;
+    /**
+     * <code>uint64 timestamp_utc_ms = 3;</code>
+     * @return The timestampUtcMs.
+     */
+    @java.lang.Override
+    public long getTimestampUtcMs() {
+      return timestampUtcMs_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(instanceId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, instanceId_);
+      }
+      if (lastEvent_ != de.starwit.visionapi.Sae.StatusMessage.EventType.UNSPECIFIED.getNumber()) {
+        output.writeEnum(2, lastEvent_);
+      }
+      if (timestampUtcMs_ != 0L) {
+        output.writeUInt64(3, timestampUtcMs_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(instanceId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, instanceId_);
+      }
+      if (lastEvent_ != de.starwit.visionapi.Sae.StatusMessage.EventType.UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, lastEvent_);
+      }
+      if (timestampUtcMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, timestampUtcMs_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Sae.StatusMessage)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Sae.StatusMessage other = (de.starwit.visionapi.Sae.StatusMessage) obj;
+
+      if (!getInstanceId()
+          .equals(other.getInstanceId())) return false;
+      if (lastEvent_ != other.lastEvent_) return false;
+      if (getTimestampUtcMs()
+          != other.getTimestampUtcMs()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INSTANCE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getInstanceId().hashCode();
+      hash = (37 * hash) + LAST_EVENT_FIELD_NUMBER;
+      hash = (53 * hash) + lastEvent_;
+      hash = (37 * hash) + TIMESTAMP_UTC_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestampUtcMs());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Sae.StatusMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Sae.StatusMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.StatusMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Sae.StatusMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.StatusMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.StatusMessage)
+        de.starwit.visionapi.Sae.StatusMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_StatusMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_StatusMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Sae.StatusMessage.class, de.starwit.visionapi.Sae.StatusMessage.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Sae.StatusMessage.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        instanceId_ = "";
+        lastEvent_ = 0;
+        timestampUtcMs_ = 0L;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_StatusMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.StatusMessage getDefaultInstanceForType() {
+        return de.starwit.visionapi.Sae.StatusMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.StatusMessage build() {
+        de.starwit.visionapi.Sae.StatusMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.StatusMessage buildPartial() {
+        de.starwit.visionapi.Sae.StatusMessage result = new de.starwit.visionapi.Sae.StatusMessage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Sae.StatusMessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.instanceId_ = instanceId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastEvent_ = lastEvent_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestampUtcMs_ = timestampUtcMs_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Sae.StatusMessage) {
+          return mergeFrom((de.starwit.visionapi.Sae.StatusMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Sae.StatusMessage other) {
+        if (other == de.starwit.visionapi.Sae.StatusMessage.getDefaultInstance()) return this;
+        if (!other.getInstanceId().isEmpty()) {
+          instanceId_ = other.instanceId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.lastEvent_ != 0) {
+          setLastEventValue(other.getLastEventValue());
+        }
+        if (other.getTimestampUtcMs() != 0L) {
+          setTimestampUtcMs(other.getTimestampUtcMs());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instanceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                lastEvent_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                timestampUtcMs_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object instanceId_ = "";
+      /**
+       * <code>string instance_id = 1;</code>
+       * @return The instanceId.
+       */
+      public java.lang.String getInstanceId() {
+        java.lang.Object ref = instanceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          instanceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string instance_id = 1;</code>
+       * @return The bytes for instanceId.
+       */
+      public com.google.protobuf.ByteString
+          getInstanceIdBytes() {
+        java.lang.Object ref = instanceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          instanceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string instance_id = 1;</code>
+       * @param value The instanceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstanceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        instanceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string instance_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInstanceId() {
+        instanceId_ = getDefaultInstance().getInstanceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string instance_id = 1;</code>
+       * @param value The bytes for instanceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstanceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        instanceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private int lastEvent_ = 0;
+      /**
+       * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+       * @return The enum numeric value on the wire for lastEvent.
+       */
+      @java.lang.Override public int getLastEventValue() {
+        return lastEvent_;
+      }
+      /**
+       * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+       * @param value The enum numeric value on the wire for lastEvent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastEventValue(int value) {
+        lastEvent_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+       * @return The lastEvent.
+       */
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.StatusMessage.EventType getLastEvent() {
+        de.starwit.visionapi.Sae.StatusMessage.EventType result = de.starwit.visionapi.Sae.StatusMessage.EventType.forNumber(lastEvent_);
+        return result == null ? de.starwit.visionapi.Sae.StatusMessage.EventType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+       * @param value The lastEvent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastEvent(de.starwit.visionapi.Sae.StatusMessage.EventType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000002;
+        lastEvent_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.visionapi.StatusMessage.EventType last_event = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastEvent() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastEvent_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long timestampUtcMs_ ;
+      /**
+       * <code>uint64 timestamp_utc_ms = 3;</code>
+       * @return The timestampUtcMs.
+       */
+      @java.lang.Override
+      public long getTimestampUtcMs() {
+        return timestampUtcMs_;
+      }
+      /**
+       * <code>uint64 timestamp_utc_ms = 3;</code>
+       * @param value The timestampUtcMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestampUtcMs(long value) {
+
+        timestampUtcMs_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 timestamp_utc_ms = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestampUtcMs() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestampUtcMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.StatusMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.StatusMessage)
+    private static final de.starwit.visionapi.Sae.StatusMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Sae.StatusMessage();
+    }
+
+    public static de.starwit.visionapi.Sae.StatusMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StatusMessage>
+        PARSER = new com.google.protobuf.AbstractParser<StatusMessage>() {
+      @java.lang.Override
+      public StatusMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<StatusMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StatusMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.StatusMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_SaeMessage_descriptor;
   private static final 
@@ -7632,6 +8444,11 @@ java.lang.String defaultValue) {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_PositionMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_StatusMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_StatusMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7674,7 +8491,12 @@ java.lang.String defaultValue) {
       "2\031.visionapi.MovementVector\0224\n\022raw_geo_c" +
       "oordinate\030\007 \001(\0132\030.visionapi.GeoCoordinat" +
       "e\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
-      "B\026\n\024de.starwit.visionapib\006proto3"
+      "\"\257\001\n\rStatusMessage\022\023\n\013instance_id\030\001 \001(\t\022" +
+      "6\n\nlast_event\030\002 \001(\0162\".visionapi.StatusMe" +
+      "ssage.EventType\022\030\n\020timestamp_utc_ms\030\003 \001(" +
+      "\004\"7\n\tEventType\022\017\n\013UNSPECIFIED\020\000\022\013\n\007START" +
+      "UP\020\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starwit.visiona" +
+      "pib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7735,6 +8557,12 @@ java.lang.String defaultValue) {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,
         new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", "MovementVector", "RawGeoCoordinate", "Type", });
+    internal_static_visionapi_StatusMessage_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_visionapi_StatusMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_StatusMessage_descriptor,
+        new java.lang.String[] { "InstanceId", "LastEvent", "TimestampUtcMs", });
     descriptor.resolveAllFeaturesImmutable();
     de.starwit.visionapi.Common.getDescriptor();
   }
