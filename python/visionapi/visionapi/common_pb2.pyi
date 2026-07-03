@@ -13,12 +13,14 @@ class MessageType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     POSITION: _ClassVar[MessageType]
     ANOMALY: _ClassVar[MessageType]
     INCIDENT: _ClassVar[MessageType]
+    SAE_EVENT: _ClassVar[MessageType]
 UNSPECIFIED: MessageType
 SAE: MessageType
 DETECTION_COUNT: MessageType
 POSITION: MessageType
 ANOMALY: MessageType
 INCIDENT: MessageType
+SAE_EVENT: MessageType
 
 class ModelInfo(_message.Message):
     __slots__ = ("name", "version")

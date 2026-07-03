@@ -64,3 +64,16 @@ message PositionMessage {
   GeoCoordinate raw_geo_coordinate = 7;
   MessageType type = 1000;
 }
+
+message EventMessage {
+  enum EventType {
+    UNSPECIFIED = 0;
+    STARTUP = 1;
+    SHUTDOWN = 2;
+  }
+
+  string instance_id = 1;
+  uint64 timestamp_utc_ms = 2;
+  EventType event_type = 3;
+  MessageType type = 1000;
+}

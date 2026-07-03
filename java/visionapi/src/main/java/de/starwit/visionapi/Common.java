@@ -55,6 +55,10 @@ public final class Common {
      * <code>INCIDENT = 5;</code>
      */
     INCIDENT(5),
+    /**
+     * <code>SAE_EVENT = 6;</code>
+     */
+    SAE_EVENT(6),
     UNRECOGNIZED(-1),
     ;
 
@@ -91,6 +95,10 @@ public final class Common {
      * <code>INCIDENT = 5;</code>
      */
     public static final int INCIDENT_VALUE = 5;
+    /**
+     * <code>SAE_EVENT = 6;</code>
+     */
+    public static final int SAE_EVENT_VALUE = 6;
 
 
     public final int getNumber() {
@@ -123,6 +131,7 @@ public final class Common {
         case 3: return POSITION;
         case 4: return ANOMALY;
         case 5: return INCIDENT;
+        case 6: return SAE_EVENT;
         default: return null;
       }
     }
@@ -2365,10 +2374,10 @@ public final class Common {
       "ngitude\030\002 \001(\001\"8\n\016MovementVector\022\021\n\tspeed" +
       "_kmh\030\001 \001(\001\022\023\n\013heading_deg\030\002 \001(\001\"4\n\013TypeM" +
       "essage\022%\n\004type\030\350\007 \001(\0162\026.visionapi.Messag" +
-      "eType*e\n\013MessageType\022\017\n\013UNSPECIFIED\020\000\022\007\n" +
+      "eType*t\n\013MessageType\022\017\n\013UNSPECIFIED\020\000\022\007\n" +
       "\003SAE\020\001\022\023\n\017DETECTION_COUNT\020\002\022\014\n\010POSITION\020" +
-      "\003\022\013\n\007ANOMALY\020\004\022\014\n\010INCIDENT\020\005B\026\n\024de.starw" +
-      "it.visionapib\006proto3"
+      "\003\022\013\n\007ANOMALY\020\004\022\014\n\010INCIDENT\020\005\022\r\n\tSAE_EVEN" +
+      "T\020\006B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

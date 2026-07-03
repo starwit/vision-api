@@ -1,9 +1,7 @@
-name: Java CI
+name: Create Java Release
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
   packages: write
