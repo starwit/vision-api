@@ -9,18 +9,20 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SaeMessage(_message.Message):
-    __slots__ = ("frame", "detections", "metrics", "model_metadata", "type")
+    __slots__ = ("frame", "detections", "metrics", "model_metadata", "sampling_reason", "type")
     FRAME_FIELD_NUMBER: _ClassVar[int]
     DETECTIONS_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
     MODEL_METADATA_FIELD_NUMBER: _ClassVar[int]
+    SAMPLING_REASON_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     frame: VideoFrame
     detections: _containers.RepeatedCompositeFieldContainer[Detection]
     metrics: Metrics
     model_metadata: ModelMetadata
+    sampling_reason: str
     type: _common_pb2.MessageType
-    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
+    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., sampling_reason: _Optional[str] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
     __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location", "movement_vector")
