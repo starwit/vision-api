@@ -11,6 +11,8 @@ message SaeMessage {
   repeated Detection detections = 2;
   Metrics metrics = 99;
   ModelMetadata model_metadata = 100;
+  // Name of the filter or heartbeat that selected this frame.
+  string sampling_reason = 101;
   MessageType type = 1000;
 }
 

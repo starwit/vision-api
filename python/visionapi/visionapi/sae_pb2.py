@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from visionapi import common_pb2 as visionapi_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13visionapi/sae.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\xda\x01\n\nSaeMessage\x12$\n\x05\x66rame\x18\x01 \x01(\x0b\x32\x15.visionapi.VideoFrame\x12(\n\ndetections\x18\x02 \x03(\x0b\x32\x14.visionapi.Detection\x12#\n\x07metrics\x18\x63 \x01(\x0b\x32\x12.visionapi.Metrics\x12\x30\n\x0emodel_metadata\x18\x64 \x01(\x0b\x32\x18.visionapi.ModelMetadata\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"\xee\x01\n\nVideoFrame\x12\x11\n\tsource_id\x18\x01 \x01(\t\x12\x18\n\x10timestamp_utc_ms\x18\x02 \x01(\x04\x12\x1f\n\x05shape\x18\x03 \x01(\x0b\x32\x10.visionapi.Shape\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\x12\x17\n\x0f\x66rame_data_jpeg\x18\x05 \x01(\x0c\x12\x31\n\x0f\x63\x61mera_location\x18\x06 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x32\n\x0fmovement_vector\x18\x07 \x01(\x0b\x32\x19.visionapi.MovementVector\"8\n\x05Shape\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\r\n\x05width\x18\x02 \x01(\r\x12\x10\n\x08\x63hannels\x18\x03 \x01(\r\"\xa4\x01\n\tDetection\x12,\n\x0c\x62ounding_box\x18\x01 \x01(\x0b\x32\x16.visionapi.BoundingBox\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x10\n\x08\x63lass_id\x18\x03 \x01(\r\x12\x11\n\tobject_id\x18\x04 \x01(\x0c\x12\x30\n\x0egeo_coordinate\x18\x05 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\"I\n\x0b\x42oundingBox\x12\r\n\x05min_x\x18\x01 \x01(\x02\x12\r\n\x05min_y\x18\x02 \x01(\x02\x12\r\n\x05max_x\x18\x03 \x01(\x02\x12\r\n\x05max_y\x18\x04 \x01(\x02\"R\n\x07Metrics\x12#\n\x1b\x64\x65tection_inference_time_us\x18\x01 \x01(\r\x12\"\n\x1atracking_inference_time_us\x18\x02 \x01(\r\"\x81\x01\n\rModelMetadata\x12=\n\x0b\x63lass_names\x18\x01 \x03(\x0b\x32(.visionapi.ModelMetadata.ClassNamesEntry\x1a\x31\n\x0f\x43lassNamesEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9b\x02\n\x0fPositionMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x30\n\x0egeo_coordinate\x18\x02 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x0c\n\x04hdop\x18\x03 \x01(\x02\x12\x0b\n\x03\x66ix\x18\x04 \x01(\x08\x12\x10\n\x08sae_uuid\x18\x05 \x01(\x0c\x12\x32\n\x0fmovement_vector\x18\x06 \x01(\x0b\x32\x19.visionapi.MovementVector\x12\x34\n\x12raw_geo_coordinate\x18\x07 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"\xd4\x01\n\x0c\x45ventMessage\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\x12\x18\n\x10timestamp_utc_ms\x18\x02 \x01(\x04\x12\x35\n\nevent_type\x18\x03 \x01(\x0e\x32!.visionapi.EventMessage.EventType\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"7\n\tEventType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07STARTUP\x10\x01\x12\x0c\n\x08SHUTDOWN\x10\x02\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13visionapi/sae.proto\x12\tvisionapi\x1a\x16visionapi/common.proto\"\xf3\x01\n\nSaeMessage\x12$\n\x05\x66rame\x18\x01 \x01(\x0b\x32\x15.visionapi.VideoFrame\x12(\n\ndetections\x18\x02 \x03(\x0b\x32\x14.visionapi.Detection\x12#\n\x07metrics\x18\x63 \x01(\x0b\x32\x12.visionapi.Metrics\x12\x30\n\x0emodel_metadata\x18\x64 \x01(\x0b\x32\x18.visionapi.ModelMetadata\x12\x17\n\x0fsampling_reason\x18\x65 \x01(\t\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"\xee\x01\n\nVideoFrame\x12\x11\n\tsource_id\x18\x01 \x01(\t\x12\x18\n\x10timestamp_utc_ms\x18\x02 \x01(\x04\x12\x1f\n\x05shape\x18\x03 \x01(\x0b\x32\x10.visionapi.Shape\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\x12\x17\n\x0f\x66rame_data_jpeg\x18\x05 \x01(\x0c\x12\x31\n\x0f\x63\x61mera_location\x18\x06 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x32\n\x0fmovement_vector\x18\x07 \x01(\x0b\x32\x19.visionapi.MovementVector\"8\n\x05Shape\x12\x0e\n\x06height\x18\x01 \x01(\r\x12\r\n\x05width\x18\x02 \x01(\r\x12\x10\n\x08\x63hannels\x18\x03 \x01(\r\"\xa4\x01\n\tDetection\x12,\n\x0c\x62ounding_box\x18\x01 \x01(\x0b\x32\x16.visionapi.BoundingBox\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x10\n\x08\x63lass_id\x18\x03 \x01(\r\x12\x11\n\tobject_id\x18\x04 \x01(\x0c\x12\x30\n\x0egeo_coordinate\x18\x05 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\"I\n\x0b\x42oundingBox\x12\r\n\x05min_x\x18\x01 \x01(\x02\x12\r\n\x05min_y\x18\x02 \x01(\x02\x12\r\n\x05max_x\x18\x03 \x01(\x02\x12\r\n\x05max_y\x18\x04 \x01(\x02\"R\n\x07Metrics\x12#\n\x1b\x64\x65tection_inference_time_us\x18\x01 \x01(\r\x12\"\n\x1atracking_inference_time_us\x18\x02 \x01(\r\"\x81\x01\n\rModelMetadata\x12=\n\x0b\x63lass_names\x18\x01 \x03(\x0b\x32(.visionapi.ModelMetadata.ClassNamesEntry\x1a\x31\n\x0f\x43lassNamesEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9b\x02\n\x0fPositionMessage\x12\x18\n\x10timestamp_utc_ms\x18\x01 \x01(\x04\x12\x30\n\x0egeo_coordinate\x18\x02 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12\x0c\n\x04hdop\x18\x03 \x01(\x02\x12\x0b\n\x03\x66ix\x18\x04 \x01(\x08\x12\x10\n\x08sae_uuid\x18\x05 \x01(\x0c\x12\x32\n\x0fmovement_vector\x18\x06 \x01(\x0b\x32\x19.visionapi.MovementVector\x12\x34\n\x12raw_geo_coordinate\x18\x07 \x01(\x0b\x32\x18.visionapi.GeoCoordinate\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"\xd4\x01\n\x0c\x45ventMessage\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\x12\x18\n\x10timestamp_utc_ms\x18\x02 \x01(\x04\x12\x35\n\nevent_type\x18\x03 \x01(\x0e\x32!.visionapi.EventMessage.EventType\x12%\n\x04type\x18\xe8\x07 \x01(\x0e\x32\x16.visionapi.MessageType\"7\n\tEventType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07STARTUP\x10\x01\x12\x0c\n\x08SHUTDOWN\x10\x02\x42\x16\n\x14\x64\x65.starwit.visionapib\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,25 +36,25 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MODELMETADATA_CLASSNAMESENTRY']._loaded_options = None
   _globals['_MODELMETADATA_CLASSNAMESENTRY']._serialized_options = b'8\001'
   _globals['_SAEMESSAGE']._serialized_start=59
-  _globals['_SAEMESSAGE']._serialized_end=277
-  _globals['_VIDEOFRAME']._serialized_start=280
-  _globals['_VIDEOFRAME']._serialized_end=518
-  _globals['_SHAPE']._serialized_start=520
-  _globals['_SHAPE']._serialized_end=576
-  _globals['_DETECTION']._serialized_start=579
-  _globals['_DETECTION']._serialized_end=743
-  _globals['_BOUNDINGBOX']._serialized_start=745
-  _globals['_BOUNDINGBOX']._serialized_end=818
-  _globals['_METRICS']._serialized_start=820
-  _globals['_METRICS']._serialized_end=902
-  _globals['_MODELMETADATA']._serialized_start=905
-  _globals['_MODELMETADATA']._serialized_end=1034
-  _globals['_MODELMETADATA_CLASSNAMESENTRY']._serialized_start=985
-  _globals['_MODELMETADATA_CLASSNAMESENTRY']._serialized_end=1034
-  _globals['_POSITIONMESSAGE']._serialized_start=1037
-  _globals['_POSITIONMESSAGE']._serialized_end=1320
-  _globals['_EVENTMESSAGE']._serialized_start=1323
-  _globals['_EVENTMESSAGE']._serialized_end=1535
-  _globals['_EVENTMESSAGE_EVENTTYPE']._serialized_start=1480
-  _globals['_EVENTMESSAGE_EVENTTYPE']._serialized_end=1535
+  _globals['_SAEMESSAGE']._serialized_end=302
+  _globals['_VIDEOFRAME']._serialized_start=305
+  _globals['_VIDEOFRAME']._serialized_end=543
+  _globals['_SHAPE']._serialized_start=545
+  _globals['_SHAPE']._serialized_end=601
+  _globals['_DETECTION']._serialized_start=604
+  _globals['_DETECTION']._serialized_end=768
+  _globals['_BOUNDINGBOX']._serialized_start=770
+  _globals['_BOUNDINGBOX']._serialized_end=843
+  _globals['_METRICS']._serialized_start=845
+  _globals['_METRICS']._serialized_end=927
+  _globals['_MODELMETADATA']._serialized_start=930
+  _globals['_MODELMETADATA']._serialized_end=1059
+  _globals['_MODELMETADATA_CLASSNAMESENTRY']._serialized_start=1010
+  _globals['_MODELMETADATA_CLASSNAMESENTRY']._serialized_end=1059
+  _globals['_POSITIONMESSAGE']._serialized_start=1062
+  _globals['_POSITIONMESSAGE']._serialized_end=1345
+  _globals['_EVENTMESSAGE']._serialized_start=1348
+  _globals['_EVENTMESSAGE']._serialized_end=1560
+  _globals['_EVENTMESSAGE_EVENTTYPE']._serialized_start=1505
+  _globals['_EVENTMESSAGE_EVENTTYPE']._serialized_end=1560
 # @@protoc_insertion_point(module_scope)

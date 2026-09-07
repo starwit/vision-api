@@ -100,6 +100,26 @@ public final class Sae {
     de.starwit.visionapi.Sae.ModelMetadataOrBuilder getModelMetadataOrBuilder();
 
     /**
+     * <pre>
+     * Name of the filter or heartbeat that selected this frame.
+     * </pre>
+     *
+     * <code>string sampling_reason = 101;</code>
+     * @return The samplingReason.
+     */
+    java.lang.String getSamplingReason();
+    /**
+     * <pre>
+     * Name of the filter or heartbeat that selected this frame.
+     * </pre>
+     *
+     * <code>string sampling_reason = 101;</code>
+     * @return The bytes for samplingReason.
+     */
+    com.google.protobuf.ByteString
+        getSamplingReasonBytes();
+
+    /**
      * <code>.visionapi.MessageType type = 1000;</code>
      * @return The enum numeric value on the wire for type.
      */
@@ -133,6 +153,7 @@ public final class Sae {
     }
     private SaeMessage() {
       detections_ = java.util.Collections.emptyList();
+      samplingReason_ = "";
       type_ = 0;
     }
 
@@ -269,6 +290,53 @@ public final class Sae {
       return modelMetadata_ == null ? de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
     }
 
+    public static final int SAMPLING_REASON_FIELD_NUMBER = 101;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object samplingReason_ = "";
+    /**
+     * <pre>
+     * Name of the filter or heartbeat that selected this frame.
+     * </pre>
+     *
+     * <code>string sampling_reason = 101;</code>
+     * @return The samplingReason.
+     */
+    @java.lang.Override
+    public java.lang.String getSamplingReason() {
+      java.lang.Object ref = samplingReason_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        samplingReason_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the filter or heartbeat that selected this frame.
+     * </pre>
+     *
+     * <code>string sampling_reason = 101;</code>
+     * @return The bytes for samplingReason.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSamplingReasonBytes() {
+      java.lang.Object ref = samplingReason_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        samplingReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int TYPE_FIELD_NUMBER = 1000;
     private int type_ = 0;
     /**
@@ -313,6 +381,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(100, getModelMetadata());
       }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(samplingReason_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 101, samplingReason_);
+      }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         output.writeEnum(1000, type_);
       }
@@ -340,6 +411,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(100, getModelMetadata());
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(samplingReason_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(101, samplingReason_);
       }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -377,6 +451,8 @@ public final class Sae {
         if (!getModelMetadata()
             .equals(other.getModelMetadata())) return false;
       }
+      if (!getSamplingReason()
+          .equals(other.getSamplingReason())) return false;
       if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -405,6 +481,8 @@ public final class Sae {
         hash = (37 * hash) + MODEL_METADATA_FIELD_NUMBER;
         hash = (53 * hash) + getModelMetadata().hashCode();
       }
+      hash = (37 * hash) + SAMPLING_REASON_FIELD_NUMBER;
+      hash = (53 * hash) + getSamplingReason().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -569,6 +647,7 @@ public final class Sae {
           modelMetadataBuilder_.dispose();
           modelMetadataBuilder_ = null;
         }
+        samplingReason_ = "";
         type_ = 0;
         return this;
       }
@@ -636,6 +715,9 @@ public final class Sae {
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.samplingReason_ = samplingReason_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           result.type_ = type_;
         }
         result.bitField0_ |= to_bitField0_;
@@ -687,6 +769,11 @@ public final class Sae {
         }
         if (other.hasModelMetadata()) {
           mergeModelMetadata(other.getModelMetadata());
+        }
+        if (!other.getSamplingReason().isEmpty()) {
+          samplingReason_ = other.samplingReason_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
@@ -751,9 +838,14 @@ public final class Sae {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 802
+              case 810: {
+                samplingReason_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 810
               case 8000: {
                 type_ = input.readEnum();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
                 break;
               } // case 8000
               default: {
@@ -1376,6 +1468,98 @@ public final class Sae {
         return modelMetadataBuilder_;
       }
 
+      private java.lang.Object samplingReason_ = "";
+      /**
+       * <pre>
+       * Name of the filter or heartbeat that selected this frame.
+       * </pre>
+       *
+       * <code>string sampling_reason = 101;</code>
+       * @return The samplingReason.
+       */
+      public java.lang.String getSamplingReason() {
+        java.lang.Object ref = samplingReason_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          samplingReason_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the filter or heartbeat that selected this frame.
+       * </pre>
+       *
+       * <code>string sampling_reason = 101;</code>
+       * @return The bytes for samplingReason.
+       */
+      public com.google.protobuf.ByteString
+          getSamplingReasonBytes() {
+        java.lang.Object ref = samplingReason_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          samplingReason_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the filter or heartbeat that selected this frame.
+       * </pre>
+       *
+       * <code>string sampling_reason = 101;</code>
+       * @param value The samplingReason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSamplingReason(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        samplingReason_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the filter or heartbeat that selected this frame.
+       * </pre>
+       *
+       * <code>string sampling_reason = 101;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSamplingReason() {
+        samplingReason_ = getDefaultInstance().getSamplingReason();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the filter or heartbeat that selected this frame.
+       * </pre>
+       *
+       * <code>string sampling_reason = 101;</code>
+       * @param value The bytes for samplingReason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSamplingReasonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        samplingReason_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
       private int type_ = 0;
       /**
        * <code>.visionapi.MessageType type = 1000;</code>
@@ -1391,7 +1575,7 @@ public final class Sae {
        */
       public Builder setTypeValue(int value) {
         type_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1411,7 +1595,7 @@ public final class Sae {
        */
       public Builder setType(de.starwit.visionapi.Common.MessageType value) {
         if (value == null) { throw new NullPointerException(); }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1421,7 +1605,7 @@ public final class Sae {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         type_ = 0;
         onChanged();
         return this;
@@ -8562,45 +8746,45 @@ java.lang.String defaultValue) {
   static {
     java.lang.String[] descriptorData = {
       "\n\023visionapi/sae.proto\022\tvisionapi\032\026vision" +
-      "api/common.proto\"\332\001\n\nSaeMessage\022$\n\005frame" +
+      "api/common.proto\"\363\001\n\nSaeMessage\022$\n\005frame" +
       "\030\001 \001(\0132\025.visionapi.VideoFrame\022(\n\ndetecti" +
       "ons\030\002 \003(\0132\024.visionapi.Detection\022#\n\007metri" +
       "cs\030c \001(\0132\022.visionapi.Metrics\0220\n\016model_me" +
-      "tadata\030d \001(\0132\030.visionapi.ModelMetadata\022%" +
-      "\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"\356\001" +
-      "\n\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020times" +
-      "tamp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visio" +
-      "napi.Shape\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_" +
-      "data_jpeg\030\005 \001(\014\0221\n\017camera_location\030\006 \001(\013" +
-      "2\030.visionapi.GeoCoordinate\0222\n\017movement_v" +
-      "ector\030\007 \001(\0132\031.visionapi.MovementVector\"8" +
-      "\n\005Shape\022\016\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020" +
-      "\n\010channels\030\003 \001(\r\"\244\001\n\tDetection\022,\n\014boundi" +
-      "ng_box\030\001 \001(\0132\026.visionapi.BoundingBox\022\022\n\n" +
-      "confidence\030\002 \001(\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tob" +
-      "ject_id\030\004 \001(\014\0220\n\016geo_coordinate\030\005 \001(\0132\030." +
-      "visionapi.GeoCoordinate\"I\n\013BoundingBox\022\r" +
-      "\n\005min_x\030\001 \001(\002\022\r\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 " +
-      "\001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007Metrics\022#\n\033detecti" +
-      "on_inference_time_us\030\001 \001(\r\022\"\n\032tracking_i" +
-      "nference_time_us\030\002 \001(\r\"\201\001\n\rModelMetadata" +
-      "\022=\n\013class_names\030\001 \003(\0132(.visionapi.ModelM" +
-      "etadata.ClassNamesEntry\0321\n\017ClassNamesEnt" +
-      "ry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\233\002\n\017P" +
-      "ositionMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004" +
-      "\0220\n\016geo_coordinate\030\002 \001(\0132\030.visionapi.Geo" +
-      "Coordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n" +
-      "\010sae_uuid\030\005 \001(\014\0222\n\017movement_vector\030\006 \001(\013" +
-      "2\031.visionapi.MovementVector\0224\n\022raw_geo_c" +
-      "oordinate\030\007 \001(\0132\030.visionapi.GeoCoordinat" +
-      "e\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
-      "\"\324\001\n\014EventMessage\022\023\n\013instance_id\030\001 \001(\t\022\030" +
-      "\n\020timestamp_utc_ms\030\002 \001(\004\0225\n\nevent_type\030\003" +
-      " \001(\0162!.visionapi.EventMessage.EventType\022" +
-      "%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"7" +
-      "\n\tEventType\022\017\n\013UNSPECIFIED\020\000\022\013\n\007STARTUP\020" +
-      "\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starwit.visionapib" +
-      "\006proto3"
+      "tadata\030d \001(\0132\030.visionapi.ModelMetadata\022\027" +
+      "\n\017sampling_reason\030e \001(\t\022%\n\004type\030\350\007 \001(\0162\026" +
+      ".visionapi.MessageType\"\356\001\n\nVideoFrame\022\021\n" +
+      "\tsource_id\030\001 \001(\t\022\030\n\020timestamp_utc_ms\030\002 \001" +
+      "(\004\022\037\n\005shape\030\003 \001(\0132\020.visionapi.Shape\022\022\n\nf" +
+      "rame_data\030\004 \001(\014\022\027\n\017frame_data_jpeg\030\005 \001(\014" +
+      "\0221\n\017camera_location\030\006 \001(\0132\030.visionapi.Ge" +
+      "oCoordinate\0222\n\017movement_vector\030\007 \001(\0132\031.v" +
+      "isionapi.MovementVector\"8\n\005Shape\022\016\n\006heig" +
+      "ht\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(" +
+      "\r\"\244\001\n\tDetection\022,\n\014bounding_box\030\001 \001(\0132\026." +
+      "visionapi.BoundingBox\022\022\n\nconfidence\030\002 \001(" +
+      "\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(\014\0220" +
+      "\n\016geo_coordinate\030\005 \001(\0132\030.visionapi.GeoCo" +
+      "ordinate\"I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\002\022\r" +
+      "\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 " +
+      "\001(\002\"R\n\007Metrics\022#\n\033detection_inference_ti" +
+      "me_us\030\001 \001(\r\022\"\n\032tracking_inference_time_u" +
+      "s\030\002 \001(\r\"\201\001\n\rModelMetadata\022=\n\013class_names" +
+      "\030\001 \003(\0132(.visionapi.ModelMetadata.ClassNa" +
+      "mesEntry\0321\n\017ClassNamesEntry\022\013\n\003key\030\001 \001(\r" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\233\002\n\017PositionMessage\022" +
+      "\030\n\020timestamp_utc_ms\030\001 \001(\004\0220\n\016geo_coordin" +
+      "ate\030\002 \001(\0132\030.visionapi.GeoCoordinate\022\014\n\004h" +
+      "dop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n\010sae_uuid\030\005 \001(\014" +
+      "\0222\n\017movement_vector\030\006 \001(\0132\031.visionapi.Mo" +
+      "vementVector\0224\n\022raw_geo_coordinate\030\007 \001(\013" +
+      "2\030.visionapi.GeoCoordinate\022%\n\004type\030\350\007 \001(" +
+      "\0162\026.visionapi.MessageType\"\324\001\n\014EventMessa" +
+      "ge\022\023\n\013instance_id\030\001 \001(\t\022\030\n\020timestamp_utc" +
+      "_ms\030\002 \001(\004\0225\n\nevent_type\030\003 \001(\0162!.visionap" +
+      "i.EventMessage.EventType\022%\n\004type\030\350\007 \001(\0162" +
+      "\026.visionapi.MessageType\"7\n\tEventType\022\017\n\013" +
+      "UNSPECIFIED\020\000\022\013\n\007STARTUP\020\001\022\014\n\010SHUTDOWN\020\002" +
+      "B\026\n\024de.starwit.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8612,7 +8796,7 @@ java.lang.String defaultValue) {
     internal_static_visionapi_SaeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_SaeMessage_descriptor,
-        new java.lang.String[] { "Frame", "Detections", "Metrics", "ModelMetadata", "Type", });
+        new java.lang.String[] { "Frame", "Detections", "Metrics", "ModelMetadata", "SamplingReason", "Type", });
     internal_static_visionapi_VideoFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
