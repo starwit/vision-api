@@ -9,18 +9,20 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SaeMessage(_message.Message):
-    __slots__ = ("frame", "detections", "metrics", "model_metadata", "type")
+    __slots__ = ("frame", "detections", "metrics", "model_metadata", "sampling_metadata", "type")
     FRAME_FIELD_NUMBER: _ClassVar[int]
     DETECTIONS_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
     MODEL_METADATA_FIELD_NUMBER: _ClassVar[int]
+    SAMPLING_METADATA_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     frame: VideoFrame
     detections: _containers.RepeatedCompositeFieldContainer[Detection]
     metrics: Metrics
     model_metadata: ModelMetadata
+    sampling_metadata: _containers.RepeatedCompositeFieldContainer[SamplingMetadata]
     type: _common_pb2.MessageType
-    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
+    def __init__(self, frame: _Optional[_Union[VideoFrame, _Mapping]] = ..., detections: _Optional[_Iterable[_Union[Detection, _Mapping]]] = ..., metrics: _Optional[_Union[Metrics, _Mapping]] = ..., model_metadata: _Optional[_Union[ModelMetadata, _Mapping]] = ..., sampling_metadata: _Optional[_Iterable[_Union[SamplingMetadata, _Mapping]]] = ..., type: _Optional[_Union[_common_pb2.MessageType, str]] = ...) -> None: ...
 
 class VideoFrame(_message.Message):
     __slots__ = ("source_id", "timestamp_utc_ms", "shape", "frame_data", "frame_data_jpeg", "camera_location", "movement_vector")
@@ -96,6 +98,20 @@ class ModelMetadata(_message.Message):
     CLASS_NAMES_FIELD_NUMBER: _ClassVar[int]
     class_names: _containers.ScalarMap[int, str]
     def __init__(self, class_names: _Optional[_Mapping[int, str]] = ...) -> None: ...
+
+class SamplingMetadata(_message.Message):
+    __slots__ = ("sampler_id", "filter_matches")
+    SAMPLER_ID_FIELD_NUMBER: _ClassVar[int]
+    FILTER_MATCHES_FIELD_NUMBER: _ClassVar[int]
+    sampler_id: str
+    filter_matches: _containers.RepeatedCompositeFieldContainer[FilterMatch]
+    def __init__(self, sampler_id: _Optional[str] = ..., filter_matches: _Optional[_Iterable[_Union[FilterMatch, _Mapping]]] = ...) -> None: ...
+
+class FilterMatch(_message.Message):
+    __slots__ = ("name",)
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    def __init__(self, name: _Optional[str] = ...) -> None: ...
 
 class PositionMessage(_message.Message):
     __slots__ = ("timestamp_utc_ms", "geo_coordinate", "hdop", "fix", "sae_uuid", "movement_vector", "raw_geo_coordinate", "type")

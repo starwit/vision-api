@@ -100,6 +100,30 @@ public final class Sae {
     de.starwit.visionapi.Sae.ModelMetadataOrBuilder getModelMetadataOrBuilder();
 
     /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    java.util.List<de.starwit.visionapi.Sae.SamplingMetadata> 
+        getSamplingMetadataList();
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    de.starwit.visionapi.Sae.SamplingMetadata getSamplingMetadata(int index);
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    int getSamplingMetadataCount();
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    java.util.List<? extends de.starwit.visionapi.Sae.SamplingMetadataOrBuilder> 
+        getSamplingMetadataOrBuilderList();
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    de.starwit.visionapi.Sae.SamplingMetadataOrBuilder getSamplingMetadataOrBuilder(
+        int index);
+
+    /**
      * <code>.visionapi.MessageType type = 1000;</code>
      * @return The enum numeric value on the wire for type.
      */
@@ -133,6 +157,7 @@ public final class Sae {
     }
     private SaeMessage() {
       detections_ = java.util.Collections.emptyList();
+      samplingMetadata_ = java.util.Collections.emptyList();
       type_ = 0;
     }
 
@@ -269,6 +294,47 @@ public final class Sae {
       return modelMetadata_ == null ? de.starwit.visionapi.Sae.ModelMetadata.getDefaultInstance() : modelMetadata_;
     }
 
+    public static final int SAMPLING_METADATA_FIELD_NUMBER = 101;
+    @SuppressWarnings("serial")
+    private java.util.List<de.starwit.visionapi.Sae.SamplingMetadata> samplingMetadata_;
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    @java.lang.Override
+    public java.util.List<de.starwit.visionapi.Sae.SamplingMetadata> getSamplingMetadataList() {
+      return samplingMetadata_;
+    }
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends de.starwit.visionapi.Sae.SamplingMetadataOrBuilder> 
+        getSamplingMetadataOrBuilderList() {
+      return samplingMetadata_;
+    }
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    @java.lang.Override
+    public int getSamplingMetadataCount() {
+      return samplingMetadata_.size();
+    }
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.SamplingMetadata getSamplingMetadata(int index) {
+      return samplingMetadata_.get(index);
+    }
+    /**
+     * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.SamplingMetadataOrBuilder getSamplingMetadataOrBuilder(
+        int index) {
+      return samplingMetadata_.get(index);
+    }
+
     public static final int TYPE_FIELD_NUMBER = 1000;
     private int type_ = 0;
     /**
@@ -313,6 +379,9 @@ public final class Sae {
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(100, getModelMetadata());
       }
+      for (int i = 0; i < samplingMetadata_.size(); i++) {
+        output.writeMessage(101, samplingMetadata_.get(i));
+      }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         output.writeEnum(1000, type_);
       }
@@ -340,6 +409,10 @@ public final class Sae {
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(100, getModelMetadata());
+      }
+      for (int i = 0; i < samplingMetadata_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(101, samplingMetadata_.get(i));
       }
       if (type_ != de.starwit.visionapi.Common.MessageType.UNSPECIFIED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -377,6 +450,8 @@ public final class Sae {
         if (!getModelMetadata()
             .equals(other.getModelMetadata())) return false;
       }
+      if (!getSamplingMetadataList()
+          .equals(other.getSamplingMetadataList())) return false;
       if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -404,6 +479,10 @@ public final class Sae {
       if (hasModelMetadata()) {
         hash = (37 * hash) + MODEL_METADATA_FIELD_NUMBER;
         hash = (53 * hash) + getModelMetadata().hashCode();
+      }
+      if (getSamplingMetadataCount() > 0) {
+        hash = (37 * hash) + SAMPLING_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getSamplingMetadataList().hashCode();
       }
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
@@ -541,6 +620,7 @@ public final class Sae {
           internalGetDetectionsFieldBuilder();
           internalGetMetricsFieldBuilder();
           internalGetModelMetadataFieldBuilder();
+          internalGetSamplingMetadataFieldBuilder();
         }
       }
       @java.lang.Override
@@ -569,6 +649,13 @@ public final class Sae {
           modelMetadataBuilder_.dispose();
           modelMetadataBuilder_ = null;
         }
+        if (samplingMetadataBuilder_ == null) {
+          samplingMetadata_ = java.util.Collections.emptyList();
+        } else {
+          samplingMetadata_ = null;
+          samplingMetadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         type_ = 0;
         return this;
       }
@@ -612,6 +699,15 @@ public final class Sae {
         } else {
           result.detections_ = detectionsBuilder_.build();
         }
+        if (samplingMetadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0)) {
+            samplingMetadata_ = java.util.Collections.unmodifiableList(samplingMetadata_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.samplingMetadata_ = samplingMetadata_;
+        } else {
+          result.samplingMetadata_ = samplingMetadataBuilder_.build();
+        }
       }
 
       private void buildPartial0(de.starwit.visionapi.Sae.SaeMessage result) {
@@ -635,7 +731,7 @@ public final class Sae {
               : modelMetadataBuilder_.build();
           to_bitField0_ |= 0x00000004;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           result.type_ = type_;
         }
         result.bitField0_ |= to_bitField0_;
@@ -687,6 +783,32 @@ public final class Sae {
         }
         if (other.hasModelMetadata()) {
           mergeModelMetadata(other.getModelMetadata());
+        }
+        if (samplingMetadataBuilder_ == null) {
+          if (!other.samplingMetadata_.isEmpty()) {
+            if (samplingMetadata_.isEmpty()) {
+              samplingMetadata_ = other.samplingMetadata_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureSamplingMetadataIsMutable();
+              samplingMetadata_.addAll(other.samplingMetadata_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.samplingMetadata_.isEmpty()) {
+            if (samplingMetadataBuilder_.isEmpty()) {
+              samplingMetadataBuilder_.dispose();
+              samplingMetadataBuilder_ = null;
+              samplingMetadata_ = other.samplingMetadata_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              samplingMetadataBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   internalGetSamplingMetadataFieldBuilder() : null;
+            } else {
+              samplingMetadataBuilder_.addAllMessages(other.samplingMetadata_);
+            }
+          }
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
@@ -751,9 +873,22 @@ public final class Sae {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 802
+              case 810: {
+                de.starwit.visionapi.Sae.SamplingMetadata m =
+                    input.readMessage(
+                        de.starwit.visionapi.Sae.SamplingMetadata.parser(),
+                        extensionRegistry);
+                if (samplingMetadataBuilder_ == null) {
+                  ensureSamplingMetadataIsMutable();
+                  samplingMetadata_.add(m);
+                } else {
+                  samplingMetadataBuilder_.addMessage(m);
+                }
+                break;
+              } // case 810
               case 8000: {
                 type_ = input.readEnum();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
                 break;
               } // case 8000
               default: {
@@ -1376,6 +1511,246 @@ public final class Sae {
         return modelMetadataBuilder_;
       }
 
+      private java.util.List<de.starwit.visionapi.Sae.SamplingMetadata> samplingMetadata_ =
+        java.util.Collections.emptyList();
+      private void ensureSamplingMetadataIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          samplingMetadata_ = new java.util.ArrayList<de.starwit.visionapi.Sae.SamplingMetadata>(samplingMetadata_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          de.starwit.visionapi.Sae.SamplingMetadata, de.starwit.visionapi.Sae.SamplingMetadata.Builder, de.starwit.visionapi.Sae.SamplingMetadataOrBuilder> samplingMetadataBuilder_;
+
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public java.util.List<de.starwit.visionapi.Sae.SamplingMetadata> getSamplingMetadataList() {
+        if (samplingMetadataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(samplingMetadata_);
+        } else {
+          return samplingMetadataBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public int getSamplingMetadataCount() {
+        if (samplingMetadataBuilder_ == null) {
+          return samplingMetadata_.size();
+        } else {
+          return samplingMetadataBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public de.starwit.visionapi.Sae.SamplingMetadata getSamplingMetadata(int index) {
+        if (samplingMetadataBuilder_ == null) {
+          return samplingMetadata_.get(index);
+        } else {
+          return samplingMetadataBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder setSamplingMetadata(
+          int index, de.starwit.visionapi.Sae.SamplingMetadata value) {
+        if (samplingMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.set(index, value);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder setSamplingMetadata(
+          int index, de.starwit.visionapi.Sae.SamplingMetadata.Builder builderForValue) {
+        if (samplingMetadataBuilder_ == null) {
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder addSamplingMetadata(de.starwit.visionapi.Sae.SamplingMetadata value) {
+        if (samplingMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.add(value);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder addSamplingMetadata(
+          int index, de.starwit.visionapi.Sae.SamplingMetadata value) {
+        if (samplingMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.add(index, value);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder addSamplingMetadata(
+          de.starwit.visionapi.Sae.SamplingMetadata.Builder builderForValue) {
+        if (samplingMetadataBuilder_ == null) {
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.add(builderForValue.build());
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder addSamplingMetadata(
+          int index, de.starwit.visionapi.Sae.SamplingMetadata.Builder builderForValue) {
+        if (samplingMetadataBuilder_ == null) {
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder addAllSamplingMetadata(
+          java.lang.Iterable<? extends de.starwit.visionapi.Sae.SamplingMetadata> values) {
+        if (samplingMetadataBuilder_ == null) {
+          ensureSamplingMetadataIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, samplingMetadata_);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder clearSamplingMetadata() {
+        if (samplingMetadataBuilder_ == null) {
+          samplingMetadata_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public Builder removeSamplingMetadata(int index) {
+        if (samplingMetadataBuilder_ == null) {
+          ensureSamplingMetadataIsMutable();
+          samplingMetadata_.remove(index);
+          onChanged();
+        } else {
+          samplingMetadataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public de.starwit.visionapi.Sae.SamplingMetadata.Builder getSamplingMetadataBuilder(
+          int index) {
+        return internalGetSamplingMetadataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public de.starwit.visionapi.Sae.SamplingMetadataOrBuilder getSamplingMetadataOrBuilder(
+          int index) {
+        if (samplingMetadataBuilder_ == null) {
+          return samplingMetadata_.get(index);  } else {
+          return samplingMetadataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public java.util.List<? extends de.starwit.visionapi.Sae.SamplingMetadataOrBuilder> 
+           getSamplingMetadataOrBuilderList() {
+        if (samplingMetadataBuilder_ != null) {
+          return samplingMetadataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(samplingMetadata_);
+        }
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public de.starwit.visionapi.Sae.SamplingMetadata.Builder addSamplingMetadataBuilder() {
+        return internalGetSamplingMetadataFieldBuilder().addBuilder(
+            de.starwit.visionapi.Sae.SamplingMetadata.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public de.starwit.visionapi.Sae.SamplingMetadata.Builder addSamplingMetadataBuilder(
+          int index) {
+        return internalGetSamplingMetadataFieldBuilder().addBuilder(
+            index, de.starwit.visionapi.Sae.SamplingMetadata.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .visionapi.SamplingMetadata sampling_metadata = 101;</code>
+       */
+      public java.util.List<de.starwit.visionapi.Sae.SamplingMetadata.Builder> 
+           getSamplingMetadataBuilderList() {
+        return internalGetSamplingMetadataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          de.starwit.visionapi.Sae.SamplingMetadata, de.starwit.visionapi.Sae.SamplingMetadata.Builder, de.starwit.visionapi.Sae.SamplingMetadataOrBuilder> 
+          internalGetSamplingMetadataFieldBuilder() {
+        if (samplingMetadataBuilder_ == null) {
+          samplingMetadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              de.starwit.visionapi.Sae.SamplingMetadata, de.starwit.visionapi.Sae.SamplingMetadata.Builder, de.starwit.visionapi.Sae.SamplingMetadataOrBuilder>(
+                  samplingMetadata_,
+                  ((bitField0_ & 0x00000010) != 0),
+                  getParentForChildren(),
+                  isClean());
+          samplingMetadata_ = null;
+        }
+        return samplingMetadataBuilder_;
+      }
+
       private int type_ = 0;
       /**
        * <code>.visionapi.MessageType type = 1000;</code>
@@ -1391,7 +1766,7 @@ public final class Sae {
        */
       public Builder setTypeValue(int value) {
         type_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1411,7 +1786,7 @@ public final class Sae {
        */
       public Builder setType(de.starwit.visionapi.Common.MessageType value) {
         if (value == null) { throw new NullPointerException(); }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1421,7 +1796,7 @@ public final class Sae {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         type_ = 0;
         onChanged();
         return this;
@@ -6221,6 +6596,1554 @@ java.lang.String defaultValue) {
 
   }
 
+  public interface SamplingMetadataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.SamplingMetadata)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string sampler_id = 1;</code>
+     * @return The samplerId.
+     */
+    java.lang.String getSamplerId();
+    /**
+     * <code>string sampler_id = 1;</code>
+     * @return The bytes for samplerId.
+     */
+    com.google.protobuf.ByteString
+        getSamplerIdBytes();
+
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    java.util.List<de.starwit.visionapi.Sae.FilterMatch> 
+        getFilterMatchesList();
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    de.starwit.visionapi.Sae.FilterMatch getFilterMatches(int index);
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    int getFilterMatchesCount();
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    java.util.List<? extends de.starwit.visionapi.Sae.FilterMatchOrBuilder> 
+        getFilterMatchesOrBuilderList();
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    de.starwit.visionapi.Sae.FilterMatchOrBuilder getFilterMatchesOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * Why a sampling stage (e.g. the detection sampler) forwarded this message.
+   * Each sampler appends its own entry, so chained samplers do not overwrite each other.
+   * </pre>
+   *
+   * Protobuf type {@code visionapi.SamplingMetadata}
+   */
+  public static final class SamplingMetadata extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.SamplingMetadata)
+      SamplingMetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        SamplingMetadata.class.getName());
+    }
+    // Use SamplingMetadata.newBuilder() to construct.
+    private SamplingMetadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private SamplingMetadata() {
+      samplerId_ = "";
+      filterMatches_ = java.util.Collections.emptyList();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_SamplingMetadata_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_SamplingMetadata_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Sae.SamplingMetadata.class, de.starwit.visionapi.Sae.SamplingMetadata.Builder.class);
+    }
+
+    public static final int SAMPLER_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object samplerId_ = "";
+    /**
+     * <code>string sampler_id = 1;</code>
+     * @return The samplerId.
+     */
+    @java.lang.Override
+    public java.lang.String getSamplerId() {
+      java.lang.Object ref = samplerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        samplerId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string sampler_id = 1;</code>
+     * @return The bytes for samplerId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSamplerIdBytes() {
+      java.lang.Object ref = samplerId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        samplerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILTER_MATCHES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private java.util.List<de.starwit.visionapi.Sae.FilterMatch> filterMatches_;
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<de.starwit.visionapi.Sae.FilterMatch> getFilterMatchesList() {
+      return filterMatches_;
+    }
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends de.starwit.visionapi.Sae.FilterMatchOrBuilder> 
+        getFilterMatchesOrBuilderList() {
+      return filterMatches_;
+    }
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    @java.lang.Override
+    public int getFilterMatchesCount() {
+      return filterMatches_.size();
+    }
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.FilterMatch getFilterMatches(int index) {
+      return filterMatches_.get(index);
+    }
+    /**
+     * <pre>
+     * All filters that matched the message (including those in cooldown).
+     * The heartbeat is reported as a filter named `heartbeat`.
+     * </pre>
+     *
+     * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+     */
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.FilterMatchOrBuilder getFilterMatchesOrBuilder(
+        int index) {
+      return filterMatches_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(samplerId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, samplerId_);
+      }
+      for (int i = 0; i < filterMatches_.size(); i++) {
+        output.writeMessage(2, filterMatches_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(samplerId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, samplerId_);
+      }
+      for (int i = 0; i < filterMatches_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, filterMatches_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Sae.SamplingMetadata)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Sae.SamplingMetadata other = (de.starwit.visionapi.Sae.SamplingMetadata) obj;
+
+      if (!getSamplerId()
+          .equals(other.getSamplerId())) return false;
+      if (!getFilterMatchesList()
+          .equals(other.getFilterMatchesList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SAMPLER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSamplerId().hashCode();
+      if (getFilterMatchesCount() > 0) {
+        hash = (37 * hash) + FILTER_MATCHES_FIELD_NUMBER;
+        hash = (53 * hash) + getFilterMatchesList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.SamplingMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Sae.SamplingMetadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Why a sampling stage (e.g. the detection sampler) forwarded this message.
+     * Each sampler appends its own entry, so chained samplers do not overwrite each other.
+     * </pre>
+     *
+     * Protobuf type {@code visionapi.SamplingMetadata}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.SamplingMetadata)
+        de.starwit.visionapi.Sae.SamplingMetadataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_SamplingMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_SamplingMetadata_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Sae.SamplingMetadata.class, de.starwit.visionapi.Sae.SamplingMetadata.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Sae.SamplingMetadata.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        samplerId_ = "";
+        if (filterMatchesBuilder_ == null) {
+          filterMatches_ = java.util.Collections.emptyList();
+        } else {
+          filterMatches_ = null;
+          filterMatchesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_SamplingMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.SamplingMetadata getDefaultInstanceForType() {
+        return de.starwit.visionapi.Sae.SamplingMetadata.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.SamplingMetadata build() {
+        de.starwit.visionapi.Sae.SamplingMetadata result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.SamplingMetadata buildPartial() {
+        de.starwit.visionapi.Sae.SamplingMetadata result = new de.starwit.visionapi.Sae.SamplingMetadata(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(de.starwit.visionapi.Sae.SamplingMetadata result) {
+        if (filterMatchesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            filterMatches_ = java.util.Collections.unmodifiableList(filterMatches_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.filterMatches_ = filterMatches_;
+        } else {
+          result.filterMatches_ = filterMatchesBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Sae.SamplingMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.samplerId_ = samplerId_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Sae.SamplingMetadata) {
+          return mergeFrom((de.starwit.visionapi.Sae.SamplingMetadata)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Sae.SamplingMetadata other) {
+        if (other == de.starwit.visionapi.Sae.SamplingMetadata.getDefaultInstance()) return this;
+        if (!other.getSamplerId().isEmpty()) {
+          samplerId_ = other.samplerId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (filterMatchesBuilder_ == null) {
+          if (!other.filterMatches_.isEmpty()) {
+            if (filterMatches_.isEmpty()) {
+              filterMatches_ = other.filterMatches_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureFilterMatchesIsMutable();
+              filterMatches_.addAll(other.filterMatches_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.filterMatches_.isEmpty()) {
+            if (filterMatchesBuilder_.isEmpty()) {
+              filterMatchesBuilder_.dispose();
+              filterMatchesBuilder_ = null;
+              filterMatches_ = other.filterMatches_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              filterMatchesBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   internalGetFilterMatchesFieldBuilder() : null;
+            } else {
+              filterMatchesBuilder_.addAllMessages(other.filterMatches_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                samplerId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                de.starwit.visionapi.Sae.FilterMatch m =
+                    input.readMessage(
+                        de.starwit.visionapi.Sae.FilterMatch.parser(),
+                        extensionRegistry);
+                if (filterMatchesBuilder_ == null) {
+                  ensureFilterMatchesIsMutable();
+                  filterMatches_.add(m);
+                } else {
+                  filterMatchesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object samplerId_ = "";
+      /**
+       * <code>string sampler_id = 1;</code>
+       * @return The samplerId.
+       */
+      public java.lang.String getSamplerId() {
+        java.lang.Object ref = samplerId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          samplerId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string sampler_id = 1;</code>
+       * @return The bytes for samplerId.
+       */
+      public com.google.protobuf.ByteString
+          getSamplerIdBytes() {
+        java.lang.Object ref = samplerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          samplerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string sampler_id = 1;</code>
+       * @param value The samplerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSamplerId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        samplerId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sampler_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSamplerId() {
+        samplerId_ = getDefaultInstance().getSamplerId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string sampler_id = 1;</code>
+       * @param value The bytes for samplerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSamplerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        samplerId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<de.starwit.visionapi.Sae.FilterMatch> filterMatches_ =
+        java.util.Collections.emptyList();
+      private void ensureFilterMatchesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          filterMatches_ = new java.util.ArrayList<de.starwit.visionapi.Sae.FilterMatch>(filterMatches_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          de.starwit.visionapi.Sae.FilterMatch, de.starwit.visionapi.Sae.FilterMatch.Builder, de.starwit.visionapi.Sae.FilterMatchOrBuilder> filterMatchesBuilder_;
+
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public java.util.List<de.starwit.visionapi.Sae.FilterMatch> getFilterMatchesList() {
+        if (filterMatchesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(filterMatches_);
+        } else {
+          return filterMatchesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public int getFilterMatchesCount() {
+        if (filterMatchesBuilder_ == null) {
+          return filterMatches_.size();
+        } else {
+          return filterMatchesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public de.starwit.visionapi.Sae.FilterMatch getFilterMatches(int index) {
+        if (filterMatchesBuilder_ == null) {
+          return filterMatches_.get(index);
+        } else {
+          return filterMatchesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder setFilterMatches(
+          int index, de.starwit.visionapi.Sae.FilterMatch value) {
+        if (filterMatchesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterMatchesIsMutable();
+          filterMatches_.set(index, value);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder setFilterMatches(
+          int index, de.starwit.visionapi.Sae.FilterMatch.Builder builderForValue) {
+        if (filterMatchesBuilder_ == null) {
+          ensureFilterMatchesIsMutable();
+          filterMatches_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          filterMatchesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder addFilterMatches(de.starwit.visionapi.Sae.FilterMatch value) {
+        if (filterMatchesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterMatchesIsMutable();
+          filterMatches_.add(value);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder addFilterMatches(
+          int index, de.starwit.visionapi.Sae.FilterMatch value) {
+        if (filterMatchesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterMatchesIsMutable();
+          filterMatches_.add(index, value);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder addFilterMatches(
+          de.starwit.visionapi.Sae.FilterMatch.Builder builderForValue) {
+        if (filterMatchesBuilder_ == null) {
+          ensureFilterMatchesIsMutable();
+          filterMatches_.add(builderForValue.build());
+          onChanged();
+        } else {
+          filterMatchesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder addFilterMatches(
+          int index, de.starwit.visionapi.Sae.FilterMatch.Builder builderForValue) {
+        if (filterMatchesBuilder_ == null) {
+          ensureFilterMatchesIsMutable();
+          filterMatches_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          filterMatchesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder addAllFilterMatches(
+          java.lang.Iterable<? extends de.starwit.visionapi.Sae.FilterMatch> values) {
+        if (filterMatchesBuilder_ == null) {
+          ensureFilterMatchesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, filterMatches_);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder clearFilterMatches() {
+        if (filterMatchesBuilder_ == null) {
+          filterMatches_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public Builder removeFilterMatches(int index) {
+        if (filterMatchesBuilder_ == null) {
+          ensureFilterMatchesIsMutable();
+          filterMatches_.remove(index);
+          onChanged();
+        } else {
+          filterMatchesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public de.starwit.visionapi.Sae.FilterMatch.Builder getFilterMatchesBuilder(
+          int index) {
+        return internalGetFilterMatchesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public de.starwit.visionapi.Sae.FilterMatchOrBuilder getFilterMatchesOrBuilder(
+          int index) {
+        if (filterMatchesBuilder_ == null) {
+          return filterMatches_.get(index);  } else {
+          return filterMatchesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public java.util.List<? extends de.starwit.visionapi.Sae.FilterMatchOrBuilder> 
+           getFilterMatchesOrBuilderList() {
+        if (filterMatchesBuilder_ != null) {
+          return filterMatchesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(filterMatches_);
+        }
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public de.starwit.visionapi.Sae.FilterMatch.Builder addFilterMatchesBuilder() {
+        return internalGetFilterMatchesFieldBuilder().addBuilder(
+            de.starwit.visionapi.Sae.FilterMatch.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public de.starwit.visionapi.Sae.FilterMatch.Builder addFilterMatchesBuilder(
+          int index) {
+        return internalGetFilterMatchesFieldBuilder().addBuilder(
+            index, de.starwit.visionapi.Sae.FilterMatch.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * All filters that matched the message (including those in cooldown).
+       * The heartbeat is reported as a filter named `heartbeat`.
+       * </pre>
+       *
+       * <code>repeated .visionapi.FilterMatch filter_matches = 2;</code>
+       */
+      public java.util.List<de.starwit.visionapi.Sae.FilterMatch.Builder> 
+           getFilterMatchesBuilderList() {
+        return internalGetFilterMatchesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          de.starwit.visionapi.Sae.FilterMatch, de.starwit.visionapi.Sae.FilterMatch.Builder, de.starwit.visionapi.Sae.FilterMatchOrBuilder> 
+          internalGetFilterMatchesFieldBuilder() {
+        if (filterMatchesBuilder_ == null) {
+          filterMatchesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              de.starwit.visionapi.Sae.FilterMatch, de.starwit.visionapi.Sae.FilterMatch.Builder, de.starwit.visionapi.Sae.FilterMatchOrBuilder>(
+                  filterMatches_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          filterMatches_ = null;
+        }
+        return filterMatchesBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.SamplingMetadata)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.SamplingMetadata)
+    private static final de.starwit.visionapi.Sae.SamplingMetadata DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Sae.SamplingMetadata();
+    }
+
+    public static de.starwit.visionapi.Sae.SamplingMetadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SamplingMetadata>
+        PARSER = new com.google.protobuf.AbstractParser<SamplingMetadata>() {
+      @java.lang.Override
+      public SamplingMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SamplingMetadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SamplingMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.SamplingMetadata getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FilterMatchOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:visionapi.FilterMatch)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code visionapi.FilterMatch}
+   */
+  public static final class FilterMatch extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:visionapi.FilterMatch)
+      FilterMatchOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        FilterMatch.class.getName());
+    }
+    // Use FilterMatch.newBuilder() to construct.
+    private FilterMatch(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private FilterMatch() {
+      name_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_FilterMatch_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return de.starwit.visionapi.Sae.internal_static_visionapi_FilterMatch_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              de.starwit.visionapi.Sae.FilterMatch.class, de.starwit.visionapi.Sae.FilterMatch.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, name_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, name_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof de.starwit.visionapi.Sae.FilterMatch)) {
+        return super.equals(obj);
+      }
+      de.starwit.visionapi.Sae.FilterMatch other = (de.starwit.visionapi.Sae.FilterMatch) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static de.starwit.visionapi.Sae.FilterMatch parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static de.starwit.visionapi.Sae.FilterMatch parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static de.starwit.visionapi.Sae.FilterMatch parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(de.starwit.visionapi.Sae.FilterMatch prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code visionapi.FilterMatch}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:visionapi.FilterMatch)
+        de.starwit.visionapi.Sae.FilterMatchOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_FilterMatch_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_FilterMatch_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                de.starwit.visionapi.Sae.FilterMatch.class, de.starwit.visionapi.Sae.FilterMatch.Builder.class);
+      }
+
+      // Construct using de.starwit.visionapi.Sae.FilterMatch.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        name_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return de.starwit.visionapi.Sae.internal_static_visionapi_FilterMatch_descriptor;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.FilterMatch getDefaultInstanceForType() {
+        return de.starwit.visionapi.Sae.FilterMatch.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.FilterMatch build() {
+        de.starwit.visionapi.Sae.FilterMatch result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public de.starwit.visionapi.Sae.FilterMatch buildPartial() {
+        de.starwit.visionapi.Sae.FilterMatch result = new de.starwit.visionapi.Sae.FilterMatch(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(de.starwit.visionapi.Sae.FilterMatch result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof de.starwit.visionapi.Sae.FilterMatch) {
+          return mergeFrom((de.starwit.visionapi.Sae.FilterMatch)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(de.starwit.visionapi.Sae.FilterMatch other) {
+        if (other == de.starwit.visionapi.Sae.FilterMatch.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        name_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        name_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:visionapi.FilterMatch)
+    }
+
+    // @@protoc_insertion_point(class_scope:visionapi.FilterMatch)
+    private static final de.starwit.visionapi.Sae.FilterMatch DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new de.starwit.visionapi.Sae.FilterMatch();
+    }
+
+    public static de.starwit.visionapi.Sae.FilterMatch getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FilterMatch>
+        PARSER = new com.google.protobuf.AbstractParser<FilterMatch>() {
+      @java.lang.Override
+      public FilterMatch parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<FilterMatch> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FilterMatch> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public de.starwit.visionapi.Sae.FilterMatch getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PositionMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:visionapi.PositionMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -8543,6 +10466,16 @@ java.lang.String defaultValue) {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_visionapi_ModelMetadata_ClassNamesEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_SamplingMetadata_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_SamplingMetadata_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_visionapi_FilterMatch_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_visionapi_FilterMatch_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_visionapi_PositionMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -8562,45 +10495,49 @@ java.lang.String defaultValue) {
   static {
     java.lang.String[] descriptorData = {
       "\n\023visionapi/sae.proto\022\tvisionapi\032\026vision" +
-      "api/common.proto\"\332\001\n\nSaeMessage\022$\n\005frame" +
+      "api/common.proto\"\222\002\n\nSaeMessage\022$\n\005frame" +
       "\030\001 \001(\0132\025.visionapi.VideoFrame\022(\n\ndetecti" +
       "ons\030\002 \003(\0132\024.visionapi.Detection\022#\n\007metri" +
       "cs\030c \001(\0132\022.visionapi.Metrics\0220\n\016model_me" +
-      "tadata\030d \001(\0132\030.visionapi.ModelMetadata\022%" +
-      "\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"\356\001" +
-      "\n\nVideoFrame\022\021\n\tsource_id\030\001 \001(\t\022\030\n\020times" +
-      "tamp_utc_ms\030\002 \001(\004\022\037\n\005shape\030\003 \001(\0132\020.visio" +
-      "napi.Shape\022\022\n\nframe_data\030\004 \001(\014\022\027\n\017frame_" +
-      "data_jpeg\030\005 \001(\014\0221\n\017camera_location\030\006 \001(\013" +
-      "2\030.visionapi.GeoCoordinate\0222\n\017movement_v" +
-      "ector\030\007 \001(\0132\031.visionapi.MovementVector\"8" +
-      "\n\005Shape\022\016\n\006height\030\001 \001(\r\022\r\n\005width\030\002 \001(\r\022\020" +
-      "\n\010channels\030\003 \001(\r\"\244\001\n\tDetection\022,\n\014boundi" +
-      "ng_box\030\001 \001(\0132\026.visionapi.BoundingBox\022\022\n\n" +
-      "confidence\030\002 \001(\002\022\020\n\010class_id\030\003 \001(\r\022\021\n\tob" +
-      "ject_id\030\004 \001(\014\0220\n\016geo_coordinate\030\005 \001(\0132\030." +
-      "visionapi.GeoCoordinate\"I\n\013BoundingBox\022\r" +
-      "\n\005min_x\030\001 \001(\002\022\r\n\005min_y\030\002 \001(\002\022\r\n\005max_x\030\003 " +
-      "\001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007Metrics\022#\n\033detecti" +
-      "on_inference_time_us\030\001 \001(\r\022\"\n\032tracking_i" +
-      "nference_time_us\030\002 \001(\r\"\201\001\n\rModelMetadata" +
-      "\022=\n\013class_names\030\001 \003(\0132(.visionapi.ModelM" +
-      "etadata.ClassNamesEntry\0321\n\017ClassNamesEnt" +
-      "ry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\233\002\n\017P" +
-      "ositionMessage\022\030\n\020timestamp_utc_ms\030\001 \001(\004" +
-      "\0220\n\016geo_coordinate\030\002 \001(\0132\030.visionapi.Geo" +
-      "Coordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n\003fix\030\004 \001(\010\022\020\n" +
-      "\010sae_uuid\030\005 \001(\014\0222\n\017movement_vector\030\006 \001(\013" +
-      "2\031.visionapi.MovementVector\0224\n\022raw_geo_c" +
-      "oordinate\030\007 \001(\0132\030.visionapi.GeoCoordinat" +
-      "e\022%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType" +
-      "\"\324\001\n\014EventMessage\022\023\n\013instance_id\030\001 \001(\t\022\030" +
-      "\n\020timestamp_utc_ms\030\002 \001(\004\0225\n\nevent_type\030\003" +
-      " \001(\0162!.visionapi.EventMessage.EventType\022" +
-      "%\n\004type\030\350\007 \001(\0162\026.visionapi.MessageType\"7" +
-      "\n\tEventType\022\017\n\013UNSPECIFIED\020\000\022\013\n\007STARTUP\020" +
-      "\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starwit.visionapib" +
-      "\006proto3"
+      "tadata\030d \001(\0132\030.visionapi.ModelMetadata\0226" +
+      "\n\021sampling_metadata\030e \003(\0132\033.visionapi.Sa" +
+      "mplingMetadata\022%\n\004type\030\350\007 \001(\0162\026.visionap" +
+      "i.MessageType\"\356\001\n\nVideoFrame\022\021\n\tsource_i" +
+      "d\030\001 \001(\t\022\030\n\020timestamp_utc_ms\030\002 \001(\004\022\037\n\005sha" +
+      "pe\030\003 \001(\0132\020.visionapi.Shape\022\022\n\nframe_data" +
+      "\030\004 \001(\014\022\027\n\017frame_data_jpeg\030\005 \001(\014\0221\n\017camer" +
+      "a_location\030\006 \001(\0132\030.visionapi.GeoCoordina" +
+      "te\0222\n\017movement_vector\030\007 \001(\0132\031.visionapi." +
+      "MovementVector\"8\n\005Shape\022\016\n\006height\030\001 \001(\r\022" +
+      "\r\n\005width\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"\244\001\n\tDet" +
+      "ection\022,\n\014bounding_box\030\001 \001(\0132\026.visionapi" +
+      ".BoundingBox\022\022\n\nconfidence\030\002 \001(\002\022\020\n\010clas" +
+      "s_id\030\003 \001(\r\022\021\n\tobject_id\030\004 \001(\014\0220\n\016geo_coo" +
+      "rdinate\030\005 \001(\0132\030.visionapi.GeoCoordinate\"" +
+      "I\n\013BoundingBox\022\r\n\005min_x\030\001 \001(\002\022\r\n\005min_y\030\002" +
+      " \001(\002\022\r\n\005max_x\030\003 \001(\002\022\r\n\005max_y\030\004 \001(\002\"R\n\007Me" +
+      "trics\022#\n\033detection_inference_time_us\030\001 \001" +
+      "(\r\022\"\n\032tracking_inference_time_us\030\002 \001(\r\"\201" +
+      "\001\n\rModelMetadata\022=\n\013class_names\030\001 \003(\0132(." +
+      "visionapi.ModelMetadata.ClassNamesEntry\032" +
+      "1\n\017ClassNamesEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"V\n\020SamplingMetadata\022\022\n\nsample" +
+      "r_id\030\001 \001(\t\022.\n\016filter_matches\030\002 \003(\0132\026.vis" +
+      "ionapi.FilterMatch\"\033\n\013FilterMatch\022\014\n\004nam" +
+      "e\030\001 \001(\t\"\233\002\n\017PositionMessage\022\030\n\020timestamp" +
+      "_utc_ms\030\001 \001(\004\0220\n\016geo_coordinate\030\002 \001(\0132\030." +
+      "visionapi.GeoCoordinate\022\014\n\004hdop\030\003 \001(\002\022\013\n" +
+      "\003fix\030\004 \001(\010\022\020\n\010sae_uuid\030\005 \001(\014\0222\n\017movement" +
+      "_vector\030\006 \001(\0132\031.visionapi.MovementVector" +
+      "\0224\n\022raw_geo_coordinate\030\007 \001(\0132\030.visionapi" +
+      ".GeoCoordinate\022%\n\004type\030\350\007 \001(\0162\026.visionap" +
+      "i.MessageType\"\324\001\n\014EventMessage\022\023\n\013instan" +
+      "ce_id\030\001 \001(\t\022\030\n\020timestamp_utc_ms\030\002 \001(\004\0225\n" +
+      "\nevent_type\030\003 \001(\0162!.visionapi.EventMessa" +
+      "ge.EventType\022%\n\004type\030\350\007 \001(\0162\026.visionapi." +
+      "MessageType\"7\n\tEventType\022\017\n\013UNSPECIFIED\020" +
+      "\000\022\013\n\007STARTUP\020\001\022\014\n\010SHUTDOWN\020\002B\026\n\024de.starw" +
+      "it.visionapib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8612,7 +10549,7 @@ java.lang.String defaultValue) {
     internal_static_visionapi_SaeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_SaeMessage_descriptor,
-        new java.lang.String[] { "Frame", "Detections", "Metrics", "ModelMetadata", "Type", });
+        new java.lang.String[] { "Frame", "Detections", "Metrics", "ModelMetadata", "SamplingMetadata", "Type", });
     internal_static_visionapi_VideoFrame_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_visionapi_VideoFrame_fieldAccessorTable = new
@@ -8655,14 +10592,26 @@ java.lang.String defaultValue) {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_ModelMetadata_ClassNamesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_visionapi_PositionMessage_descriptor =
+    internal_static_visionapi_SamplingMetadata_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_visionapi_SamplingMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_SamplingMetadata_descriptor,
+        new java.lang.String[] { "SamplerId", "FilterMatches", });
+    internal_static_visionapi_FilterMatch_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_visionapi_FilterMatch_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_visionapi_FilterMatch_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_visionapi_PositionMessage_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_visionapi_PositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_PositionMessage_descriptor,
         new java.lang.String[] { "TimestampUtcMs", "GeoCoordinate", "Hdop", "Fix", "SaeUuid", "MovementVector", "RawGeoCoordinate", "Type", });
     internal_static_visionapi_EventMessage_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_visionapi_EventMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_visionapi_EventMessage_descriptor,
